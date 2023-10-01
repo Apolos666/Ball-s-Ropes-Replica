@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ namespace Apolos.Core
         private const int ROPES_COUNT = 2;
     
         private LineRenderer _lineRenderer;
-        private EdgeCollider2D _edgeCollider2D;
+        private MeshCollider _meshCollider;
         private GameObject[] _ropesSegment = new GameObject[ROPES_COUNT];
         private bool _isDragging = false;
 
@@ -44,10 +43,15 @@ namespace Apolos.Core
         {
             _lineRenderer.material = _ropeTooLongMat;
             _warningText.enabled = true;
+            ConfigureWarningText();
+            if (_isDragging) return;
+            _meshCollider.enabled = false;
+        }
+
+        private void ConfigureWarningText()
+        {
             _warningText.rectTransform.right = DirectionRopesSegment();
             _warningText.rectTransform.localPosition = MidPointRopesSegment();
-            if (_isDragging) return;
-            _edgeCollider2D.enabled = false;
         }
 
         private void DefaultRope()
@@ -55,19 +59,19 @@ namespace Apolos.Core
             _warningText.enabled = false;
             _lineRenderer.material = _ropeDefaultMat;
             if (_isDragging) return;
-            _edgeCollider2D.enabled = true;
+            _meshCollider.enabled = true;
         }
 
         public void OnDrag()
         {
             _isDragging = true;
-            _edgeCollider2D.enabled = false;
+            _meshCollider.enabled = false;
         }
 
         public void OnCancel()
         {
             _isDragging = false;
-            _edgeCollider2D.enabled = true;
+            _meshCollider.enabled = true;
         }
     
         private void SetUpLineRenderer()
@@ -75,7 +79,8 @@ namespace Apolos.Core
             _lineRenderer = GetComponent<LineRenderer>();
             _lineRenderer.positionCount = ROPES_COUNT;
             _lineRenderer.widthCurve = _animationCurve;
-            _edgeCollider2D = GetComponent<EdgeCollider2D>();
+            _lineRenderer.useWorldSpace = false;
+            _meshCollider = GetComponent<MeshCollider>();
         }
 
         private void InitRopesSegment()
@@ -89,16 +94,19 @@ namespace Apolos.Core
 
         private void UpdateRopesSegment()
         {
-            List<Vector2> edges = new();
-            
             for (int i = 0; i < _ropesSegment.Length; i++)
             {
-                _lineRenderer.SetPosition(i, _ropesSegment[i].transform.position);
-                var point = _ropesSegment[i].transform.localPosition;
-                edges.Add(new Vector2(point.x, point.y));
+                _lineRenderer.SetPosition(i, _ropesSegment[i].transform.localPosition);
             }
 
-            _edgeCollider2D.SetPoints(edges);
+            GenerateCollider();
+        }
+
+        private void GenerateCollider()
+        {
+            Mesh mesh = new Mesh();
+            _lineRenderer.BakeMesh(mesh, true);
+            _meshCollider.sharedMesh = mesh;
         }
 
         private Vector3 MidPointRopesSegment()
