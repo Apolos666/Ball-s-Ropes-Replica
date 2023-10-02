@@ -175,17 +175,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3341386786280851915, guid: 46709a86c39b35b44880613d05322b99, type: 3}
-      propertyPath: _forceApplyToBall
-      value: 5
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8246504941045940261, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+--- !u!1001 &1648429624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1535364684440161094, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_Name
+      value: Ropes (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7822152772102451854, guid: 46709a86c39b35b44880613d05322b99, type: 3}
-      propertyPath: _forceApplyToBall
-      value: 5
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8695441197816995547, guid: 46709a86c39b35b44880613d05322b99, type: 3}
-      propertyPath: _forceApplyToBall
-      value: 5
+      propertyPath: _maxForceApplyX.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695441197816995547, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: _maxForceApplyY.y
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -234,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 1950032710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16, y: 2.73, z: 0}
+  m_LocalPosition: {x: -0.39, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -245,4 +301,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1364329217}
+  - {fileID: 1648429624}
   - {fileID: 1950032712}

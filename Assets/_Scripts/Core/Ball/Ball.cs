@@ -5,7 +5,7 @@ namespace Apolos.Core
 {
     public class Ball : MonoBehaviour
     {
-        private Rigidbody _rigidbody;
+        private Rigidbody _rigidbody;   
 
         private void Awake()
         {

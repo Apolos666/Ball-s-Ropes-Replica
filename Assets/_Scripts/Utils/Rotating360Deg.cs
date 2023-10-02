@@ -10,6 +10,6 @@ public class Rotating360Deg : MonoBehaviour
     
     private void Awake()
     {
-        transform.DORotate(_rotateValue, 2f, _rotateMode).SetLoops(-1).SetEase(_easeMode);
+        transform.DORotate(_rotateValue, 2f, _rotateMode).SetRelative(true).SetLoops(-1).SetEase(_easeMode);
     }
 }
