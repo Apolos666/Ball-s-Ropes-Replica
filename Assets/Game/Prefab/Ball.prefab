@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4165098744427773008}
   - component: {fileID: 3828318813659426010}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,9 +31,9 @@ Transform:
   m_GameObject: {fileID: 8152409410268844476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34045833, y: -0.15956806, z: -0.11849725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.34045833, y: -0.15956806, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 98329e13c27f46d4990850bdd6f29aa4, type: 2}
+  - {fileID: 2100000, guid: 1c69ad067829e4f44b87d6a4747c1d44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8152409410268844476}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 48
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &4165098744427773008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab798404c2f7d47a5ad64d4ab43444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsRelease: 0
 --- !u!114 &3828318813659426010
 MonoBehaviour:
   m_ObjectHideFlags: 0
