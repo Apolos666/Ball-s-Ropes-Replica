@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Apolos.Core;
+using Apolos.SO;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -7,11 +9,15 @@ using UnityEngine.Pool;
 public class BallSpawner : MonoBehaviour
 {
     private ObjectPool<Ball> _pool;
+    [Header("Spawner setting")]
     [SerializeField] private Ball _ball;
     [SerializeField] private int _defaultCapacity = 10;
     [SerializeField] private int _maxSize = 20;
     [SerializeField] private int _ballsPerWave;
     [SerializeField] private float _ballSpawnRate;
+
+    [Header("Listening to event")] 
+    [SerializeField] private VoidEventChannelSO _onAddBall;
 
     private void Awake()
     {
@@ -23,24 +29,38 @@ public class BallSpawner : MonoBehaviour
         StartCoroutine(SpawnBallOverTime());
     }
 
+    private void OnEnable()
+    {
+        _onAddBall.OnEventRaised += AddBall;
+    }
+
+    private void OnDisable()
+    {
+        _onAddBall.OnEventRaised -= AddBall;
+    }
+
     private IEnumerator SpawnBallOverTime()
     {
         for (int i = 0; i < _ballsPerWave; i++)
         {
             var ball = _pool.Get();
-            ball.IsRelease = false;
 
             if (i == _ballsPerWave - 1)
             {
                 yield return new WaitUntil(() => ball.IsRelease);
+                break;
             }
-            else
-            {
-                yield return new WaitForSeconds(_ballSpawnRate);
-            }
+
+            yield return new WaitForSeconds(_ballSpawnRate);
         }
-        
-        print("Ball Release");
+    
+        StartCoroutine(SpawnBallOverTime());
+    }
+
+    private void AddBall()
+    {
+        _pool.Get();
+        _ballsPerWave++;
     }
 
     private void OnDestroyBall(Ball ball)
@@ -58,6 +78,7 @@ public class BallSpawner : MonoBehaviour
         ball.transform.position = transform.position;
         ball.transform.rotation = quaternion.identity;
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        ball.IsRelease = false;
         
         ball.gameObject.SetActive(true);
     }

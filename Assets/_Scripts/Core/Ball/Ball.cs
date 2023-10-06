@@ -8,7 +8,8 @@ namespace Apolos.Core
     {
         private Rigidbody _rigidbody;
         private ObjectPool<Ball> _pool;
-        public bool IsRelease;
+        [HideInInspector] public bool IsRelease;
+        public float Point;
 
         private void Awake()
         {
