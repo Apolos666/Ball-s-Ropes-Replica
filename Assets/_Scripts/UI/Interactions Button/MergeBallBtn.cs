@@ -55,4 +55,9 @@ public class MergeBallBtn : MonoBehaviour
             _button.enabled = false;
         }
     }
+
+    private void Update()
+    {
+        UpdateUI();
+    }
 }

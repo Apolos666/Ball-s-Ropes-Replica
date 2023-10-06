@@ -1,5 +1,6 @@
 using System;
 using Apolos.SO;
+using Apolos.System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -12,6 +13,7 @@ namespace Apolos.Core
         [HideInInspector] public bool IsRelease;
         public float Point;
         [SerializeField] private BallEventChannelSO _onBallCollider;
+        [SerializeField] private AudioClip _clip;
 
         private void Awake()
         {
@@ -41,6 +43,8 @@ namespace Apolos.Core
                 var contactPoint = collision.GetContact(0).point;
                 
                 _onBallCollider.RaiseEvent(Point, contactPoint);
+                
+                AudioManager.Instance.PlaySound(_clip);
             }
         }
     }

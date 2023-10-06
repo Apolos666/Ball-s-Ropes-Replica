@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 138544569}
   - component: {fileID: 138544571}
   - component: {fileID: 138544570}
+  - component: {fileID: 138544572}
   m_Layer: 5
   m_Name: New Ropes Img
   m_TagString: Untagged
@@ -466,6 +467,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138544568}
   m_CullTransparentMesh: 1
+--- !u!114 &138544572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138544568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5bb2bb2a2d494d888dd8346c04955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 2
+  _desiredScale: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &143753437
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,8 +635,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 384.086, y: -83.89252}
-  m_SizeDelta: {x: 215.207, y: 46.215}
+  m_AnchoredPosition: {x: 313.33496, y: -83.89252}
+  m_SizeDelta: {x: 285.958, y: 46.215}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &161487240
 MonoBehaviour:
@@ -731,6 +746,7 @@ GameObject:
   - component: {fileID: 176409004}
   - component: {fileID: 176409006}
   - component: {fileID: 176409005}
+  - component: {fileID: 176409007}
   m_Layer: 5
   m_Name: New Ropes Img
   m_TagString: Untagged
@@ -796,6 +812,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176409003}
   m_CullTransparentMesh: 1
+--- !u!114 &176409007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176409003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5bb2bb2a2d494d888dd8346c04955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 2
+  _desiredScale: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &192839097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1085,7 @@ MonoBehaviour:
   _panel: {fileID: 2074727610}
   _textMesh: {fileID: 319870569}
   _buttonClickEffect: {fileID: 211711914}
+  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
 --- !u!1 &241823880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1097,7 @@ GameObject:
   - component: {fileID: 241823881}
   - component: {fileID: 241823883}
   - component: {fileID: 241823882}
+  - component: {fileID: 241823884}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1131,6 +1163,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241823880}
   m_CullTransparentMesh: 1
+--- !u!114 &241823884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241823880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f5ed55ae2fe2a418f6c580d16a4262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _desiredScale: {x: 0.25, y: 0.25, z: 0.25}
 --- !u!1 &263298363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1854,7 @@ GameObject:
   - component: {fileID: 455974425}
   - component: {fileID: 455974427}
   - component: {fileID: 455974426}
+  - component: {fileID: 455974428}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1873,6 +1920,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455974424}
   m_CullTransparentMesh: 1
+--- !u!114 &455974428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455974424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f5ed55ae2fe2a418f6c580d16a4262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _desiredScale: {x: 0.2, y: 0.2, z: 0.2}
 --- !u!1 &485104233
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,12 +2952,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fundManager: {fileID: 143753442}
-  _initPrice: 1200
+  _initPrice: 400
   _increasePercent: 1.1
   _button: {fileID: 1154193175}
   _panel: {fileID: 1725777998}
   _textMesh: {fileID: 865884832}
   _buttonClickEffect: {fileID: 1154193178}
+  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
 --- !u!1 &1168242048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3021,6 +3083,7 @@ GameObject:
   - component: {fileID: 1228677739}
   - component: {fileID: 1228677741}
   - component: {fileID: 1228677740}
+  - component: {fileID: 1228677742}
   m_Layer: 5
   m_Name: Monkey Img
   m_TagString: Untagged
@@ -3086,6 +3149,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228677738}
   m_CullTransparentMesh: 1
+--- !u!114 &1228677742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228677738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f5ed55ae2fe2a418f6c580d16a4262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 3
+  _desiredScale: {x: 0.25, y: 0.25, z: 0.25}
 --- !u!1 &1274057026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,6 +3174,7 @@ GameObject:
   - component: {fileID: 1274057027}
   - component: {fileID: 1274057029}
   - component: {fileID: 1274057028}
+  - component: {fileID: 1274057030}
   m_Layer: 5
   m_Name: New Ropes Img
   m_TagString: Untagged
@@ -3162,6 +3240,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274057026}
   m_CullTransparentMesh: 1
+--- !u!114 &1274057030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274057026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5bb2bb2a2d494d888dd8346c04955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 2
+  _desiredScale: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &1294324734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,9 +5267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fundManager: {fileID: 143753442}
-  _initPrice: 2000
+  _initPrice: 500
   _increasePercent: 1.2
   _button: {fileID: 2125846072}
   _panel: {fileID: 937609403}
   _textMesh: {fileID: 1389153120}
   _buttonClickEffect: {fileID: 2125846075}
+  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}

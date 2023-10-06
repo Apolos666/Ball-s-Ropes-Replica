@@ -26,7 +26,7 @@ namespace System.UI
 
         private void OnChangedCurrentMoney(float value)
         {
-            _textMesh.text = $"{value}K";
+            _textMesh.text = $"{Math.Round(value, 1, MidpointRounding.AwayFromZero)}K";
         }
     }
 }

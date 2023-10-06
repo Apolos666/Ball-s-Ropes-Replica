@@ -1,4 +1,5 @@
 using System;
+using Apolos.System;
 using Apolos.UI;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Apolos.Core
         [SerializeField] private GameObject _panel;
         [SerializeField] private TextMeshProUGUI _textMesh;
         [SerializeField] private ButtonClickEffect _buttonClickEffect;
+        [SerializeField] private AudioClip _clip;
 
         private float _currentMoney;
         
@@ -68,7 +70,8 @@ namespace Apolos.Core
         {
             _fundManager.CurrentMoney -= _currentPrice;
             _currentPrice *= _increasePercent;
-            _textMesh.text = $"${_currentPrice}K";
+            _textMesh.text = $"${Math.Round(_currentPrice, 1, MidpointRounding.AwayFromZero)}K";
+            AudioManager.Instance.PlaySound(_clip);
         }
     }
 }
