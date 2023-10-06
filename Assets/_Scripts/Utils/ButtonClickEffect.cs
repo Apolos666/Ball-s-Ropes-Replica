@@ -10,6 +10,7 @@ public class ButtonClickEffect : MonoBehaviour
     [SerializeField] private Vector3 _doEaseInOutElastic;
     [SerializeField] private GameObject _panel;
     [SerializeField] private Button _button;
+    public Action OnCompleteAnimation;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class ButtonClickEffect : MonoBehaviour
             transform.DOScale(_originalScale, 0.5f);
             _panel.SetActive(false);
             _button.enabled = true;
+            OnCompleteAnimation?.Invoke();
         });
     }
 }

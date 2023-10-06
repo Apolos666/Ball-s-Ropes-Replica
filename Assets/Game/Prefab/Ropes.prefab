@@ -183,7 +183,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _ropeTooLongMat: {fileID: 2100000, guid: 59e13a4ada7ccc5478c9bcff8e28311e, type: 2}
   _ropeDefaultMat: {fileID: 2100000, guid: 1783d37915aa83b40bd41016c71f8249, type: 2}
-  _ropeDistanceAllow: 5
+  _ropeDistanceAllow: 2.5
   _warningText: {fileID: 4046202677102187527}
 --- !u!64 &2586172456551294888
 MeshCollider:
@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3111219217203017360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.32, y: -1.57, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -369,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4514372143940129339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.23, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -610,8 +610,8 @@ RectTransform:
   m_GameObject: {fileID: 8246504941045940261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2513863640293570286}
   m_RootOrder: 2

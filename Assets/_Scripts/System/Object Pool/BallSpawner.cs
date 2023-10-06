@@ -18,6 +18,7 @@ public class BallSpawner : MonoBehaviour
 
     [Header("Listening to event")] 
     [SerializeField] private VoidEventChannelSO _onAddBall;
+    [SerializeField] private VoidEventChannelSO _onMergeBall;
 
     private void Awake()
     {
@@ -32,11 +33,13 @@ public class BallSpawner : MonoBehaviour
     private void OnEnable()
     {
         _onAddBall.OnEventRaised += AddBall;
+        _onMergeBall.OnEventRaised += MergeBall;
     }
 
     private void OnDisable()
     {
         _onAddBall.OnEventRaised -= AddBall;
+        _onMergeBall.OnEventRaised -= MergeBall;
     }
 
     private IEnumerator SpawnBallOverTime()
@@ -61,6 +64,15 @@ public class BallSpawner : MonoBehaviour
     {
         _pool.Get();
         _ballsPerWave++;
+    }
+
+    private void MergeBall()
+    {
+        // kiểm tra xem trong đó có đủ SpawnPerWave 3 nghĩa là 4 không
+        
+        // nếu có thì trừ cái đó đi 3
+        
+        // goi hàm get nhưng là Instance với prefab khacs
     }
 
     private void OnDestroyBall(Ball ball)
