@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 143753440}
   - component: {fileID: 143753439}
   - component: {fileID: 143753438}
+  - component: {fileID: 143753442}
   m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
@@ -571,6 +572,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &143753442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143753437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84b94cb8cc569b43a91a0f5eeb8485f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
 --- !u!1 &161487238
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +848,7 @@ GameObject:
   - component: {fileID: 211711912}
   - component: {fileID: 211711911}
   - component: {fileID: 211711914}
+  - component: {fileID: 211711915}
   m_Layer: 5
   m_Name: Add Ball
   m_TagString: Untagged
@@ -956,6 +971,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 211711915}
+        m_TargetAssemblyTypeName: Apolos.Core.UnlockItem, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &211711912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1036,25 @@ MonoBehaviour:
   _doEaseInOutElastic: {x: 0.9, y: 0.9, z: 0.9}
   _panel: {fileID: 2074727610}
   _button: {fileID: 211711911}
+--- !u!114 &211711915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211711909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabda4521a113ff46a7f6f4318f236b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _initPrice: 200
+  _increasePercent: 1.05
+  _button: {fileID: 211711911}
+  _panel: {fileID: 2074727610}
+  _textMesh: {fileID: 319870569}
+  _buttonClickEffect: {fileID: 211711914}
 --- !u!1 &241823880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 355942964}
+  - component: {fileID: 355942965}
   m_Layer: 5
   m_Name: Progress bar
   m_TagString: Untagged
@@ -1599,6 +1646,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &355942965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355942963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f161c868c13dada4888c851bf2cdf31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxFund: 1000
+  _fundManager: {fileID: 143753442}
+  _fillBar: {fileID: 1598682791}
+  _textMesh: {fileID: 161487240}
 --- !u!1 &451508744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,6 +2250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 641893433}
+  - component: {fileID: 641893434}
   m_Layer: 5
   m_Name: Fund
   m_TagString: Untagged
@@ -2217,6 +2281,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &641893434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641893432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c3723b977142f499494c67468ad624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _textMesh: {fileID: 1410460939}
 --- !u!1 &865884830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,6 +2544,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937609403}
   m_CullTransparentMesh: 1
+--- !u!1 &972800316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972800317}
+  - component: {fileID: 972800318}
+  m_Layer: 0
+  m_Name: Floating Text Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &972800317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972800316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2079013116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972800318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972800316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30221b4533db9a3498df22ba8ba00c0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatingTextPrefab: {fileID: 3419419658840909883, guid: eebaaf4ccc1ea4741a4704aaf8136aab, type: 3}
+  _defaultCapacity: 200
+  _maxSize: 300
+  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
 --- !u!1 &979605434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,6 +2674,7 @@ GameObject:
   - component: {fileID: 1154193175}
   - component: {fileID: 1154193178}
   - component: {fileID: 1154193179}
+  - component: {fileID: 1154193180}
   m_Layer: 5
   m_Name: Merge Ball
   m_TagString: Untagged
@@ -2670,6 +2797,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1154193180}
+        m_TargetAssemblyTypeName: Apolos.Core.UnlockItem, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1154193176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2739,6 +2878,25 @@ MonoBehaviour:
   _buttonClickEffect: {fileID: 1154193178}
   _panel: {fileID: 1725777998}
   _button: {fileID: 1154193175}
+--- !u!114 &1154193180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154193173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabda4521a113ff46a7f6f4318f236b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _initPrice: 1200
+  _increasePercent: 1.1
+  _button: {fileID: 1154193175}
+  _panel: {fileID: 1725777998}
+  _textMesh: {fileID: 865884832}
+  _buttonClickEffect: {fileID: 1154193178}
 --- !u!1 &1168242048
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,6 +4881,7 @@ Transform:
   - {fileID: 1294324735}
   - {fileID: 1810333220}
   - {fileID: 1858658839}
+  - {fileID: 972800317}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4815,6 +4974,7 @@ GameObject:
   - component: {fileID: 2125846073}
   - component: {fileID: 2125846072}
   - component: {fileID: 2125846075}
+  - component: {fileID: 2125846076}
   m_Layer: 5
   m_Name: New Ropes
   m_TagString: Untagged
@@ -4937,6 +5097,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2125846076}
+        m_TargetAssemblyTypeName: Apolos.Core.UnlockItem, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2125846073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,3 +5162,22 @@ MonoBehaviour:
   _doEaseInOutElastic: {x: 0.9, y: 0.9, z: 0.9}
   _panel: {fileID: 937609403}
   _button: {fileID: 2125846072}
+--- !u!114 &2125846076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125846070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabda4521a113ff46a7f6f4318f236b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _initPrice: 2000
+  _increasePercent: 1.2
+  _button: {fileID: 2125846072}
+  _panel: {fileID: 937609403}
+  _textMesh: {fileID: 1389153120}
+  _buttonClickEffect: {fileID: 2125846075}

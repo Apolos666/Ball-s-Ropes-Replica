@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1002591487433996069}
   - component: {fileID: 7872734320884173287}
   - component: {fileID: 2586172456551294888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ropes
-  m_TagString: Untagged
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,9 +212,9 @@ GameObject:
   - component: {fileID: 8800048603209449959}
   - component: {fileID: 51935502270859503}
   - component: {fileID: 1594525320351410318}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Circle 2
-  m_TagString: Rope Segment
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,9 +354,9 @@ GameObject:
   - component: {fileID: 3772387530404345719}
   - component: {fileID: 882438332865425412}
   - component: {fileID: 7146561003486071491}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Circle 1
-  m_TagString: Rope Segment
+  m_TagString: Rope
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 6157038934683445094}
   - component: {fileID: 2739194440641055711}
   - component: {fileID: 8144231418166932290}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 5971427477954283904}
   - component: {fileID: 6607609081225595102}
   - component: {fileID: 4706202405526843207}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

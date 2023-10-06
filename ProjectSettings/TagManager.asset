@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Rope Segment
+  - Rope
   layers:
   - Default
   - TransparentFX

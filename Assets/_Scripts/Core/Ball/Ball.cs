@@ -1,4 +1,5 @@
 using System;
+using Apolos.SO;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -10,6 +11,7 @@ namespace Apolos.Core
         private ObjectPool<Ball> _pool;
         [HideInInspector] public bool IsRelease;
         public float Point;
+        [SerializeField] private BallEventChannelSO _onBallCollider;
 
         private void Awake()
         {
@@ -30,6 +32,16 @@ namespace Apolos.Core
         {
             _pool.Release(this);
             IsRelease = true;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Rope"))
+            {
+                var contactPoint = collision.GetContact(0).point;
+                
+                _onBallCollider.RaiseEvent(Point, contactPoint);
+            }
         }
     }
 }
