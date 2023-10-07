@@ -11,6 +11,11 @@ namespace Apolos.System
         {
             _soundEffectSource.PlayOneShot(_clip);
         }
+
+        public void ToggleAudio(bool isSoundOn)
+        {
+            _soundEffectSource.enabled = isSoundOn;
+        }
     }
 }
 
