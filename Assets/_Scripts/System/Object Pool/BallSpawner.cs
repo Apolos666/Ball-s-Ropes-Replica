@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Apolos.Core;
 using Apolos.SO;
 using Unity.Mathematics;
@@ -20,59 +22,89 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _onAddBall;
     [SerializeField] private VoidEventChannelSO _onMergeBall;
 
+    private List<Ball> _currentBalls = new List<Ball>();
+    private Coroutine _currentCoroutine;
+    private int Count;
+    private bool IsResetSpawner = true;
+    [SerializeField] private float _resetTimerCooldown = 2f;
+    private float _resetTimer = 0f;
+
     private void Awake()
     {
-        _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, true, _defaultCapacity, _maxSize);
+        _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, false, _defaultCapacity, _maxSize);
     }
 
     private void Start()
     {
-        StartCoroutine(SpawnBallOverTime());
+        _currentCoroutine = StartCoroutine(SpawnBallOverTime()); 
+        _onAddBall.OnEventRaised += OnAddBall;
+        _onMergeBall.OnEventRaised += OnMergeBall;
     }
 
-    private void OnEnable()
+    private void OnMergeBall()
     {
-        _onAddBall.OnEventRaised += AddBall;
-        _onMergeBall.OnEventRaised += MergeBall;
+        
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        _onAddBall.OnEventRaised -= AddBall;
-        _onMergeBall.OnEventRaised -= MergeBall;
+        _onAddBall.OnEventRaised -= OnAddBall;
+        _onMergeBall.OnEventRaised -= OnMergeBall;
     }
 
-    private IEnumerator SpawnBallOverTime()
+    private void OnAddBall()
+    {
+        var ball = _pool.Get();
+        _ballsPerWave++;
+    }
+
+    public IEnumerator SpawnBallOverTime()
     {
         for (int i = 0; i < _ballsPerWave; i++)
         {
             var ball = _pool.Get();
+            _currentBalls.Add(ball);
 
             if (i == _ballsPerWave - 1)
             {
                 yield return new WaitUntil(() => ball.IsRelease);
+                // print("Ball at the end" + Count++);
+                _currentCoroutine = StartCoroutine(SpawnBallOverTime());
                 break;
             }
 
             yield return new WaitForSeconds(_ballSpawnRate);
         }
-    
+    }
+
+    public void ResetBall()
+    {
+        for (int i = 0; i < _currentBalls.Count; i++)
+        {
+            _currentBalls[i].gameObject.SetActive(false);
+        }
+        
+        StopCoroutine(_currentCoroutine);
+
         StartCoroutine(SpawnBallOverTime());
     }
 
-    private void AddBall()
+    private void Update()
     {
-        _pool.Get();
-        _ballsPerWave++;
-    }
+        _resetTimer += Time.deltaTime;
+        print(_resetTimer);
 
-    private void MergeBall()
-    {
-        // kiểm tra xem trong đó có đủ SpawnPerWave 3 nghĩa là 4 không
+        if (_resetTimer >= _resetTimerCooldown)
+        {
+            IsResetSpawner = true;
+        }
         
-        // nếu có thì trừ cái đó đi 3
-        
-        // goi hàm get nhưng là Instance với prefab khacs
+        if (Input.GetKeyDown(KeyCode.A) && IsResetSpawner)
+        {
+            ResetBall();
+            IsResetSpawner = false;
+            _resetTimer = 0f;
+        }
     }
 
     private void OnDestroyBall(Ball ball)

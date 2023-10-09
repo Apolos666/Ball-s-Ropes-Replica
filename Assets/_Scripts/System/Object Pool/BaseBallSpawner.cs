@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Apolos.Core;
 using Unity.Mathematics;
 using UnityEngine;
@@ -14,36 +16,72 @@ public class BaseBallSpawner : MonoBehaviour
     [SerializeField] protected int _maxSize = 20;
     [SerializeField] protected int _ballsPerWave;
     [SerializeField] protected float _ballSpawnRate;
+    protected List<Ball> _currentBalls = new List<Ball>();
+    protected Coroutine _currentCoroutine;
     
+    private bool IsResetSpawner = true;
+    [SerializeField] private float _resetTimerCooldown = 2f;
+    private float _resetTimer = 0f;
+
     protected void Awake()
     {
         _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, true, _defaultCapacity, _maxSize);
     }
-    
+
+    private void Update()
+    {
+        UpgradeTimer();
+    }
+
+    private void UpgradeTimer()
+    {
+        _resetTimer += Time.deltaTime;
+        
+        print(_resetTimer);
+
+        if (_resetTimer >= _resetTimerCooldown)
+        {
+            IsResetSpawner = true;
+        }
+    }
+
+    public void IsResetAble()
+    {
+        if (!IsResetSpawner) return;
+        
+        ResetBall();
+        IsResetSpawner = false;
+        _resetTimer = 0f;
+    }
+
     protected IEnumerator SpawnBallOverTime()
     {
-        if (_ballsPerWave == 0)
+        for (int i = 0; i < _ballsPerWave; i++)
         {
-           
-        }
-        else
-        {
-            for (int i = 0; i < _ballsPerWave; i++)
+            var ball = _pool.Get();
+            _currentBalls.Add(ball);
+
+            if (i == _ballsPerWave - 1)
             {
-                var ball = _pool.Get();
-
-                if (i == _ballsPerWave - 1)
-                {
-                    yield return new WaitUntil(() => ball.IsRelease);
-                    break;
-                }
-
-                yield return new WaitForSeconds(_ballSpawnRate);
+                yield return new WaitUntil(() => ball.IsRelease);
+                // print("Ball at the end" + Count++);
+                _currentCoroutine = StartCoroutine(SpawnBallOverTime());
+                break;
             }
-        }
 
-        yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(_ballSpawnRate);
+        }
+    }
+    
+    private void ResetBall()
+    {
+        for (int i = 0; i < _currentBalls.Count; i++)
+        {
+            _currentBalls[i].gameObject.SetActive(false);
+        }
         
+        StopCoroutine(_currentCoroutine);
+
         StartCoroutine(SpawnBallOverTime());
     }
     

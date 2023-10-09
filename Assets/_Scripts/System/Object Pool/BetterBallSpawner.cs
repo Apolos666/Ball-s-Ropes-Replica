@@ -7,11 +7,6 @@ public class BetterBallSpawner : BaseBallSpawner
     [SerializeField] private VoidEventChannelSO _onMergeBall;
     [SerializeField] private NormalBallSpawner _normalBallSpawner;
 
-    private void Start()
-    {
-        StartCoroutine(SpawnBallOverTime());
-    }
-
     private void OnEnable()
     {
         _onMergeBall.OnEventRaised += MergeBall;
@@ -27,6 +22,7 @@ public class BetterBallSpawner : BaseBallSpawner
         if (_normalBallSpawner.IsUpgrable())
         {
             _normalBallSpawner.SubtractToUpgrade();
+            _currentCoroutine = StartCoroutine(SpawnBallOverTime());
             _ballsPerWave++;
         }
     }

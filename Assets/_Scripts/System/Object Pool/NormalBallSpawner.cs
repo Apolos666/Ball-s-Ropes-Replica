@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using Apolos.Core;
 using Apolos.SO;
 using UnityEngine;
 
@@ -11,37 +9,26 @@ public class NormalBallSpawner : BaseBallSpawner
     
     private void Start()
     {
-        StartCoroutine(SpawnBallOverTime());
+        _currentCoroutine = StartCoroutine(SpawnBallOverTime());
+        _onAddBall.OnEventRaised += OnAddBall;
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        _onAddBall.OnEventRaised += AddBall;
+        _onAddBall.OnEventRaised -= OnAddBall;
     }
 
-    private void OnDisable()
+    public void OnAddBall()
     {
-        _onAddBall.OnEventRaised -= AddBall;
-    }
-
-    private async void AddBall()
-    {
-        Ball ball = _pool.Get();
-
-        while (!ball.IsRelease)
-        {
-            await Task.Delay(100);
-        }
-        
+        var ball = _pool.Get();
         _ballsPerWave++;
-        _onChangeBallsPerWave.RaiseEvent(_ballsPerWave);
     }
-
+    
     public bool IsUpgrable()
     {
         return _ballsPerWave - 3 >= 1;
     }
-
+    
     public void SubtractToUpgrade()
     {
         _ballsPerWave -= 3;
