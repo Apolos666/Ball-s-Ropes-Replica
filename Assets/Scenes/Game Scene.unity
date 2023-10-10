@@ -1023,8 +1023,8 @@ GameObject:
   - component: {fileID: 211711913}
   - component: {fileID: 211711912}
   - component: {fileID: 211711911}
-  - component: {fileID: 211711914}
   - component: {fileID: 211711915}
+  - component: {fileID: 211711916}
   m_Layer: 5
   m_Name: Add Ball
   m_TagString: Untagged
@@ -1111,18 +1111,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 211711914}
-        m_TargetAssemblyTypeName: ButtonClickEffect, Assembly-CSharp
-        m_MethodName: DoEaseInOutElsatic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2074727610}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1197,21 +1185,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211711909}
   m_CullTransparentMesh: 1
---- !u!114 &211711914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211711909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f95c8343162c00458250c2d32a88c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _doEaseInOutElastic: {x: 0.9, y: 0.9, z: 0.9}
-  _panel: {fileID: 2074727610}
-  _button: {fileID: 211711911}
 --- !u!114 &211711915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,9 +1202,24 @@ MonoBehaviour:
   _increasePercent: 1.05
   _button: {fileID: 211711911}
   _panel: {fileID: 2074727610}
-  _textMesh: {fileID: 319870569}
-  _buttonClickEffect: {fileID: 211711914}
-  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+  _priceText: {fileID: 319870569}
+  _purchaseAudio: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+--- !u!114 &211711916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211711909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2f283306c23c74abb27a01e9cd5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _unlockItem: {fileID: 211711915}
+  _button: {fileID: 211711911}
+  _panel: {fileID: 2074727610}
 --- !u!1 &241823880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,9 +2895,8 @@ GameObject:
   - component: {fileID: 1154193177}
   - component: {fileID: 1154193176}
   - component: {fileID: 1154193175}
-  - component: {fileID: 1154193178}
-  - component: {fileID: 1154193179}
   - component: {fileID: 1154193180}
+  - component: {fileID: 1154193181}
   m_Layer: 5
   m_Name: Merge Ball
   m_TagString: Untagged
@@ -2996,18 +2983,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1154193178}
-        m_TargetAssemblyTypeName: ButtonClickEffect, Assembly-CSharp
-        m_MethodName: DoEaseInOutElsatic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1725777998}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3082,37 +3057,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154193173}
   m_CullTransparentMesh: 1
---- !u!114 &1154193178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154193173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f95c8343162c00458250c2d32a88c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _doEaseInOutElastic: {x: 0.9, y: 0.9, z: 0.9}
-  _panel: {fileID: 1725777998}
-  _button: {fileID: 1154193175}
---- !u!114 &1154193179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154193173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d856c606699cb634d9383583397def5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onChangeBallsPerWave: {fileID: 11400000, guid: 8a513208fd912a3458bfd75cf22eb8fc, type: 2}
-  _buttonClickEffect: {fileID: 1154193178}
-  _panel: {fileID: 1725777998}
-  _button: {fileID: 1154193175}
 --- !u!114 &1154193180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3130,9 +3074,26 @@ MonoBehaviour:
   _increasePercent: 1.1
   _button: {fileID: 1154193175}
   _panel: {fileID: 1725777998}
-  _textMesh: {fileID: 865884832}
-  _buttonClickEffect: {fileID: 1154193178}
-  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+  _priceText: {fileID: 865884832}
+  _purchaseAudio: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+--- !u!114 &1154193181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154193173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf150bdd8f5fcc447ad94fbf9125a59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _unlockItem: {fileID: 1154193180}
+  _button: {fileID: 1154193175}
+  _panel: {fileID: 1725777998}
+  _normalBallSpawner: {fileID: 1294324737}
+  _onChangedBallsPerWave: {fileID: 11400000, guid: 8a513208fd912a3458bfd75cf22eb8fc, type: 2}
 --- !u!1 &1168242048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,7 +3535,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1294324735}
   - component: {fileID: 1294324737}
-  - component: {fileID: 1294324738}
   m_Layer: 0
   m_Name: Normal Ball Spawner
   m_TagString: Untagged
@@ -3590,7 +3550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294324734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: 6.03, z: 0}
+  m_LocalPosition: {x: 2.02, y: 5.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3616,27 +3576,8 @@ MonoBehaviour:
   _ballSpawnRate: 0.2
   _resetTimerCooldown: 2
   _onAddBall: {fileID: 11400000, guid: bd47ccfc6ae19b342964bfdbcb21ca7f, type: 2}
-  _onChangeBallsPerWave: {fileID: 11400000, guid: 8a513208fd912a3458bfd75cf22eb8fc, type: 2}
---- !u!114 &1294324738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294324734}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1dd97e9a8edf594b9396c93357f1eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ball: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
-  _defaultCapacity: 100
-  _maxSize: 200
-  _ballsPerWave: 5
-  _ballSpawnRate: 0.2
-  _onAddBall: {fileID: 11400000, guid: bd47ccfc6ae19b342964bfdbcb21ca7f, type: 2}
-  _onMergeBall: {fileID: 11400000, guid: 066e4f24aa1f7a2488b672399cf3d6b3, type: 2}
-  _resetTimerCooldown: 2
+  _onChangedBallsPerWave: {fileID: 11400000, guid: 8a513208fd912a3458bfd75cf22eb8fc, type: 2}
+  _requiredBallsToUpgrade: 3
 --- !u!1001 &1364329217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4768,7 +4709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810333219}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: 6.03, z: 0}
+  m_LocalPosition: {x: 2.02, y: 6.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4791,7 +4732,7 @@ MonoBehaviour:
   _defaultCapacity: 100
   _maxSize: 200
   _ballsPerWave: 0
-  _ballSpawnRate: 0.8
+  _ballSpawnRate: 0.4
   _resetTimerCooldown: 2
   _onMergeBall: {fileID: 11400000, guid: 066e4f24aa1f7a2488b672399cf3d6b3, type: 2}
   _normalBallSpawner: {fileID: 1294324737}
@@ -5372,8 +5313,8 @@ GameObject:
   - component: {fileID: 2125846074}
   - component: {fileID: 2125846073}
   - component: {fileID: 2125846072}
-  - component: {fileID: 2125846075}
   - component: {fileID: 2125846076}
+  - component: {fileID: 2125846077}
   m_Layer: 5
   m_Name: New Ropes
   m_TagString: Untagged
@@ -5460,18 +5401,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2125846075}
-        m_TargetAssemblyTypeName: ButtonClickEffect, Assembly-CSharp
-        m_MethodName: DoEaseInOutElsatic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 937609403}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -5546,21 +5475,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125846070}
   m_CullTransparentMesh: 1
---- !u!114 &2125846075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125846070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f95c8343162c00458250c2d32a88c19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _doEaseInOutElastic: {x: 0.9, y: 0.9, z: 0.9}
-  _panel: {fileID: 937609403}
-  _button: {fileID: 2125846072}
 --- !u!114 &2125846076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5578,6 +5492,21 @@ MonoBehaviour:
   _increasePercent: 1.2
   _button: {fileID: 2125846072}
   _panel: {fileID: 937609403}
-  _textMesh: {fileID: 1389153120}
-  _buttonClickEffect: {fileID: 2125846075}
-  _clip: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+  _priceText: {fileID: 1389153120}
+  _purchaseAudio: {fileID: 8300000, guid: 1594bf3479f56eb43a59de77477163c4, type: 3}
+--- !u!114 &2125846077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125846070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2f283306c23c74abb27a01e9cd5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fundManager: {fileID: 143753442}
+  _unlockItem: {fileID: 2125846076}
+  _button: {fileID: 2125846072}
+  _panel: {fileID: 937609403}

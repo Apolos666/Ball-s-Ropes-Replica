@@ -11,7 +11,7 @@ namespace Apolos.UI
         private float _currentMoney = 0f;
         public float CurrentMoney
         {
-            get { return _currentMoney; }
+            get => _currentMoney;
             set
             {
                 _currentMoney = value;
@@ -22,7 +22,7 @@ namespace Apolos.UI
         private float _earnedMoney = 0f;
         public float EarnedMoney
         {
-            get { return _earnedMoney; }
+            get => _earnedMoney;
             set
             {
                 _earnedMoney = value;

@@ -30,14 +30,14 @@ public class BaseBallSpawner : MonoBehaviour
 
     private void Update()
     {
-        UpgradeTimer();
+        UpdateTimer();
     }
 
-    private void UpgradeTimer()
+    private void UpdateTimer()
     {
         _resetTimer += Time.deltaTime;
         
-        print(_resetTimer);
+        // print(_resetTimer);
 
         if (_resetTimer >= _resetTimerCooldown)
         {
@@ -64,7 +64,6 @@ public class BaseBallSpawner : MonoBehaviour
             if (i == _ballsPerWave - 1)
             {
                 yield return new WaitUntil(() => ball.IsRelease);
-                // print("Ball at the end" + Count++);
                 _currentCoroutine = StartCoroutine(SpawnBallOverTime());
                 break;
             }
@@ -73,14 +72,17 @@ public class BaseBallSpawner : MonoBehaviour
         }
     }
     
-    private void ResetBall()
+    protected void ResetBall()
     {
         for (int i = 0; i < _currentBalls.Count; i++)
         {
             _currentBalls[i].gameObject.SetActive(false);
         }
-        
-        StopCoroutine(_currentCoroutine);
+
+        if (_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+        }
 
         StartCoroutine(SpawnBallOverTime());
     }

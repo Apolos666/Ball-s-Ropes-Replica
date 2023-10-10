@@ -22,8 +22,11 @@ public class BetterBallSpawner : BaseBallSpawner
         if (_normalBallSpawner.IsUpgrable())
         {
             _normalBallSpawner.SubtractToUpgrade();
-            _currentCoroutine = StartCoroutine(SpawnBallOverTime());
             _ballsPerWave++;
+            if (_ballsPerWave == 1)
+            {
+                _currentCoroutine = StartCoroutine(SpawnBallOverTime());
+            }
         }
     }
 }
