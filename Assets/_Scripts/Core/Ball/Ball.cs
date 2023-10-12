@@ -33,6 +33,7 @@ namespace Apolos.Core
         private void OnTriggerEnter(Collider other)
         {
             _pool.Release(this);
+            this.GetComponent<TrailRenderer>().enabled = false;
             IsRelease = true;
         }
 

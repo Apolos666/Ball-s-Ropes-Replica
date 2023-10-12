@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Rope Segment
   - Rope
+  - Rope Raycast
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Rope Segment
   - Rope
   - Ball
-  - 
+  - Rope Raycast
   - 
   - 
   - 

@@ -103,6 +103,7 @@ public class BaseBallSpawner : MonoBehaviour
         ball.transform.rotation = quaternion.identity;
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.IsRelease = false;
+        ball.GetComponent<TrailRenderer>().enabled = true;
         
         ball.gameObject.SetActive(true);
     }

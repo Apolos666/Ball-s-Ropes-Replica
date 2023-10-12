@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1002591487433996069}
   - component: {fileID: 7872734320884173287}
   - component: {fileID: 2586172456551294888}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Ropes
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8800048603209449959}
   - component: {fileID: 51935502270859503}
   - component: {fileID: 1594525320351410318}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Circle 2
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -232,6 +232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5971427477954283904}
+  - {fileID: 8897545933454288464}
   m_Father: {fileID: 2513863640293570286}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -341,6 +342,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &3261905009897421883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8897545933454288464}
+  - component: {fileID: 2982527578520064372}
+  m_Layer: 9
+  m_Name: Raycast
+  m_TagString: Rope Segment
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8897545933454288464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261905009897421883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4227407948937685422}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2982527578520064372
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3261905009897421883}
+  m_Material: {fileID: 13400000, guid: 190a620293e66d74a84f06c67c885d1a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4514372143940129339
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +400,7 @@ GameObject:
   - component: {fileID: 3772387530404345719}
   - component: {fileID: 882438332865425412}
   - component: {fileID: 7146561003486071491}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Circle 1
   m_TagString: Rope
   m_Icon: {fileID: 0}
@@ -374,6 +420,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6157038934683445094}
+  - {fileID: 1638661337919595277}
   m_Father: {fileID: 2513863640293570286}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -855,3 +902,48 @@ MonoBehaviour:
   _rotateValue: {x: 0, y: 0, z: 360}
   _rotateMode: 1
   _easeMode: 1
+--- !u!1 &8829766630396051506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638661337919595277}
+  - component: {fileID: 8542106215179914103}
+  m_Layer: 9
+  m_Name: 'Raycast '
+  m_TagString: Rope Segment
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638661337919595277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829766630396051506}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2348986103463179376}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8542106215179914103
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8829766630396051506}
+  m_Material: {fileID: 13400000, guid: 190a620293e66d74a84f06c67c885d1a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
