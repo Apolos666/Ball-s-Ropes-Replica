@@ -15,9 +15,11 @@ namespace Apolos.Core
 
         [SerializeField] private AnimationCurve _animationCurve;
         [SerializeField] private Material _ropeTooLongMat;
+        [SerializeField] private Material _ropeMoving;
         [SerializeField] private Material _ropeDefaultMat;
         [SerializeField] private float _ropeDistanceAllow;
         [SerializeField] private TextMeshPro _warningText;
+        [SerializeField] private TextMeshPro _movingText;
 
         private void Awake()
         {
@@ -27,11 +29,11 @@ namespace Apolos.Core
 
         private void Update()
         {
-            if (DistanceRopesSegment() > _ropeDistanceAllow)
+            if (DistanceRopesSegment() > _ropeDistanceAllow && !_isDragging)
             {
                 RopeTooLong();
             }
-            else
+            else if (DistanceRopesSegment() < _ropeDistanceAllow && !_isDragging)
             {
                 DefaultRope();
             }
@@ -43,15 +45,15 @@ namespace Apolos.Core
         {
             _lineRenderer.material = _ropeTooLongMat;
             _warningText.enabled = true;
-            ConfigureWarningText();
+            ConfigureText(_warningText);
             if (_isDragging) return;
             _meshCollider.enabled = false;
         }
 
-        private void ConfigureWarningText()
+        private void ConfigureText(TextMeshPro text)
         {
-            _warningText.rectTransform.right = DirectionRopesSegment();
-            _warningText.rectTransform.localPosition = MidPointRopesSegment();
+            text.rectTransform.right = DirectionRopesSegment();
+            text.rectTransform.localPosition = MidPointRopesSegment();
         }
 
         private void DefaultRope()
@@ -66,11 +68,16 @@ namespace Apolos.Core
         {
             _isDragging = true;
             _meshCollider.enabled = false;
+            _warningText.enabled = false;
+            _movingText.enabled = true;
+            ConfigureText(_movingText);
+            _lineRenderer.material = _ropeMoving;
         }
 
         public void OnCancel()
         {
             _isDragging = false;
+            _movingText.enabled = false;
             _meshCollider.enabled = true;
         }
     

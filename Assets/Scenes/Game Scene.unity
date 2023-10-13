@@ -3589,6 +3589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ropes
       objectReference: {fileID: 0}
+    - target: {fileID: 2137719569229723260, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3631,6 +3635,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2513863640293570286, guid: 46709a86c39b35b44880613d05322b99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046202677102187527, guid: 46709a86c39b35b44880613d05322b99, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

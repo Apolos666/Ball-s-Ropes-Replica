@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsRelease: 0
-  Point: 14
+  Point: 5
   _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
   _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
 --- !u!114 &3828318813659426010
@@ -197,7 +197,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.25961304
+        value: 0.20191956
         inSlope: 0
         outSlope: 0
         tangentMode: 0
