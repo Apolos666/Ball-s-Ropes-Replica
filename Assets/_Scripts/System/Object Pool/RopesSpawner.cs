@@ -20,6 +20,14 @@ public class RopesSpawner : MonoBehaviour
         _onNewRopes.OnEventRaised -= OnEventRaised;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            OnEventRaised();
+        }
+    }
+
     private void OnEventRaised()
     {
         GameObject rope = Instantiate(_ropePrefab, transform.position + _offset, Quaternion.identity, transform);

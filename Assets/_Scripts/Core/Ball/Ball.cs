@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Apolos.SO;
 using Apolos.System;
 using UnityEngine;
@@ -15,11 +17,13 @@ namespace Apolos.Core
         [SerializeField] private BallEventChannelSO _onBallCollider;
         [SerializeField] private AudioClip _clip;
 
+        private bool _isCollding = false;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
         }
-
+        
         public void AddForce(Vector3 forceApply)
         {
             _rigidbody.AddForce(forceApply, ForceMode.Impulse);
@@ -39,6 +43,9 @@ namespace Apolos.Core
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (this._isCollding) return;
+            this._isCollding = true;
+            
             if (collision.gameObject.CompareTag("Rope"))
             {
                 var contactPoint = collision.GetContact(0).point;
@@ -47,6 +54,14 @@ namespace Apolos.Core
                 
                 AudioManager.Instance.PlaySound(_clip);
             }
+            
+            StartCoroutine(ResetTime());
+        }
+
+        private IEnumerator ResetTime()
+        {
+            yield return new WaitForEndOfFrame();
+            this._isCollding = false;
         }
     }
 }

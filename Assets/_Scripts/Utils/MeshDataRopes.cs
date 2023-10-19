@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Apolos.Utils
 {
-    public class MeshDataRopes : MonoBehaviour
+    public class MeshDataRopes 
     {
         private Vector3[] _vertices;
         private int[] _triangles;

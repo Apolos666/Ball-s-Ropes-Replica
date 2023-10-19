@@ -6,7 +6,10 @@ using UnityEngine;
 public class PhysicRopes : MonoBehaviour
 {
     [SerializeField] private MeshFilter _meshFilter;
+    [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private PhysicMaterial _ropePhysicMaterial;
+    [SerializeField] private Material _ropeDefaultMaterial;
+    [SerializeField] private Material _ropeTooLongMaterial;
     
     [SerializeField] private Transform _startRope, _endRope;
     [SerializeField] private int _segmentCount = 20;
@@ -20,6 +23,9 @@ public class PhysicRopes : MonoBehaviour
     [SerializeField] private float _totalWeight = 5f;
     [SerializeField] private float _drag = 1;
     [SerializeField] private float _angularDrag = 1f;
+    [SerializeField] private RigidbodyInterpolation _ropeInterpolation;
+    [SerializeField] private CollisionDetectionMode _ropeDetectionMode;
+    [SerializeField] private RigidbodyConstraints _ropeConstraints;
 
     private Transform[] _segments = Array.Empty<Transform>();
     [SerializeField] private Transform _segmentParent;
@@ -37,6 +43,12 @@ public class PhysicRopes : MonoBehaviour
     private bool _createTriangles;
     private Mesh _mesh;
     private int _prevSides;
+
+    private float _ropeDistance;
+    [SerializeField] private float _ropeLengthTolerance = 1f;
+    [SerializeField] private float _ropeDistanceAllow = 3f;
+    private bool _isAlreadyRopeDefault = true;
+    private bool _isAlreadyRopeTooLong = false;
 
     private void Start()
     {
@@ -85,6 +97,53 @@ public class PhysicRopes : MonoBehaviour
         _prevRadius = _radius;
         
         UpdateMesh();
+    }
+
+    public void OnDrag()
+    {
+        _ropeDistance = Vector3.Distance(_startRope.position, _endRope.position) - _ropeLengthTolerance;
+        
+        _totalLength = _ropeDistance;
+
+        if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceAllow)
+        {
+            if (_isAlreadyRopeTooLong) return;
+            RopeTooLong();
+        }
+        else
+        {
+            if (_isAlreadyRopeDefault) return;
+            RopeDefault();
+        }
+    }
+
+    private void RopeDefault()
+    {
+        _isAlreadyRopeDefault = true;
+        _isAlreadyRopeTooLong = false;
+
+        _segmentCount = 20;
+        // SetSegmentCollider(true);
+        _meshRenderer.sharedMaterial = _ropeDefaultMaterial;
+    }
+
+    private void RopeTooLong()
+    {
+        _isAlreadyRopeTooLong = true;
+        _isAlreadyRopeDefault = false;
+
+        _segmentCount = 50;
+        // SetSegmentCollider(false);
+        _meshRenderer.sharedMaterial = _ropeTooLongMaterial;
+    }
+
+    private void SetSegmentCollider(bool isEnable)
+    {
+        foreach (var segment in _segments)
+        {
+            SphereCollider segmentCollider = segment.GetComponent<SphereCollider>();
+            segmentCollider.enabled = isEnable;
+        }
     }
 
     private void UpdateMesh()
@@ -203,8 +262,6 @@ public class PhysicRopes : MonoBehaviour
 
     private void UpdateWire()
     {
-        if (_segments == null) return;
-        
         for (int i = 0; i < _segments.Length; i++)
         {
             if (i != 0)
@@ -232,8 +289,8 @@ public class PhysicRopes : MonoBehaviour
     {
         segment.TryGetComponent<ConfigurableJoint>(out ConfigurableJoint joint);
         if (joint != null)
-        {
-            joint.connectedAnchor = Vector3.forward * 0.1f;
+        {;
+            joint.connectedAnchor = Vector3.forward * segmentCount;
         }
     }
 
@@ -262,6 +319,7 @@ public class PhysicRopes : MonoBehaviour
             GameObject segment = new GameObject($"Segment_{i}");
             segment.transform.SetParent(_segmentParent);
             segment.layer = LayerMask.NameToLayer("Segment");
+            segment.tag = "Rope";
 
             Vector3 pos = prevSegment.position + (direction / _segmentCount);
             segment.transform.position = pos;
@@ -285,11 +343,23 @@ public class PhysicRopes : MonoBehaviour
             rigidbody.mass = _totalWeight / _segmentCount;
             rigidbody.drag = _drag;
             rigidbody.angularDrag = _angularDrag;
+            rigidbody.interpolation = _ropeInterpolation;
+            rigidbody.collisionDetectionMode = _ropeDetectionMode;
+            rigidbody.constraints = _ropeConstraints;
         }
         
         if (usePhysics)
         {
             SphereCollider sphereCollider = currentTransform.AddComponent<SphereCollider>();
+            if (_isAlreadyRopeDefault)
+            {
+                sphereCollider.enabled = true;
+            }
+            else
+            {
+                sphereCollider.enabled = false;
+            }
+            
             sphereCollider.material = _ropePhysicMaterial;
             sphereCollider.radius = _radius;
         }
@@ -308,9 +378,12 @@ public class PhysicRopes : MonoBehaviour
             configurableJoint.autoConfigureConnectedAnchor = false;
 
             if (isCloseConnected)
+            {
+                configurableJoint.anchor = Vector3.zero;
                 configurableJoint.connectedAnchor = Vector3.forward * 0.1f;
+            }
             else
-                configurableJoint.connectedAnchor = Vector3.forward * 0.1f;
+                configurableJoint.connectedAnchor = Vector3.forward * _totalLength / _segmentCount;
 
             configurableJoint.xMotion = ConfigurableJointMotion.Locked;
             configurableJoint.yMotion = ConfigurableJointMotion.Locked;

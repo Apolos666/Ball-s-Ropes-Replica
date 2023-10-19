@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1672244102490903044}
   - component: {fileID: 4165098744427773008}
   - component: {fileID: 3828318813659426010}
+  - component: {fileID: 5872078236195871737}
   - component: {fileID: 6889245017213142415}
   m_Layer: 8
   m_Name: Base Ball
@@ -115,7 +116,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 72
   m_CollisionDetection: 2
 --- !u!114 &4165098744427773008
 MonoBehaviour:
@@ -146,6 +147,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityScale: 2
+--- !u!114 &5872078236195871737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152409410268844476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f155ad8fd4df1f42bfa9357ef96a972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kickStrength: 5
 --- !u!96 &6889245017213142415
 TrailRenderer:
   serializedVersion: 2
