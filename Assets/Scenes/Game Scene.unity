@@ -2518,6 +2518,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fundManager: {fileID: 143753442}
   _textMesh: {fileID: 1410460939}
+--- !u!4 &729632701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2972581521246819395, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+  m_PrefabInstance: {fileID: 2972581521386285926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &865884830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,6 +5070,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &2035361814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2972581521149035102, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+  m_PrefabInstance: {fileID: 2972581521386285926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2044776471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,6 +5516,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 591143384, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+      propertyPath: _configNumber
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 591143384, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+      propertyPath: _ropePointTransform
+      value: 
+      objectReference: {fileID: 729632701}
+    - target: {fileID: 1649616494, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+      propertyPath: _configNumber
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1649616494, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
+      propertyPath: _ropePointTransform
+      value: 
+      objectReference: {fileID: 2035361814}
     - target: {fileID: 2972581519700258105, guid: 5f08ca2473ccdd746aacc33582e354ce, type: 3}
       propertyPath: m_RootOrder
       value: 5
