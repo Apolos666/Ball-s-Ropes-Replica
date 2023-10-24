@@ -12,27 +12,17 @@ public class SceneLoader : MonoBehaviour
         // load all scenes
         for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            if (!SceneManager.GetSceneByName("Game Scene").IsValid())
+            if (!SceneManager.GetSceneByName("Main Menu").IsValid())
             {
-                StartCoroutine(LoadRequirementScene());
+                LoadRequirementScene();
                 break;
             }
         }
     }
 
-    private IEnumerator LoadRequirementScene()
+    private void LoadRequirementScene()
     {
-        var asyncOperation = SceneManager.LoadSceneAsync("Game Scene", LoadSceneMode.Additive);
-        
-        asyncOperation.allowSceneActivation = false;
-
-        while (!asyncOperation.isDone)
-        {
-            if (asyncOperation.progress >= 0.9f)
-                asyncOperation.allowSceneActivation = true;
-            
-            yield return null;
-        }
+        StartCoroutine(LoadingScreenHelper.Instance.LoadAsyncScene("Main Menu")); 
 
         _sceneLoadedTask.SetResult(true);
     }
