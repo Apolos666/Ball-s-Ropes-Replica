@@ -36,9 +36,15 @@ namespace Apolos.Core
 
         private void OnTriggerEnter(Collider other)
         {
-            _pool.Release(this);
-            this.GetComponent<TrailRenderer>().enabled = false;
-            IsRelease = true;
+            if (other.gameObject.layer == LayerMask.NameToLayer("Boundary"))
+            {
+                _pool.Release(this);
+                this.GetComponent<TrailRenderer>().enabled = false;
+                IsRelease = true;
+            } else if (other.gameObject.layer == LayerMask.NameToLayer("Pipe"))
+            {
+                gameObject.layer = LayerMask.NameToLayer("Ball");
+            }
         }
 
         private void OnCollisionEnter(Collision collision)

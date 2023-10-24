@@ -47,8 +47,10 @@ public class PhysicRopes : MonoBehaviour
     private float _ropeDistance;
     [SerializeField] private float _ropeLengthTolerance = 1f;
     [SerializeField] private float _ropeDistanceAllow = 3f;
+    [SerializeField] private float _ropeDistanceShort = 1.2f;
     private bool _isAlreadyRopeDefault = true;
     private bool _isAlreadyRopeTooLong = false;
+    private bool _isAlreadyRopeTooShort = false;
 
     private void Start()
     {
@@ -108,42 +110,29 @@ public class PhysicRopes : MonoBehaviour
         if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceAllow)
         {
             if (_isAlreadyRopeTooLong) return;
-            RopeTooLong();
+            AdjustRope(false, true, false, 50, _ropeTooLongMaterial);
+        }
+        else if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceShort)
+        {
+            if (_isAlreadyRopeDefault) return;
+            AdjustRope(true, false, false, 20, _ropeDefaultMaterial);
         }
         else
         {
-            if (_isAlreadyRopeDefault) return;
-            RopeDefault();
+            if (_isAlreadyRopeTooShort) return;
+            AdjustRope(false, false, true, 10, _ropeDefaultMaterial);
         }
     }
 
-    private void RopeDefault()
+    private void AdjustRope(bool isAlreadyRopeDefault, bool isAlreadyRopeTooLong, bool isAlreadyRopeTooShort, int segmentCount, Material ropeMaterial)
     {
-        _isAlreadyRopeDefault = true;
-        _isAlreadyRopeTooLong = false;
+        _isAlreadyRopeDefault = isAlreadyRopeDefault;
+        _isAlreadyRopeTooLong = isAlreadyRopeTooLong;
+        _isAlreadyRopeTooShort = isAlreadyRopeTooShort;
 
-        _segmentCount = 20;
+        _segmentCount = segmentCount;
         // SetSegmentCollider(true);
-        _meshRenderer.sharedMaterial = _ropeDefaultMaterial;
-    }
-
-    private void RopeTooLong()
-    {
-        _isAlreadyRopeTooLong = true;
-        _isAlreadyRopeDefault = false;
-
-        _segmentCount = 50;
-        // SetSegmentCollider(false);
-        _meshRenderer.sharedMaterial = _ropeTooLongMaterial;
-    }
-
-    private void SetSegmentCollider(bool isEnable)
-    {
-        foreach (var segment in _segments)
-        {
-            SphereCollider segmentCollider = segment.GetComponent<SphereCollider>();
-            segmentCollider.enabled = isEnable;
-        }
+        _meshRenderer.sharedMaterial = ropeMaterial;
     }
 
     private void UpdateMesh()

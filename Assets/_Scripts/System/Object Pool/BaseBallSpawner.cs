@@ -36,8 +36,6 @@ public class BaseBallSpawner : MonoBehaviour
     private void UpdateTimer()
     {
         _resetTimer += Time.deltaTime;
-        
-        // print(_resetTimer);
 
         if (_resetTimer >= _resetTimerCooldown)
         {
@@ -94,6 +92,8 @@ public class BaseBallSpawner : MonoBehaviour
 
     private void OnReturnBallToPool(Ball ball)
     {
+        ball.gameObject.layer = LayerMask.NameToLayer("Default");
+        ball.GetComponent<TrailRenderer>().Clear();
         ball.gameObject.SetActive(false);
     }
 
