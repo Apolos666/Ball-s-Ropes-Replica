@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneInit : MonoBehaviour
 {
     public static TaskCompletionSource<bool> _sceneLoadedTask = new TaskCompletionSource<bool>();
 
@@ -22,7 +22,7 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadRequirementScene()
     {
-        StartCoroutine(LoadingScreenHelper.Instance.LoadAsyncScene("Main Menu")); 
+        LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Main Menu"); 
 
         _sceneLoadedTask.SetResult(true);
     }

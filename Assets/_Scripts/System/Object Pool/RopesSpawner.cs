@@ -1,5 +1,6 @@
 using System;
 using Apolos.SO;
+using Apolos.System.EventManager;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class RopesSpawner : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _ropePrefab;
     [SerializeField] private Vector3 _offset = new Vector3(-1, 0, 0);
+
+    private void Awake()
+    {
+        EventManager.AddListener("LevelCompleted", () => gameObject.SetActive(false));
+    }
 
     private void OnEnable()
     {

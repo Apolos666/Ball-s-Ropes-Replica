@@ -1,4 +1,5 @@
 using System;
+using Apolos.System.EventManager;
 using Apolos.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -51,6 +52,11 @@ public class PhysicRopes : MonoBehaviour
     private bool _isAlreadyRopeDefault = true;
     private bool _isAlreadyRopeTooLong = false;
     private bool _isAlreadyRopeTooShort = false;
+
+    private void Awake()
+    {
+        EventManager.AddListener("LevelCompleted", () => gameObject.SetActive(false));
+    }
 
     private void Start()
     {

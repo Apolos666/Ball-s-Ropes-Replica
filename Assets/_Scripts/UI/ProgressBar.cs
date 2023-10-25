@@ -1,4 +1,5 @@
 using System;
+using Apolos.System.EventManager;
 using Apolos.UI;
 using DG.Tweening;
 using TMPro;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    [SerializeField] private float _maxFund;
+    [SerializeField] private float _maxAmount;
     [SerializeField] private FundManager _fundManager;
     [SerializeField] private Image _fillBar;
     [SerializeField] private TextMeshProUGUI _textMesh;
@@ -15,7 +16,7 @@ public class ProgressBar : MonoBehaviour
     private void Awake()
     {
         _fillBar.fillAmount = 0f;
-        _textMesh.text = $"0K / {_maxFund}K";
+        _textMesh.text = $"0K / {_maxAmount}K";
     }
 
     private void OnEnable()
@@ -30,7 +31,12 @@ public class ProgressBar : MonoBehaviour
 
     private void OnChangedEarnedMoney(float value)
     {
-        _fillBar.DOFillAmount(value / _maxFund, 1f);
-        _textMesh.text = $"{value}K / {_maxFund}K";
+        _fillBar.DOFillAmount(value / _maxAmount, 1f);
+        _textMesh.text = $"{value}K / {_maxAmount}K";
+        
+        if (_fillBar.fillAmount >= 0.91f)
+        {
+            EventManager.RaiseEvent("LevelCompleted");
+        }
     }
 }

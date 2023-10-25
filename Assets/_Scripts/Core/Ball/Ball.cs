@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Apolos.SO;
 using Apolos.System;
+using Apolos.System.EventManager;
 using UnityEngine;
 using UnityEngine.Pool;
 

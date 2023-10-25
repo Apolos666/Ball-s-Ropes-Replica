@@ -11,8 +11,8 @@ public class ClickAnyPosScreen : MonoBehaviour, IPointerDownHandler
     {
         if (_isLoadingScene) return;
         
-        StartCoroutine(LoadingScreenHelper.Instance.UnloadAsyncScene("Main Menu"));
-        StartCoroutine(LoadingScreenHelper.Instance.LoadAsyncScene("Game Scene"));
+        LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine("Main Menu");
+        LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Level 1");
     }
 
     private void Awake()

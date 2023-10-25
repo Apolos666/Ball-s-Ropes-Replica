@@ -359,6 +359,7 @@ MonoBehaviour:
   _segmentParent: {fileID: 2972581521568943059}
   _ropeLengthTolerance: 1
   _ropeDistanceAllow: 2.5
+  _ropeDistanceShort: 1.2
 --- !u!33 &2972581519700258107
 MeshFilter:
   m_ObjectHideFlags: 0

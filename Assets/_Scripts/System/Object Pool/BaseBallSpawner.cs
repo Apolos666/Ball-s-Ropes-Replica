@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Apolos.Core;
+using Apolos.System.EventManager;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -23,9 +24,12 @@ public class BaseBallSpawner : MonoBehaviour
     [SerializeField] private float _resetTimerCooldown = 2f;
     private float _resetTimer = 0f;
 
+    private bool _isCompleteLevel;
+
     protected void Awake()
     {
         _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, true, _defaultCapacity, _maxSize);
+        EventManager.AddListener("LevelCompleted", () => _isCompleteLevel = true);
     }
 
     private void Update()
@@ -62,6 +66,12 @@ public class BaseBallSpawner : MonoBehaviour
             if (i == _ballsPerWave - 1)
             {
                 yield return new WaitUntil(() => ball.IsRelease);
+                
+                if (_isCompleteLevel)
+                {
+                    break;
+                }
+
                 _currentCoroutine = StartCoroutine(SpawnBallOverTime());
                 break;
             }

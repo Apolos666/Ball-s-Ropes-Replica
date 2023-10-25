@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 143753439}
   - component: {fileID: 143753438}
   - component: {fileID: 143753442}
+  - component: {fileID: 143753443}
   m_Layer: 5
   m_Name: UI Manager
   m_TagString: Untagged
@@ -635,6 +636,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+--- !u!114 &143753443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143753437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f34f832ac8ed24db5d9a2469a7ba1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &161487238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,7 +1740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f161c868c13dada4888c851bf2cdf31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxFund: 1000
+  _maxAmount: 200
   _fundManager: {fileID: 143753442}
   _fillBar: {fileID: 1598682791}
   _textMesh: {fileID: 161487240}
@@ -3714,6 +3727,7 @@ GameObject:
   - component: {fileID: 1482900121}
   - component: {fileID: 1482900120}
   - component: {fileID: 1482900119}
+  - component: {fileID: 1482900122}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -3785,7 +3799,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1482900120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1482900122}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1482900120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3824,6 +3850,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482900117}
   m_CullTransparentMesh: 1
+--- !u!114 &1482900122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482900117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10e9a7ab77a77f44ba87e4ae584ac85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadScene: Main Menu
+  _unLoadScene: Level 1
 --- !u!1 &1497117581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,6 +4787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2079013116}
+  - component: {fileID: 2079013117}
   m_Layer: 0
   m_Name: ObjectPool Manager
   m_TagString: Untagged
@@ -4773,6 +4814,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079013117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079013115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c0f808619ff7343963ed32734eefa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081512615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,10 +5118,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 645796169, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 87067768160151182, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5113,45 +5162,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 87067768160151185, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 87067768160151187, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
       propertyPath: m_Name
       value: Pipe
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067768160151187, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067768204408080, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067768243958539, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067769181472684, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067769497883296, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067769587876179, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 87067770111124701, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8024206333164611715, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}

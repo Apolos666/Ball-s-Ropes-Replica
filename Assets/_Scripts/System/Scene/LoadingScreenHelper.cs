@@ -13,15 +13,25 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
     public override void Awake()
     {
         base.Awake();
-        _loadingScreen.SetActive(false);
         _loadingBar.fillAmount = 0f;
     }
 
-    public IEnumerator LoadAsyncScene(string sceneName)
+    public void CallLoadAsyncSceneCoroutine(string sceneName)
+    {
+        _loadingScreen.SetActive(true);
+        StartCoroutine(LoadAsyncScene(sceneName));
+    }
+
+    public void CallUnLoadAsyncSceneCoroutine(string sceneName)
+    {
+        _loadingScreen.SetActive(true);
+        StartCoroutine(UnloadAsyncScene(sceneName));
+    }
+
+    private IEnumerator LoadAsyncScene(string sceneName)
     {
         EventManager.RaiseEvent("LoadingScene");
         
-        _loadingScreen.SetActive(true);
         _loadingBar.fillAmount = 0f;
         
         yield return new WaitForSeconds(0.1f);
@@ -65,7 +75,7 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
         }
     }
 
-    public IEnumerator UnloadAsyncScene(string sceneName)
+    private IEnumerator UnloadAsyncScene(string sceneName)
     {
         var asyncUnload = SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(sceneName));
 
