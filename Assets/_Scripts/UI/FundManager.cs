@@ -48,8 +48,14 @@ namespace Apolos.UI
             CurrentMoney += value;
             EarnedMoney += value;
         }
-        
-        
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                EarnedMoney += 1000f;
+            }
+        }
     }
 }
 

@@ -6,13 +6,16 @@ public class TeleportPortal : MonoBehaviour
 {
     [SerializeField] private Transform _startSpawnPoint, _endSpawnPoint;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
+        print(other.gameObject.name);
+        
         var ball = other.gameObject.GetComponent<Ball>();
-
         if (ball != null)
         {
+            var ballRB = ball.GetComponent<Rigidbody>();
             ball.transform.position = _endSpawnPoint.position;
+            ballRB.velocity = -ballRB.velocity;
         }
     }
 }
