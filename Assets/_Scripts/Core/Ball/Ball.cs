@@ -16,7 +16,8 @@ namespace Apolos.Core
         public float Point;
         [SerializeField] private BallEventChannelSO _onBallCollider;
         [SerializeField] private AudioClip _clip;
-
+        [SerializeField] private PhysicMaterial _ballOutSidePipe;
+        
         private bool _isCollding = false;
 
         private void Awake()
@@ -24,11 +25,6 @@ namespace Apolos.Core
             _rigidbody = GetComponent<Rigidbody>();
         }
         
-        public void AddForce(Vector3 forceApply)
-        {
-            _rigidbody.AddForce(forceApply, ForceMode.Impulse);
-        }
-
         public void SetPool(ObjectPool<Ball> pool)
         {
             _pool = pool;
@@ -43,6 +39,7 @@ namespace Apolos.Core
                 IsRelease = true;
             } else if (other.gameObject.layer == LayerMask.NameToLayer("Pipe"))
             {
+                gameObject.GetComponent<Collider>().sharedMaterial = _ballOutSidePipe;
                 gameObject.layer = LayerMask.NameToLayer("Ball");
             }
         }

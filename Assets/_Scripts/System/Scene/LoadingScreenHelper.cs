@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using Apolos.System;
 using Apolos.System.EventManager;
 using UnityEngine;
@@ -55,6 +57,8 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
 
             yield return null;
         }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         
         Application.backgroundLoadingPriority = ThreadPriority.BelowNormal;
  
@@ -83,5 +87,36 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
         {
             yield return null;
         }
+    }
+
+    public string GetCurrentLevelNumber()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        Regex regex = new Regex(@"\d+");
+        Match match = regex.Match(sceneName);
+
+        string levelNumber = match.Value;
+        
+        return levelNumber;
+    }
+
+    public bool IsSceneValid(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return false;
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            var scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+            var lastSlash = scenePath.LastIndexOf("/");
+            var sceneName = scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1);
+
+            if (String.Compare(name, sceneName, StringComparison.OrdinalIgnoreCase) == 0)
+                return true;
+        }
+
+        return false;
     }
 }

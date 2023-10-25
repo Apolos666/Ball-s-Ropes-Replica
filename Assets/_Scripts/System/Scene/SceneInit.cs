@@ -3,7 +3,8 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneInit : MonoBehaviour
+public class 
+    SceneInit : MonoBehaviour
 {
     public static TaskCompletionSource<bool> _sceneLoadedTask = new TaskCompletionSource<bool>();
 

@@ -3,11 +3,14 @@ using UnityEngine;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private string _loadScene;
-    [SerializeField] private string _unLoadScene;
     
     public void SwitchScene()
     {
-        LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine(_unLoadScene);
+        var currentLevel = PlayerPrefs.GetString("Level_number");
+        
+        print(currentLevel);
+        
+        LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine(currentLevel);
         LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine(_loadScene);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Apolos.System.EventManager;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CompleteLevelUI : MonoBehaviour, ISetUpGameObject
@@ -15,6 +16,28 @@ public class CompleteLevelUI : MonoBehaviour, ISetUpGameObject
     [SerializeField] private Color _endColor;
     [SerializeField] private float _initPositionX = -1000f;
     private Vector2 _finalPosition;
+
+    public void NextLevel()
+    {
+        var currentLevel = PlayerPrefs.GetString("Level_number");
+        
+        print(currentLevel);
+        
+        var previousLevel = $"Level {Helper.NumberExtractor(currentLevel) - 1}";
+
+        LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine(previousLevel);
+        
+        if (LoadingScreenHelper.Instance.IsSceneValid(currentLevel))
+        {
+            LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine(currentLevel);
+        }
+        else
+        {
+            Debug.LogError("Scene khong nam trong build setting");
+        }
+        
+        gameObject.SetActive(false);
+    }
 
     public void CompleteLevel()
     {
@@ -36,10 +59,10 @@ public class CompleteLevelUI : MonoBehaviour, ISetUpGameObject
         InitPosition(_completeLevel);
         InitPosition(_nextButton);
     }
-    
+
     private void InitPosition(RectTransform rectTransform)
     {
-        rectTransform.localPosition = new Vector2( _initPositionX, rectTransform.anchoredPosition.y);
+        rectTransform.localPosition = new Vector2(_initPositionX, rectTransform.anchoredPosition.y);
     }
 
     public void SetUpGameObject()

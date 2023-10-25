@@ -17,6 +17,7 @@ public class BaseBallSpawner : MonoBehaviour
     [SerializeField] protected int _maxSize = 20;
     [SerializeField] protected int _ballsPerWave;
     [SerializeField] protected float _ballSpawnRate;
+    [SerializeField] private PhysicMaterial _ballInPipe;
     protected List<Ball> _currentBalls = new List<Ball>();
     protected Coroutine _currentCoroutine;
     
@@ -103,6 +104,7 @@ public class BaseBallSpawner : MonoBehaviour
     private void OnReturnBallToPool(Ball ball)
     {
         ball.gameObject.layer = LayerMask.NameToLayer("Default");
+        ball.GetComponent<Collider>().sharedMaterial = _ballInPipe;
         ball.GetComponent<TrailRenderer>().Clear();
         ball.gameObject.SetActive(false);
     }

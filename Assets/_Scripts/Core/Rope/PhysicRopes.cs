@@ -55,7 +55,17 @@ public class PhysicRopes : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.AddListener("LevelCompleted", () => gameObject.SetActive(false));
+        EventManager.AddListener("LevelCompleted", SetGameObjectState);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener("LevelCompleted", SetGameObjectState);
+    }
+
+    private void SetGameObjectState()
+    {
+        gameObject.SetActive(false);
     }
 
     private void Start()

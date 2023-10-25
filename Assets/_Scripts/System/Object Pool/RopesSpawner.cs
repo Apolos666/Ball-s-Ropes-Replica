@@ -13,7 +13,17 @@ public class RopesSpawner : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.AddListener("LevelCompleted", () => gameObject.SetActive(false));
+        EventManager.AddListener("LevelCompleted", SetGameObject);
+    }
+
+    private void SetGameObject()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener("LevelCompleted", SetGameObject);
     }
 
     private void OnEnable()

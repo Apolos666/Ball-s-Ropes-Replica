@@ -6,13 +6,32 @@ using UnityEngine.EventSystems;
 public class ClickAnyPosScreen : MonoBehaviour, IPointerDownHandler
 {
     private bool _isLoadingScene;
-    
+    private string _currentLevel;
+
     public void OnPointerDown(PointerEventData eventData)
     {
+        _currentLevel = PlayerPrefs.GetString("Level_number");
+        
         if (_isLoadingScene) return;
         
         LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine("Main Menu");
-        LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Level 1");
+
+        if (string.IsNullOrEmpty(_currentLevel))
+        {
+            LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Level 1");
+            PlayerPrefs.SetString("Level_number", "Level 1");
+        }
+        else
+        {
+            if (LoadingScreenHelper.Instance.IsSceneValid(_currentLevel))
+            {
+                LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine(_currentLevel);
+            }
+            else
+            {
+                Debug.LogError("Scene khong nam trong build setting");
+            }
+        }
     }
 
     private void Awake()
