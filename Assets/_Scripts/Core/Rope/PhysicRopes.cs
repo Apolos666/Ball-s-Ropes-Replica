@@ -17,6 +17,9 @@ public class PhysicRopes : MonoBehaviour
     [SerializeField] private float _totalLength = 5f;
     [SerializeField] private float _radius = 0.5f;
     [SerializeField] private int _sides = 10;
+    [SerializeField] private float _linearLimitSpringDamping;
+    [SerializeField] private float _linearLimitSpring;
+    [SerializeField] private float _linearLimitBounce;
 
     [SerializeField] private bool _usePhysics = true;
 
@@ -72,6 +75,16 @@ public class PhysicRopes : MonoBehaviour
     {
         _vertices = new Vector3[_segmentCount * _sides * 3];
         GenerateMesh();
+    }
+
+    public Vector3 GetRopeDirectionNormalized()
+    {
+        return (_endRope.position - _startRope.position).normalized;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(_startRope.position, _startRope.position + GetRopeDirectionNormalized());
     }
 
     private void Update()
@@ -390,9 +403,9 @@ public class PhysicRopes : MonoBehaviour
             else
                 configurableJoint.connectedAnchor = Vector3.forward * _totalLength / _segmentCount;
 
-            configurableJoint.xMotion = ConfigurableJointMotion.Locked;
-            configurableJoint.yMotion = ConfigurableJointMotion.Locked;
-            configurableJoint.zMotion = ConfigurableJointMotion.Locked;
+            configurableJoint.xMotion = ConfigurableJointMotion.Limited;
+            configurableJoint.yMotion = ConfigurableJointMotion.Limited;
+            configurableJoint.zMotion = ConfigurableJointMotion.Limited;
 
             configurableJoint.angularXMotion = ConfigurableJointMotion.Free;
             configurableJoint.angularYMotion = ConfigurableJointMotion.Free;
@@ -400,8 +413,17 @@ public class PhysicRopes : MonoBehaviour
 
             SoftJointLimit softJointLimit = new SoftJointLimit
             {
-                limit = 0f
+                limit = 0f, bounciness = _linearLimitBounce
             };
+
+            SoftJointLimitSpring softJointLimitSpring = new SoftJointLimitSpring
+            {
+                spring = _linearLimitSpring, damper = _linearLimitSpringDamping
+            };
+
+            configurableJoint.linearLimit = softJointLimit;
+
+            configurableJoint.linearLimitSpring = softJointLimitSpring;
             
             configurableJoint.angularZLimit = softJointLimit;
 

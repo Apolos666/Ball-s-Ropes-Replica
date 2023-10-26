@@ -104,16 +104,16 @@ public class BaseBallSpawner : MonoBehaviour
     private void OnReturnBallToPool(Ball ball)
     {
         ball.gameObject.layer = LayerMask.NameToLayer("Default");
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.GetComponent<Collider>().sharedMaterial = _ballInPipe;
+        ball.transform.position = transform.position;
+        ball.transform.rotation = quaternion.identity;
         ball.GetComponent<TrailRenderer>().Clear();
         ball.gameObject.SetActive(false);
     }
 
     private void OnTakeBallFromPool(Ball ball)
     {
-        ball.transform.position = transform.position;
-        ball.transform.rotation = quaternion.identity;
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.IsRelease = false;
         ball.GetComponent<TrailRenderer>().enabled = true;
         

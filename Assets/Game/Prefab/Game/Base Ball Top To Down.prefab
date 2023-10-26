@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828318813659426010, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: GravityScale
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5872078236195871737, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: _kickStrength

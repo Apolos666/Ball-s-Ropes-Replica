@@ -3363,7 +3363,7 @@ MonoBehaviour:
   _ball: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
   _defaultCapacity: 100
   _maxSize: 200
-  _ballsPerWave: 5
+  _ballsPerWave: 1
   _ballSpawnRate: 0.2
   _ballInPipe: {fileID: 13400000, guid: 5cfed0546d655744eb5a9454f7a3c309, type: 2}
   _resetTimerCooldown: 2

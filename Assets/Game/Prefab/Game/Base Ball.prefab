@@ -116,7 +116,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 120
+  m_Constraints: 56
   m_CollisionDetection: 2
 --- !u!114 &4165098744427773008
 MonoBehaviour:
@@ -160,11 +160,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f155ad8fd4df1f42bfa9357ef96a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _kickStrength: 2
-  _kickUp: 20
-  _kickUpAtZero: 1
-  _maxImpluseY: 0
-  _minImpluseY: 0
+  _kickStrength: 100
+  _maxVelocityX: 7
+  _maxVelocityY: 220
+  _dotProductImpulseThreshold: 0.866
+  _timePreventMutiCollider: 0.1
+  _maxY: 0
+  _maxX: 0
 --- !u!96 &6889245017213142415
 TrailRenderer:
   serializedVersion: 2

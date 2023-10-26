@@ -348,6 +348,9 @@ MonoBehaviour:
   _totalLength: 0.8
   _radius: 0.2
   _sides: 10
+  _linearLimitSpringDamping: 120
+  _linearLimitSpring: 25
+  _linearLimitBounce: 0.6
   _usePhysics: 1
   _useGravity: 0
   _totalWeight: 10
@@ -746,9 +749,9 @@ SphereCollider:
   m_GameObject: {fileID: 2972581521149035089}
   m_Material: {fileID: 13400000, guid: eeb80137b00926f4c944f5641b74b10b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2972581521149035098
 MonoBehaviour:
@@ -854,9 +857,9 @@ SphereCollider:
   m_GameObject: {fileID: 2972581521246819394}
   m_Material: {fileID: 13400000, guid: eeb80137b00926f4c944f5641b74b10b, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2972581521246819407
 MonoBehaviour:
