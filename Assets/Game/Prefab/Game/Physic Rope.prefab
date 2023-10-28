@@ -340,6 +340,7 @@ MonoBehaviour:
   _meshFilter: {fileID: 2972581519700258107}
   _meshRenderer: {fileID: 2972581519700258106}
   _ropePhysicMaterial: {fileID: 13400000, guid: 190a620293e66d74a84f06c67c885d1a, type: 2}
+  _startEndMaterial: {fileID: 13400000, guid: eeb80137b00926f4c944f5641b74b10b, type: 2}
   _ropeDefaultMaterial: {fileID: 2100000, guid: 1783d37915aa83b40bd41016c71f8249, type: 2}
   _ropeTooLongMaterial: {fileID: 2100000, guid: 59e13a4ada7ccc5478c9bcff8e28311e, type: 2}
   _startRope: {fileID: 2972581521149035102}
@@ -347,6 +348,7 @@ MonoBehaviour:
   _segmentCount: 20
   _totalLength: 0.8
   _radius: 0.2
+  _colliderRadius: 0.13
   _sides: 10
   _linearLimitSpringDamping: 120
   _linearLimitSpring: 25

@@ -9,6 +9,7 @@ public class PhysicRopes : MonoBehaviour
     [SerializeField] private MeshFilter _meshFilter;
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private PhysicMaterial _ropePhysicMaterial;
+    [SerializeField] private PhysicMaterial _startEndMaterial;
     [SerializeField] private Material _ropeDefaultMaterial;
     [SerializeField] private Material _ropeTooLongMaterial;
     
@@ -16,6 +17,7 @@ public class PhysicRopes : MonoBehaviour
     [SerializeField] private int _segmentCount = 20;
     [SerializeField] private float _totalLength = 5f;
     [SerializeField] private float _radius = 0.5f;
+    [SerializeField] private float _colliderRadius = 0.13f;
     [SerializeField] private int _sides = 10;
     [SerializeField] private float _linearLimitSpringDamping;
     [SerializeField] private float _linearLimitSpring;
@@ -327,7 +329,7 @@ public class PhysicRopes : MonoBehaviour
     
     private void GenerateSegments()
     {
-        JointSegment(_startRope, null, true, false, false);
+        JointSegment(_startRope, null, _ropePhysicMaterial,true, false, false);
         Transform prevSegment = _startRope;
 
         Vector3 direction = _endRope.position - _startRope.position;
@@ -341,17 +343,23 @@ public class PhysicRopes : MonoBehaviour
 
             Vector3 pos = prevSegment.position + (direction / _segmentCount);
             segment.transform.position = pos;
-            
-            JointSegment(segment.transform, prevSegment);
+
+            if (i == 0 || i == _segmentCount - 1)
+            {
+                JointSegment(segment.transform, prevSegment, _startEndMaterial);            }
+            else
+            {
+                JointSegment(segment.transform, prevSegment, _ropePhysicMaterial);
+            }
 
             _segments[i] = segment.transform;
             prevSegment = segment.transform;
         }
         
-        JointSegment(_endRope, prevSegment, true, true, false);
+        JointSegment(_endRope, prevSegment, _ropePhysicMaterial,true, true, false);
     }
 
-    private void JointSegment(Transform currentTransform, Transform connectedTransform, bool isKinematic = false, bool isCloseConnected = false, bool usePhysics = true)
+    private void JointSegment(Transform currentTransform, Transform connectedTransform, PhysicMaterial physicMaterial, bool isKinematic = false, bool isCloseConnected = false, bool usePhysics = true)
     {
         if (currentTransform.GetComponent<Rigidbody>() == null)
         {
@@ -378,8 +386,8 @@ public class PhysicRopes : MonoBehaviour
                 sphereCollider.enabled = false;
             }
             
-            sphereCollider.material = _ropePhysicMaterial;
-            sphereCollider.radius = _radius;
+            sphereCollider.material = physicMaterial;
+            sphereCollider.radius = _colliderRadius;
         }
 
         if (connectedTransform != null)

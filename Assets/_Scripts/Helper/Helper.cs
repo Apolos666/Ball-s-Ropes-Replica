@@ -14,11 +14,17 @@ public static class Helper
             return -1; 
         }
     }
-    
-    public static float CalculateAngle(Vector3 from, Vector3 to) {
- 
+
+    public static float CalculateAngle(Vector3 from, Vector3 to)
+    {
+
         return Quaternion.FromToRotation(Vector3.up, to - from).eulerAngles.z;
- 
+
+    }
+
+    public static Vector3 GetReflectProjectile(Vector3 inDirection, Vector3 normalVector3)
+    {
+        return Vector3.Reflect(inDirection, normalVector3);
     }
     
     public static void DrawWireArc(Vector3 position, Vector3 dir, float anglesRange, float radius, float maxSteps = 20)

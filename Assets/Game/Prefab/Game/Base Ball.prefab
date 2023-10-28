@@ -132,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRelease: 0
   Point: 5
-  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
   _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
   _ballOutSidePipe: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
 --- !u!114 &3828318813659426010
@@ -160,11 +159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f155ad8fd4df1f42bfa9357ef96a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _kickStrength: 100
-  _maxVelocityX: 7
-  _maxVelocityY: 220
+  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
+  _kickStrength: 75
+  _closeRopeKickStrength: 7.5
+  _maxVelocityX: 4.68
+  _maxVelocityY: 10
   _dotProductImpulseThreshold: 0.866
   _timePreventMutiCollider: 0.1
+  _point: 5
   _maxY: 0
   _maxX: 0
 --- !u!96 &6889245017213142415

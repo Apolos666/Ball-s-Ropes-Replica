@@ -852,7 +852,7 @@ MonoBehaviour:
   _setUpGOs:
   - {fileID: 800621407}
   - {fileID: 1448801881}
-  _testMapNumber: 
+  _testMapNumber: 2
 --- !u!4 &1448801883
 Transform:
   m_ObjectHideFlags: 0
