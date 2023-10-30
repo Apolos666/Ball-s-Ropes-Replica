@@ -1,3 +1,4 @@
+using System;
 using Apolos.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,32 +10,38 @@ public class ObjectOverlapPrevent : MonoBehaviour
     private Vector3 _snapDir;
     [SerializeField] private float _configNumber = 0.15f;
     [SerializeField] private Draggable _draggable;
-    private bool _isOnTriggerEnter;
+    private bool _isOnTriggerStay;
     private bool _isGOMoving;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(_closestPoint, 0.1f);
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         if (_isGOMoving)
         {
-            print("On Trigger Enter");
+            if (Vector3.Distance(other.ClosestPoint(_ropePointTransform.position), transform.position) == 0)
+            {
+                return;
+            }
             _closestPoint =  other.ClosestPoint(_ropePointTransform.position);
             _snapDir = (_closestPoint - _ropePointTransform.position).normalized;
         }
 
-        _isOnTriggerEnter = true;
+        _isOnTriggerStay = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        print("On Trigger Exit");
-        _isOnTriggerEnter = false;
+        _isOnTriggerStay = false;
     }
 
     public void OnPointerUp()
     {
-        if (_isGOMoving && _isOnTriggerEnter)
+        if (_isGOMoving && _isOnTriggerStay)
         {
-            print("On Pointer Up");
             _draggable.StopMoving();
             _ropePointTransform.position = _closestPoint;
             _ropePointTransform.position -= _snapDir * _configNumber;
