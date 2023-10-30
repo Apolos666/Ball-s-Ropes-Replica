@@ -381,11 +381,11 @@ public class PhysicRopes : MonoBehaviour
             {
                 sphereCollider.enabled = true;
             }
-            else
+            else if (_isAlreadyRopeTooLong)
             {
                 sphereCollider.enabled = false;
             }
-            
+
             sphereCollider.material = physicMaterial;
             sphereCollider.radius = _colliderRadius;
         }
