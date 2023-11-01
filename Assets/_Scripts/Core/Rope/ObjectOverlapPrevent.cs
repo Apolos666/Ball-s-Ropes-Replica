@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Apolos.Core;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class ObjectOverlapPrevent : MonoBehaviour
 {
-    [SerializeField] private Transform _ropePointTransform;
+    [FormerlySerializedAs("_ropePointTransform")] [SerializeField] private Transform _PointTransform;
     private Vector3 _closestPoint;
     private Vector3 _snapDir;
     [SerializeField] private float _configNumber = 0.15f;
@@ -14,7 +15,7 @@ public class ObjectOverlapPrevent : MonoBehaviour
     private bool _isGOMoving;
     private bool _firstEnterTrigger = true;
 
-    private List<Collider> _triggerColliders;
+    [SerializeField] [ReadOnly] private List<Collider> _triggerColliders;
 
     private void Awake()
     {
@@ -27,7 +28,8 @@ public class ObjectOverlapPrevent : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {
+    {   
+        print("Hello");
         if (!_triggerColliders.Contains(other))
         {
             _triggerColliders.Add(other);
@@ -39,21 +41,19 @@ public class ObjectOverlapPrevent : MonoBehaviour
             
             if (IsInSideAnotherObject(other)) return;
             
-            _closestPoint =  other.ClosestPoint(_ropePointTransform.position);
-            _snapDir = (_closestPoint - _ropePointTransform.position).normalized;
+            _closestPoint =  other.ClosestPoint(_PointTransform.position);
+            _snapDir = (_closestPoint - _PointTransform.position).normalized;
             _firstEnterTrigger = false;
         }
     }
 
     private bool IsInSideAnotherObject(Collider other)
     {
-        return Vector3.Distance(other.ClosestPoint(_ropePointTransform.position), transform.position) == 0;
+        return Vector3.Distance(other.ClosestPoint(_PointTransform.position), transform.position) == 0;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        print(other.gameObject.name);
-        
         if (_triggerColliders.Contains(other))
         {
             _triggerColliders.Remove(other);
@@ -74,8 +74,8 @@ public class ObjectOverlapPrevent : MonoBehaviour
         if (_isGOMoving && _triggerColliders.Count > 0)
         {
             _draggable.StopMoving();
-            _ropePointTransform.position = _closestPoint;
-            _ropePointTransform.position -= _snapDir * _configNumber;
+            _PointTransform.position = _closestPoint;
+            _PointTransform.position -= _snapDir * _configNumber;
         }
         _isGOMoving = false;    
     }

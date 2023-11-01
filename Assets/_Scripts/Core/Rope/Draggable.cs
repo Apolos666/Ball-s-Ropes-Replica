@@ -42,14 +42,6 @@ namespace Apolos.Core
             DOTween.Kill(transform);
         }
 
-        // private void Update()
-        // {
-        //     if (Input.GetKeyDown(KeyCode.A))
-        //     {
-        //         StopMoving();
-        //     }
-        // }
-
         private Vector3 ScreenToWorldPoint(Vector3 pos)
         {
             return GameManager.Instance.MainCamera.ScreenToWorldPoint(pos);
