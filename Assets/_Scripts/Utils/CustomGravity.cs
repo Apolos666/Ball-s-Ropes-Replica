@@ -1,10 +1,11 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CustomGravity : MonoBehaviour
 {
-    public float GravityScale = 1f;
+    [SerializeField] [ReadOnly] private float _gravityScale = 1f;
 
     public static float GlobalGravity = -9.81f;
 
@@ -18,7 +19,12 @@ public class CustomGravity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 gravity = Vector3.up * (GlobalGravity * GravityScale);
+        Vector3 gravity = Vector3.up * (GlobalGravity * _gravityScale);
         _rigidbody.AddForce(gravity, ForceMode.Acceleration);
+    }
+
+    public void SetGravityScale(float gravityScale)
+    {
+        _gravityScale = gravityScale;
     }
 }

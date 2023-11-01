@@ -12,6 +12,7 @@ public class ObjectOverlapPrevent : MonoBehaviour
     private Vector3 _snapDir;
     [SerializeField] private float _configNumber = 0.15f;
     [SerializeField] private Draggable _draggable;
+    [SerializeField] private LayerMask _layerPreventTrigger;
     private bool _isGOMoving;
     private bool _firstEnterTrigger = true;
 
@@ -28,8 +29,12 @@ public class ObjectOverlapPrevent : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {   
-        print("Hello");
+    {
+        int otherLayer = 1 << other.gameObject.layer;
+
+        if ((otherLayer & _layerPreventTrigger) != 0)
+            return;
+        
         if (!_triggerColliders.Contains(other))
         {
             _triggerColliders.Add(other);
@@ -63,10 +68,10 @@ public class ObjectOverlapPrevent : MonoBehaviour
 
     private void Update()
     {
-        if (_isGOMoving)
-        {
-            print(_triggerColliders.Count);
-        }
+        // if (_isGOMoving)
+        // {
+        //     print(_triggerColliders.Count);
+        // }
     }
 
     public void OnPointerUp()
