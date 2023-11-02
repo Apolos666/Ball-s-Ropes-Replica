@@ -3,6 +3,7 @@ using Apolos.SO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 namespace Apolos.System
 {
@@ -12,19 +13,19 @@ namespace Apolos.System
         [SerializeField] private FloatingText _floatingTextPrefab;
         [SerializeField] private int _defaultCapacity = 200;
         [SerializeField] private int _maxSize = 300;
-        [SerializeField] private BallEventChannelSO _onBallCollider;
+        [FormerlySerializedAs("_onBallCollider")] [SerializeField] private PointEventChannelSO _onPointCollider;
 
         private Vector3 _contactPoint;
         private string _money;
 
         private void OnEnable()
         {
-            _onBallCollider.OnEventRaised += OnEventRaised;
+            _onPointCollider.OnEventRaised += OnEventRaised;
         }
 
         private void OnDisable()
         {
-            _onBallCollider.OnEventRaised -= OnEventRaised;
+            _onPointCollider.OnEventRaised -= OnEventRaised;
         }
 
         private void OnEventRaised(float value, Vector3 contactPoint)

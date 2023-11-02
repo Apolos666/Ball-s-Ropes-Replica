@@ -7,6 +7,8 @@ TagManager:
   - Rope Segment
   - Rope
   - Rope Raycast
+  - Missile
+  - Gun
   layers:
   - Default
   - TransparentFX

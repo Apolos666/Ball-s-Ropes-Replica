@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using Apolos.SO;
 using UnityEngine;
 
 public class GunRecoilZone : MonoBehaviour
 {
+    public Action OnGunCollision;
     [SerializeField] private Transform _gun;
     [SerializeField] private float _gunForce;
     private Vector3 _dirEnterTrigger;
@@ -23,9 +25,10 @@ public class GunRecoilZone : MonoBehaviour
             else
             {
                 yield return null;
-            }
+            }   
             
             rb.AddForce(force, ForceMode.Impulse);
+            OnGunCollision?.Invoke();
             _gun.transform.rotation = Quaternion.Euler(0, 0, -angle);
         }
     }

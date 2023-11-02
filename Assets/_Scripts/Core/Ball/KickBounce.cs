@@ -4,10 +4,11 @@ using Apolos.Core;
 using Apolos.SO;
 using Apolos.System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class KickBounce : MonoBehaviour
 {
-    [SerializeField] private BallEventChannelSO _onBallCollider;
+    [FormerlySerializedAs("_onBallCollider")] [SerializeField] private PointEventChannelSO _onPointCollider;
     [SerializeField] private AudioClip _clip;
     
     [SerializeField] private float _kickStrength = 1.0f;
@@ -56,7 +57,7 @@ public class KickBounce : MonoBehaviour
     {
         if (!hasCollided)
         {
-            if (collision.gameObject.CompareTag("Rope"))
+            if (collision.gameObject.CompareTag("Rope") || collision.gameObject.CompareTag("Gun"))
             {
                 _physicRopes = collision.gameObject.GetComponentInParent<PhysicRopes>();
                 ContactPoint contact = collision.contacts[0];
@@ -164,7 +165,7 @@ public class KickBounce : MonoBehaviour
 
                 // if (!reflectTooCloseRope)
                 // {
-                    _onBallCollider.RaiseEvent(_point, contact.point);
+                    _onPointCollider.RaiseEvent(_point, contact.point);
                 
                     AudioManager.Instance.PlaySound(_clip);
                 // }

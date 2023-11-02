@@ -1,12 +1,13 @@
 using System;
 using Apolos.SO;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Apolos.UI
 {
     public class FundManager : MonoBehaviour
     {
-        [SerializeField] private BallEventChannelSO _onBallCollider;
+        [FormerlySerializedAs("_onBallCollider")] [SerializeField] private PointEventChannelSO _onPointCollider;
         
         private float _currentMoney = 0f;
         public float CurrentMoney
@@ -35,12 +36,12 @@ namespace Apolos.UI
 
         private void OnEnable()
         {
-            _onBallCollider.OnEventRaised += OnBallCollider;
+            _onPointCollider.OnEventRaised += OnBallCollider;
         }
 
         private void OnDisable()
         {
-            _onBallCollider.OnEventRaised -= OnBallCollider;
+            _onPointCollider.OnEventRaised -= OnBallCollider;
         }
 
         private void OnBallCollider(float value, Vector3 vector3)

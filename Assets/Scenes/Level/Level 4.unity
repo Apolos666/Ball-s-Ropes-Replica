@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b94cb8cc569b43a91a0f5eeb8485f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _onPointCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
 --- !u!114 &143753443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,7 +2662,7 @@ MonoBehaviour:
   _floatingTextPrefab: {fileID: 3419419658840909883, guid: eebaaf4ccc1ea4741a4704aaf8136aab, type: 3}
   _defaultCapacity: 200
   _maxSize: 300
-  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _onPointCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
 --- !u!1001 &975864294
 PrefabInstance:
   m_ObjectHideFlags: 0
