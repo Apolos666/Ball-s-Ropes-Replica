@@ -3,12 +3,13 @@ using Apolos.SO;
 using Apolos.System.EventManager;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class RopesSpawner : MonoBehaviour
+public class GeneralSpawner : MonoBehaviour
 {
-    [SerializeField] private VoidEventChannelSO _onNewRopes;
+    [FormerlySerializedAs("_onNewRopes")] [SerializeField] private VoidEventChannelSO _onNewItem;
     [SerializeField] private Transform _target;
-    [SerializeField] private GameObject _ropePrefab;
+    [FormerlySerializedAs("_ropePrefab")] [SerializeField] private GameObject _prefab;
     [SerializeField] private Vector3 _offset = new Vector3(-1, 0, 0);
 
     private void Awake()
@@ -28,12 +29,12 @@ public class RopesSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        _onNewRopes.OnEventRaised += OnEventRaised;
+        _onNewItem.OnEventRaised += OnEventRaised;
     }
 
     private void OnDisable()
     {
-        _onNewRopes.OnEventRaised -= OnEventRaised;
+        _onNewItem.OnEventRaised -= OnEventRaised;
     }
 
     private void Update()
@@ -46,7 +47,7 @@ public class RopesSpawner : MonoBehaviour
 
     private void OnEventRaised()
     {
-        GameObject rope = Instantiate(_ropePrefab, transform.position + _offset, Quaternion.identity, transform);
+        GameObject rope = Instantiate(_prefab, transform.position + _offset, Quaternion.identity, transform);
         rope.transform.DOMove(_target.position + _offset, 1f);
     }
 }

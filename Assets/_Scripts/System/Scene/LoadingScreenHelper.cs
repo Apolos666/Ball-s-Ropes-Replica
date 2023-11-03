@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
+public class LoadingScreenHelper : Singleton<LoadingScreenHelper>, ISetUpGameObject
 {
     [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private Image _loadingBar;
@@ -118,5 +118,15 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>
         }
 
         return false;
+    }
+
+    public void SetUpGameObject()
+    {
+        InitState();
+    }
+
+    private void InitState()
+    {
+        gameObject.SetActive(true);
     }
 }

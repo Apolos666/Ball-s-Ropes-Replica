@@ -948,6 +948,7 @@ MonoBehaviour:
   _setUpGOs:
   - {fileID: 800621407}
   - {fileID: 1448801881}
+  - {fileID: 1579631154}
   _testMapNumber: 4
 --- !u!4 &1448801883
 Transform:
@@ -1032,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1579631155
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using Apolos.System.EventManager;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
@@ -19,6 +20,21 @@ public class Gun : MonoBehaviour
     {
         Init();
         GenerateCircle();
+    }
+
+    private void Start()
+    {
+        EventManager.AddListener("LevelCompleted", SetGameObjectState);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener("LevelCompleted", SetGameObjectState);
+    }
+
+    private void SetGameObjectState()
+    {
+        gameObject.SetActive(false);
     }
 
     private void Init()
