@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a66a03b9b329c04fa05d5bf92b2738b, type: 2}
+    - target: {fileID: 1333816508094342995, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
+      propertyPath: _point
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1971988472657838483, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58,6 +62,10 @@ PrefabInstance:
     - target: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: Point
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
+      propertyPath: _point
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8152409410268844476, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: m_Name

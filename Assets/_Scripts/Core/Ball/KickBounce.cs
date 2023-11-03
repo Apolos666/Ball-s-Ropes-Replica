@@ -17,7 +17,6 @@ public class KickBounce : MonoBehaviour
     [SerializeField] private float _maxVelocityY = 9.12f;
     // [SerializeField] private float _dotProductImpulseThreshold = 0.8f;
     // [SerializeField] private float _timePreventMutiCollider = 0.2f;
-    [SerializeField] private float _point = 5f;
     private Ball _ball;
     
     private Rigidbody _rigidbody;
@@ -74,7 +73,7 @@ public class KickBounce : MonoBehaviour
                     reflectVelocityLimit.y = -reflectVelocityLimit.y * _closeRopeKickStrength;
                 }
                 
-                _onPointCollider.RaiseEvent(_point, contact.point);
+                _onPointCollider.RaiseEvent(_ball.Point, contact.point);
                 
                 AudioManager.Instance.PlaySound(_clip);
                 _contactPoint = contact.point;

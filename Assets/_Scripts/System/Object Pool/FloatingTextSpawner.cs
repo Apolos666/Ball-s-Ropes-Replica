@@ -13,19 +13,20 @@ namespace Apolos.System
         [SerializeField] private FloatingText _floatingTextPrefab;
         [SerializeField] private int _defaultCapacity = 200;
         [SerializeField] private int _maxSize = 300;
-        [FormerlySerializedAs("_onBallCollider")] [SerializeField] private PointEventChannelSO _onPointCollider;
+        [FormerlySerializedAs("_onPointCollider")] [FormerlySerializedAs("_onBallCollider")] 
+        [SerializeField] private PointEventChannelSO _onGetPoint;
 
         private Vector3 _contactPoint;
         private string _money;
 
         private void OnEnable()
         {
-            _onPointCollider.OnEventRaised += OnEventRaised;
+            _onGetPoint.OnEventRaised += OnEventRaised;
         }
 
         private void OnDisable()
         {
-            _onPointCollider.OnEventRaised -= OnEventRaised;
+            _onGetPoint.OnEventRaised -= OnEventRaised;
         }
 
         private void OnEventRaised(float value, Vector3 contactPoint)

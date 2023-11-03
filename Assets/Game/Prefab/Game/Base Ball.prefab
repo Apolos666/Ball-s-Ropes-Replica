@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsRelease: 0
-  Point: 5
+  _point: 5
   _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
   _ballOutSidePipe: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
 --- !u!114 &3828318813659426010
@@ -165,7 +165,6 @@ MonoBehaviour:
   _closeRopeKickStrength: 7.5
   _maxVelocityX: 4.68
   _maxVelocityY: 10
-  _point: 5
   _maxY: 0
   _maxX: 0
 --- !u!96 &6889245017213142415

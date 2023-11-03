@@ -15,8 +15,9 @@ namespace Apolos.Core
         private Rigidbody _rigidbody;
         private ObjectPool<Ball> _pool;
         [HideInInspector] public bool IsRelease;
-        public float Point;
-        
+        [SerializeField] private float _point;
+        public float Point => _point;
+
         [SerializeField] private AudioClip _clip;
         [SerializeField] private PhysicMaterial _ballOutSidePipe;
         
