@@ -339,7 +339,7 @@ public class PhysicRopes : MonoBehaviour
             GameObject segment = new GameObject($"Segment_{i}");
             segment.transform.SetParent(_segmentParent);
             segment.layer = LayerMask.NameToLayer("Segment");
-            segment.tag = "Rope";
+            segment.tag = "Can Gained Point";
 
             Vector3 pos = prevSegment.position + (direction / _segmentCount);
             segment.transform.position = pos;

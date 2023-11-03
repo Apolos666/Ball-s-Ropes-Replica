@@ -9,6 +9,7 @@ TagManager:
   - Rope Raycast
   - Missile
   - Gun
+  - Can Gained Point
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Click to play
   - Portal
   - Gun
-  - 
+  - Game Event
   - 
   - 
   - 

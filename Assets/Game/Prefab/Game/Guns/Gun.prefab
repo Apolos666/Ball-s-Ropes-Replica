@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PointTransform: {fileID: 9088516413369253821}
-  _configNumber: 0.8
+  _configNumber: 1
   _draggable: {fileID: 3888556868274425366}
   _layerPreventTrigger:
     serializedVersion: 2
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 312768120074292403}
   m_Layer: 13
   m_Name: Gun Collider
-  m_TagString: Gun
+  m_TagString: Can Gained Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,7 +485,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 5.3
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4781369505604648442
 MonoBehaviour:

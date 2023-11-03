@@ -27,9 +27,9 @@ public class GunRecoilZone : MonoBehaviour
                 yield return null;
             }   
             
+            _gun.transform.rotation = Quaternion.Euler(0, 0, -angle);
             rb.AddForce(force, ForceMode.Impulse);
             OnGunCollision?.Invoke();
-            _gun.transform.rotation = Quaternion.Euler(0, 0, -angle);
         }
     }
 

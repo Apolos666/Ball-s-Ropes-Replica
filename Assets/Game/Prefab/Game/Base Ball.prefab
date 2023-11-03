@@ -117,7 +117,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 56
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &4165098744427773008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076cf5c872d53ce4bab76f1ded7d5e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityScale: 2
+  _gravityScale: 1
 --- !u!114 &1333816508094342995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,14 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f155ad8fd4df1f42bfa9357ef96a972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onBallCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _onPointCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
   _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
   _kickStrength: 75
   _closeRopeKickStrength: 7.5
   _maxVelocityX: 4.68
   _maxVelocityY: 10
-  _dotProductImpulseThreshold: 0.866
-  _timePreventMutiCollider: 0.1
   _point: 5
   _maxY: 0
   _maxX: 0

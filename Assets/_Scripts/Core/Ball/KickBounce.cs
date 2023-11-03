@@ -57,7 +57,7 @@ public class KickBounce : MonoBehaviour
     {
         if (!hasCollided)
         {
-            if (collision.gameObject.CompareTag("Rope") || collision.gameObject.CompareTag("Gun"))
+            if (collision.gameObject.CompareTag("Can Gained Point"))
             {
                 _physicRopes = collision.gameObject.GetComponentInParent<PhysicRopes>();
                 ContactPoint contact = collision.contacts[0];
