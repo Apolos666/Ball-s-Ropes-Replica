@@ -10,6 +10,8 @@ TagManager:
   - Missile
   - Gun
   - Can Gained Point
+  - Attract Point
+  - GameElement
   layers:
   - Default
   - TransparentFX
@@ -27,8 +29,8 @@ TagManager:
   - Gun
   - Game Event
   - Prop
-  - 
-  - 
+  - Grid
+  - Snap
   - 
   - 
   - 

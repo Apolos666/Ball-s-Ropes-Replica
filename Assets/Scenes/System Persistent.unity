@@ -949,7 +949,7 @@ MonoBehaviour:
   - {fileID: 800621407}
   - {fileID: 1448801881}
   - {fileID: 1579631154}
-  _testMapNumber: 6
+  _testMapNumber: 4
 --- !u!4 &1448801883
 Transform:
   m_ObjectHideFlags: 0

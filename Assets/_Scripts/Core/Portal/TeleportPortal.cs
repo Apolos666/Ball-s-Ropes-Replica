@@ -15,7 +15,7 @@ public class TeleportPortal : MonoBehaviour
         {
             var ballRB = ball.GetComponent<Rigidbody>();
             ball.transform.position = _endSpawnPoint.position;
-            ballRB.velocity = -ballRB.velocity;
+            ballRB.velocity = new Vector3(-ballRB.velocity.x, ballRB.velocity.y);
         }
     }
 }

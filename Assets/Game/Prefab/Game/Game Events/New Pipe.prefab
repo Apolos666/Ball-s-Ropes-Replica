@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 316202897}
   - component: {fileID: 316202898}
   - component: {fileID: 6798976477845318543}
-  m_Layer: 3
+  m_Layer: 17
   m_Name: Collision Avoider
-  m_TagString: Untagged
+  m_TagString: GameElement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.255701, y: 1.151886, z: 1}
-  m_Center: {x: -0.8342643, y: 1.2637608, z: 0}
+  m_Size: {x: 7.772603, y: 0.56969154, z: 1}
+  m_Center: {x: -0.92716825, y: 1.1956315, z: 0}
 --- !u!65 &6798976477845318543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57,8 +57,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.266666, y: 2.0972974, z: 1}
-  m_Center: {x: 2.6552901, y: 0.8645176, z: 0}
+  m_Size: {x: 0.59776247, y: 1.5027161, z: 1}
+  m_Center: {x: 2.6924522, y: 0.72825927, z: 0}
 --- !u!1 &645796169
 GameObject:
   m_ObjectHideFlags: 0

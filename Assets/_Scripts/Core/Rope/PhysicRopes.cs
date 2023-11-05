@@ -141,19 +141,16 @@ public class PhysicRopes : MonoBehaviour
         if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceAllow)
         {
             if (_isAlreadyRopeTooLong) return;
-            print("Rope too long");
             AdjustRope(false, true, false, 50, _ropeTooLongMaterial);
         }
         else if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceShort)
         {
             if (_isAlreadyRopeDefault) return;
             AdjustRope(true, false, false, 25, _ropeDefaultMaterial);
-            print("Rope Default");
         }
         else
         {
             if (_isAlreadyRopeTooShort) return;
-            print("Rope too short");
             AdjustRope(false, false, true, 15, _ropeDefaultMaterial);
         }
     }
