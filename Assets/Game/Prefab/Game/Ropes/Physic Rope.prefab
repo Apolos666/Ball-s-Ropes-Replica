@@ -363,7 +363,7 @@ MonoBehaviour:
   _linearLimitBounce: 0.6
   _usePhysics: 1
   _useGravity: 0
-  _totalWeight: 10
+  _totalWeight: 3
   _drag: 1
   _angularDrag: 1
   _ropeInterpolation: 1
@@ -523,6 +523,7 @@ MonoBehaviour:
   _rotateValue: {x: 0, y: 0, z: 360}
   _rotateMode: 1
   _easeMode: 1
+  _duration: 2
 --- !u!1 &2972581519898409738
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,6 +624,7 @@ MonoBehaviour:
   _rotateValue: {x: 0, y: 0, z: 360}
   _rotateMode: 1
   _easeMode: 1
+  _duration: 2
 --- !u!1 &2972581519901875404
 GameObject:
   m_ObjectHideFlags: 0

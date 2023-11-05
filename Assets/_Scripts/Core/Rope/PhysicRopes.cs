@@ -141,17 +141,20 @@ public class PhysicRopes : MonoBehaviour
         if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceAllow)
         {
             if (_isAlreadyRopeTooLong) return;
+            print("Rope too long");
             AdjustRope(false, true, false, 50, _ropeTooLongMaterial);
         }
         else if (Vector3.Distance(_startRope.position, _endRope.position) > _ropeDistanceShort)
         {
             if (_isAlreadyRopeDefault) return;
-            AdjustRope(true, false, false, 20, _ropeDefaultMaterial);
+            AdjustRope(true, false, false, 25, _ropeDefaultMaterial);
+            print("Rope Default");
         }
         else
         {
             if (_isAlreadyRopeTooShort) return;
-            AdjustRope(false, false, true, 10, _ropeDefaultMaterial);
+            print("Rope too short");
+            AdjustRope(false, false, true, 15, _ropeDefaultMaterial);
         }
     }
 
@@ -415,8 +418,8 @@ public class PhysicRopes : MonoBehaviour
             configurableJoint.yMotion = ConfigurableJointMotion.Limited;
             configurableJoint.zMotion = ConfigurableJointMotion.Limited;
 
-            configurableJoint.angularXMotion = ConfigurableJointMotion.Free;
-            configurableJoint.angularYMotion = ConfigurableJointMotion.Free;
+            configurableJoint.angularXMotion = ConfigurableJointMotion.Limited;
+            configurableJoint.angularYMotion = ConfigurableJointMotion.Limited;
             configurableJoint.angularZMotion = ConfigurableJointMotion.Limited;
 
             SoftJointLimit softJointLimit = new SoftJointLimit
@@ -432,16 +435,9 @@ public class PhysicRopes : MonoBehaviour
             configurableJoint.linearLimit = softJointLimit;
 
             configurableJoint.linearLimitSpring = softJointLimitSpring;
-            
-            configurableJoint.angularZLimit = softJointLimit;
 
-            JointDrive jointDrive = new JointDrive
-            {
-                positionSpring = 0,
-                positionDamper = 0
-            };
-            configurableJoint.angularXDrive = jointDrive;
-            configurableJoint.angularYZDrive = jointDrive;
+            configurableJoint.angularXDrive = new JointDrive() { positionSpring = 0, positionDamper = 0 };
+            configurableJoint.angularYZDrive = new JointDrive() { positionSpring = 0, positionDamper = 0 };
         }
 
     }

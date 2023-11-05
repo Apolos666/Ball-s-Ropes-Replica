@@ -164,7 +164,7 @@ MonoBehaviour:
   _kickStrength: 75
   _closeRopeKickStrength: 7.5
   _maxVelocityX: 4.68
-  _maxVelocityY: 10
+  _maxVelocityY: 7.5
   _maxY: 0
   _maxX: 0
 --- !u!96 &6889245017213142415

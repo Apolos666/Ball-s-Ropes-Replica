@@ -27,16 +27,23 @@ namespace Apolos.Utils
 
         public void AddVertex(Vector3 vertexPosition, Vector2 uv, int vertexIndex)
         {
-            _vertices[vertexIndex] = vertexPosition;
-            _uvs[vertexIndex] = uv;
+            float u = (float)vertexIndex / (_vertices.Length - 1);
+            _vertices[vertexIndex] = vertexPosition; 
+            _uvs[vertexIndex] = new Vector2(u, 0); 
         }
 
+        // public void AddVertex(Vector3 vertexPosition, Vector2 uv, int vertexIndex)
+        // {
+        //     _vertices[vertexIndex] = vertexPosition;
+        //     _uvs[vertexIndex] = uv;
+        // }
+        
         public void AddTriangle(int a, int b, int c)
         {
             _triangles[_triangleIndex] = a;
-            _triangles[_triangleIndex + 1] = b;
+            _triangles[_triangleIndex + 1] = b; 
             _triangles[_triangleIndex + 2] = c;
-            _triangleIndex += 3;
+            _triangleIndex += 3; 
         }
 
         Vector3[] CalculateNormals()

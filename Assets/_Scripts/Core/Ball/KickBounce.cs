@@ -87,26 +87,9 @@ public class KickBounce : MonoBehaviour
             StartCoroutine(ResetCollisionFlag());
         }
     }
-
-    private int DetermineQuadrant(Vector3 movingVector, float dot)
-    {
-        int value;
-        
-        if (dot >= 0)
-        {
-            value = movingVector.y >= 0 ? 1 : 4;
-        }
-        else
-        {
-            value = movingVector.y >= 0 ? 2 : 3;
-        }
-        
-        return value;
-    }
-
+    
     private IEnumerator ResetCollisionFlag()
     {
-        // yield return new WaitForSeconds(_timePreventMutiCollider);
         yield return null;
         hasCollided = false;
     }
@@ -128,21 +111,6 @@ public class KickBounce : MonoBehaviour
 
     private void Update()
     {
-        _lastFramedVelocity = _rigidbody.velocity;
-        
-        if (_rigidbody.velocity.x > _maxX)
-        {
-            _maxX = _rigidbody.velocity.x;
-        }
-        
-        if (_rigidbody.velocity.y > _maxY)
-        {
-            _maxY = _rigidbody.velocity.y;
-        }
-    }
-
-    private void FixedUpdate()
-    {
         if (!_isInPipe)
         {
             _rigidbody.velocity = new Vector3(
@@ -153,6 +121,18 @@ public class KickBounce : MonoBehaviour
         else
         {
             return;
+        }
+        
+        _lastFramedVelocity = _rigidbody.velocity;
+        
+        if (_rigidbody.velocity.x > _maxX)
+        {
+            _maxX = _rigidbody.velocity.x;
+        }
+        
+        if (_rigidbody.velocity.y > _maxY)
+        {
+            _maxY = _rigidbody.velocity.y;
         }
     }
 }
