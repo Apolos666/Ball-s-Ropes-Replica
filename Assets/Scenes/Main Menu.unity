@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 886832602}
   - component: {fileID: 886832604}
   - component: {fileID: 886832603}
+  - component: {fileID: 886832605}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -564,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: <rainb>Shop</rainb>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -641,6 +642,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886832601}
   m_CullTransparentMesh: 1
+--- !u!114 &886832605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886832601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <rainb>Shop</rainb>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &966085461
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +799,7 @@ GameObject:
   - component: {fileID: 1242429600}
   - component: {fileID: 1242429599}
   - component: {fileID: 1242429601}
+  - component: {fileID: 1242429602}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -816,7 +847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap to play
+  m_text: <bounce>Tap to play</bounce>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -825,8 +856,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292006643
-  m_fontColor: {r: 0.9528302, g: 0.8215913, b: 0.8215913, a: 1}
+    rgba: 4292138229
+  m_fontColor: {r: 0.9622642, g: 0.8297259, b: 0.8297259, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -900,12 +931,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242429597}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 594b457360b059343a54998cec3ac22f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _textComponent: {fileID: 1242429599}
+--- !u!114 &1242429602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242429597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <bounce>Tap to play</bounce>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &1360234409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1298,7 @@ GameObject:
   - component: {fileID: 1543214783}
   - component: {fileID: 1543214785}
   - component: {fileID: 1543214784}
+  - component: {fileID: 1543214786}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1285,7 +1346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Challenges
+  m_text: <rainb>Challenges</rainb>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1362,6 +1423,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543214782}
   m_CullTransparentMesh: 1
+--- !u!114 &1543214786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543214782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <rainb>Challenges</rainb>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &1582052390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1670,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 555, y: 975.00006}
-  m_SizeDelta: {x: 724.5065, y: 724.5065}
+  m_SizeDelta: {x: 724.5065, y: 915.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693655114
 MonoBehaviour:
@@ -1849,6 +1939,7 @@ GameObject:
   - component: {fileID: 1889105488}
   - component: {fileID: 1889105490}
   - component: {fileID: 1889105489}
+  - component: {fileID: 1889105491}
   m_Layer: 5
   m_Name: Text Above
   m_TagString: Untagged
@@ -1896,7 +1987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BALLS'N
+  m_text: <wave>BALLS'N<wave>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1973,6 +2064,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889105487}
   m_CullTransparentMesh: 1
+--- !u!114 &1889105491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889105487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <wave>BALLS'N<wave>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &1907048548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2219,7 @@ GameObject:
   - component: {fileID: 1917352104}
   - component: {fileID: 1917352106}
   - component: {fileID: 1917352105}
+  - component: {fileID: 1917352107}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2146,7 +2267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Endless
+  m_text: <rainb>Endless</rainb>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2223,6 +2344,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917352103}
   m_CullTransparentMesh: 1
+--- !u!114 &1917352107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917352103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <rainb>Endless</rainb>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &2026732121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2516,7 @@ GameObject:
   - component: {fileID: 2062937284}
   - component: {fileID: 2062937286}
   - component: {fileID: 2062937285}
+  - component: {fileID: 2062937287}
   m_Layer: 5
   m_Name: Text Above (1)
   m_TagString: Untagged
@@ -2413,7 +2564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROPES
+  m_text: <wave>ROPES</wave>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2490,6 +2641,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062937283}
   m_CullTransparentMesh: 1
+--- !u!114 &2062937287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062937283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: <wave>ROPES</wave>
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 11400000, guid: 499ff4b5d97adb54483ab798f5ae59da, type: 2}
+  databaseAppearances: {fileID: 11400000, guid: 9fb4183c28440f545a4b497fc543baa0, type: 2}
+  databaseActions: {fileID: 11400000, guid: fed97b0f11e5eab469e523c0fe9b9f1b, type: 2}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &2122575538
 GameObject:
   m_ObjectHideFlags: 0
