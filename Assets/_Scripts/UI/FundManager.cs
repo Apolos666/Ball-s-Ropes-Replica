@@ -57,6 +57,16 @@ namespace Apolos.UI
                 EarnedMoney += 1000f;
             }
         }
+
+        public void IncreaseCurrentMoney(float value)
+        {
+            CurrentMoney += value;
+        }
+        
+        public void IncreaseEarnedMoney(float value)
+        {
+            EarnedMoney += value;
+        }
     }
 }
 

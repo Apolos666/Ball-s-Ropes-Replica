@@ -14,4 +14,9 @@ public class Attractor : MonoBehaviour
             _parent.SetActive(false);
         }
     }
+
+    public Transform GetTransformParent()
+    {
+        return _parent.transform;
+    }
 }

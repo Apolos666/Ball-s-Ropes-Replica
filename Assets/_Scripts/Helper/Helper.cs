@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
@@ -54,5 +55,18 @@ public static class Helper
         var srcAngles = Mathf.Rad2Deg * Mathf.Atan2(forwardLimitPos.z - position.z, forwardLimitPos.x - position.x);
 
         return srcAngles;
+    }
+
+    public static void AddIfNotExistsDict<TKey, TValue>(Dictionary<TKey, TValue> dict, TKey key, TValue value)
+    {
+        dict.TryAdd(key, value);
+    }
+
+    public static void PrintDict<TKey, TValue>(Dictionary<TKey, TValue> dict)
+    {
+        foreach (var pair in dict)
+        {
+            Debug.Log($"Key: {pair.Key}, Value: {pair.Value}");
+        }
     }
 }

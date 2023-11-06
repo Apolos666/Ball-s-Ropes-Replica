@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Apolos.System.EventManager;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -18,7 +20,9 @@ public class GenerateGrid : MonoBehaviour
     private float _widthDistance;
     private Vector3[,] _grid;
     [SerializeField] [ReadOnly] private GameObject[,] _attractorGOs;
-    
+    private static Dictionary<Vector3, bool> _occupiedDictionary = new();
+    public static Dictionary<Vector3, bool> GetOccupiedDict => _occupiedDictionary;
+
     private void Awake()
     {
         Init();
@@ -29,11 +33,54 @@ public class GenerateGrid : MonoBehaviour
         SetUp();
         GeneratePoint();
         SetUpAfterGenerate();
+        SetUpEvent();
+    }
+
+    [Button("Show Grid")]
+    private void ShowGrid()
+    {
+        Helper.PrintDict(_occupiedDictionary);
+    }
+
+    private void SetUpEvent()
+    {
+        EventManager.AddListener("LevelCompleted", SetGameObjectState);
+        EventManagerGeneric<Vector3, bool>.AddListener("OnEnterNewAttractPoint", OnEnterAttractPoint);
+        EventManagerGeneric<Vector3, bool>.AddListener("OnSpotOccupied", OnSpotOccupied);
+        EventManager.AddListener("LevelCompleted", ClearDictionary);
+    }
+
+    private void ClearDictionary()
+    {
+        _occupiedDictionary.Clear();
+    }
+
+    private void OnSpotOccupied(Dictionary<Vector3, bool> data)
+    {
+        if (_occupiedDictionary.ContainsKey(data.Keys.First()))
+        {
+            _occupiedDictionary[data.Keys.First()] = data.Values.First();
+        }
+    }
+
+    private void OnEnterAttractPoint(Dictionary<Vector3, bool> data)
+    {
+        if (_occupiedDictionary.ContainsKey(data.Keys.First()))
+        {
+            _occupiedDictionary[data.Keys.First()] = data.Values.First();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveListener("LevelCompleted", SetGameObjectState);
+        EventManagerGeneric<Vector3, bool>.RemoveListener("OnEnterNewAttractPoint", OnEnterAttractPoint);
+        EventManagerGeneric<Vector3, bool>.RemoveListener("OnSpotOccupied", OnSpotOccupied);
+        EventManager.RemoveListener("LevelCompleted", ClearDictionary);
     }
 
     private void SetUpAfterGenerate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, 1.5f);
         _boxCollider.size = new Vector3(_boxCollider.size.x, _boxCollider.size.y, 5f);
     }
 
@@ -50,6 +97,7 @@ public class GenerateGrid : MonoBehaviour
                 var attractorGO = Instantiate(_attractorPrefab, cell, Quaternion.identity, transform);
                 attractorGO.name = $"Attractor Point {x}_{y}";
                 _attractorGOs[x, y] = attractorGO;
+                Helper.AddIfNotExistsDict(_occupiedDictionary, attractorGO.GetComponentInChildren<Attractor>().GetTransformParent().position, false);
             }
         }
     }
@@ -90,19 +138,8 @@ public class GenerateGrid : MonoBehaviour
         Gizmos.DrawWireSphere(_bottomLeftPoint, 0.2f);
         Gizmos.DrawWireSphere(_bottomRightPoint, 0.2f);
     }
-    
-    private void Start()
-    {
-        EventManager.AddListener("LevelCompleted", SetGameObjectState);
-    }
-
     private void SetGameObjectState()
     {
         gameObject.SetActive(false);
-    }
-    
-    private void OnDestroy()
-    {
-        EventManager.RemoveListener("LevelCompleted", SetGameObjectState);
     }
 }

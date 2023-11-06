@@ -806,6 +806,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 408993443110980697}
+        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
+        m_MethodName: OnDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onCancel:
     m_PersistentCalls:
       m_Calls:
@@ -927,6 +939,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7708407018003027069}
+        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
+        m_MethodName: OnDrag
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onCancel:
     m_PersistentCalls:
       m_Calls:
@@ -1000,7 +1024,7 @@ GameObject:
   - component: {fileID: 5705443044248195316}
   - component: {fileID: 7708407018003027069}
   m_Layer: 17
-  m_Name: Snap Attractor
+  m_Name: Snap Attractor End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1048,7 +1072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 2972581521246819395}
   _draggable: {fileID: 2972581521246819407}
-  _notshow: 1
 --- !u!1 &7096964906643342259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1084,7 @@ GameObject:
   - component: {fileID: 2194259799384641633}
   - component: {fileID: 408993443110980697}
   m_Layer: 17
-  m_Name: Snap Attractor
+  m_Name: Snap Attractor Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1109,4 +1132,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 2972581521149035102}
   _draggable: {fileID: 2972581521149035098}
-  _notshow: 0
