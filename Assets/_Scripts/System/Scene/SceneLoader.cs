@@ -12,5 +12,7 @@ public class SceneLoader : MonoBehaviour
         
         LoadingScreenHelper.Instance.CallUnLoadAsyncSceneCoroutine(currentLevel);
         LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine(_loadScene);
+        
+        GenerateGrid.ClearDictionaryGlobal();
     }
 }

@@ -52,12 +52,18 @@ public class CompleteLevelUI : MonoBehaviour, ISetUpGameObject
         return new Vector2(0, rectTransform.anchoredPosition.y);
     }
 
-    private void SetInitState()
+    public void SetInitState()
     {
+        StopMoving();
         gameObject.SetActive(false);
         _backgroundImg.color = _initColor;
         InitPosition(_completeLevel);
         InitPosition(_nextButton);
+    }
+    
+    private void StopMoving()
+    {
+        DOTween.KillAll();
     }
 
     private void InitPosition(RectTransform rectTransform)

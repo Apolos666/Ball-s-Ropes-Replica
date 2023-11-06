@@ -55,6 +55,11 @@ public class GenerateGrid : MonoBehaviour
         _occupiedDictionary.Clear();
     }
 
+    public static void ClearDictionaryGlobal()
+    {
+        _occupiedDictionary.Clear();
+    }
+
     private void OnSpotOccupied(Dictionary<Vector3, bool> data)
     {
         if (_occupiedDictionary.ContainsKey(data.Keys.First()))
