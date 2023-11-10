@@ -46,6 +46,6 @@ public class SnapAttractor : MonoBehaviour
         _draggable.StopMoving();
         _collder.enabled = false;
         EventManagerGeneric<Vector3, bool>.RaiseEvent("OnSpotOccupied", new Dictionary<Vector3, bool>{{_previousAttractPoint, true}});
-        _parent.position = _previousAttractPoint;
+        _parent.position = new Vector3(_previousAttractPoint.x, _previousAttractPoint.y, -1);
     }
 }

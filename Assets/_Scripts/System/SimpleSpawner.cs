@@ -8,7 +8,7 @@ public class SimpleSpawner : MonoBehaviour
 
     private void Awake()
     {
-        InvokeRepeating("SpawnerAfterSec", 2.0f, 5f);
+        // InvokeRepeating("SpawnerAfterSec", 2.0f, 5f);
     }
 
     private void Update()
