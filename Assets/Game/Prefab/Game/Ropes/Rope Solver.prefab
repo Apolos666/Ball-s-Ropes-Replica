@@ -80,20 +80,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d174fab52f0c4b8399f25d5c3ea524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simulateWhenInvisible: 1
+  simulateWhenInvisible: 0
   m_Backend: 1
   parameters:
     mode: 1
     interpolation: 0
     gravity: {x: 0, y: -9.81, z: 0}
-    damping: 0.7
+    damping: 0.3
     maxAnisotropy: 3
-    sleepThreshold: 0.0005
-    collisionMargin: -0.1
-    maxDepenetration: 1
+    sleepThreshold: 0.0001
+    collisionMargin: 0
+    maxDepenetration: 5
     continuousCollisionDetection: 1
-    shockPropagation: 0.512
-    surfaceCollisionIterations: 16
+    shockPropagation: 0
+    surfaceCollisionIterations: 8
     surfaceCollisionTolerance: 0.0005
   gravity: {x: 0, y: -9.81, z: 0}
   gravitySpace: 1
@@ -101,12 +101,12 @@ MonoBehaviour:
   worldAngularInertiaScale: 0
   distanceConstraintParameters:
     evaluationOrder: 1
-    iterations: 6
+    iterations: 4
     SORFactor: 1
     enabled: 1
   bendingConstraintParameters:
     evaluationOrder: 1
-    iterations: 8
+    iterations: 4
     SORFactor: 1
     enabled: 1
   particleCollisionConstraintParameters:
@@ -118,10 +118,10 @@ MonoBehaviour:
     evaluationOrder: 1
     iterations: 1
     SORFactor: 1
-    enabled: 1
+    enabled: 0
   collisionConstraintParameters:
-    evaluationOrder: 1
-    iterations: 12
+    evaluationOrder: 0
+    iterations: 4
     SORFactor: 1
     enabled: 1
   frictionConstraintParameters:
@@ -146,12 +146,12 @@ MonoBehaviour:
     enabled: 0
   tetherConstraintParameters:
     evaluationOrder: 1
-    iterations: 1
+    iterations: 8
     SORFactor: 1
     enabled: 0
   pinConstraintParameters:
     evaluationOrder: 1
-    iterations: 1
+    iterations: 4
     SORFactor: 1
     enabled: 1
   stitchConstraintParameters:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solvers:
   - {fileID: 4677378686261067390}
-  substeps: 8
+  substeps: 6
 --- !u!114 &4677378686261067328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,12 +201,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4677378686261067388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cc4681e6bea74429ccd66f77e63471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceMultiple: 50
+  _forceMultipleFirstCollision: 200
 --- !u!114 &1122912321
 MonoBehaviour:
   m_ObjectHideFlags: 0

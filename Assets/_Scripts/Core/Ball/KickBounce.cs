@@ -38,7 +38,6 @@ public class KickBounce : MonoBehaviour
 
     [SerializeField] private float _maxY;
     [SerializeField] private float _maxX;
-    
 
     private void Awake()
     {

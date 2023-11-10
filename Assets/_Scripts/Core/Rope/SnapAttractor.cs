@@ -24,7 +24,6 @@ public class SnapAttractor : MonoBehaviour
             if (other.TryGetComponent<Attractor>(out var attractor))
             {
                 EventManagerGeneric<Vector3, bool>.RaiseEvent("OnEnterNewAttractPoint", new Dictionary<Vector3, bool> {{_previousAttractPoint, false}});
-                print(_previousAttractPoint);
                 var parentPos = attractor.GetTransformParent().position;
                 if (GenerateGrid.GetOccupiedDict[parentPos])
                 {

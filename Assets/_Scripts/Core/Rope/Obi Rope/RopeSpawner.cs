@@ -46,7 +46,7 @@ public class RopeSpawner : MonoBehaviour
 
     private void OnEventRaised()
     {
-        GameObject rope = Instantiate(_prefab, transform.position + _offset, Quaternion.identity, transform);
+        GameObject rope = Instantiate(_prefab, transform.position + _offset, Quaternion.identity, _target.transform);
         rope.transform.DOMove(_target.position + _offset, 1f);
     }
 }

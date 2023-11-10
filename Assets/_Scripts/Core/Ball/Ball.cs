@@ -22,7 +22,7 @@ namespace Apolos.Core
         [SerializeField] private PhysicMaterial _ballOutSidePipe;
         
         private bool _isCollding = false;
-
+        
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
