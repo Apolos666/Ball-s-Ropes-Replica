@@ -37,4 +37,11 @@ public class RopeResizing : MonoBehaviour
         foreach (var t in _obiRope.solverIndices)
             _obiRope.solver.filters[t] = myFilter;
     }
+
+    public Vector3 GetNormalRope()
+    {
+        var dir = _endPos.position - _startPos.position;
+        var normal = new Vector3(-dir.y, dir.x, 0);
+        return normal.normalized;
+    }
 }

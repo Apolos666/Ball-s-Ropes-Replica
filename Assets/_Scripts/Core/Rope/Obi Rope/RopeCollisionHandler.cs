@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Apolos.Core;
 using Obi;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class RopeCollisionHandler : MonoBehaviour
 {
@@ -34,24 +28,43 @@ public class RopeCollisionHandler : MonoBehaviour
     {
         foreach (var contact in e.contacts)
         {
-            if (contact.distance < 0.001f)
+            if (contact.distance < -0f)
             {
                 var obiCollider = GetColliderBasedOnContact(contact);
                 if (obiCollider != null)
                 {
+                    _currentActor = GetCurrentActor(solver, contact);
+
                     _currentBallrb = obiCollider.GetComponent<Rigidbody>();
-                    ApplyForceToCollider(contact);
+                    ApplyForceToCollider(contact, _currentActor);
                 }
             }
         }
     }
 
-    private void ApplyForceToCollider(Oni.Contact contact)
+    private static ObiSolver.ParticleInActor GetCurrentActor(ObiSolver solver, Oni.Contact contact)
+    {
+        int particleIndex = solver.simplices[contact.bodyA];
+
+        ObiSolver.ParticleInActor pa = solver.particleToActor[particleIndex];
+        return pa;
+    }
+
+    private void ApplyForceToCollider(Oni.Contact contact, ObiSolver.ParticleInActor actor)
     {
         var inDir = _currentBallrb.velocity;
-        var normal = new Vector3(-contact.normal.x, -contact.normal.y, contact.normal.z);
 
-        var reflectForce = Vector3.Reflect(inDir, normal);
+        Vector3 reflectForce = Vector3.zero;
+
+        if (actor != null && actor.actor.TryGetComponent<RopeResizing>(out var ropeResizing))
+        {
+            print(actor.actor.GetInstanceID());
+            var normal = ropeResizing.GetNormalRope();
+            reflectForce = Vector3.Reflect(inDir, normal);
+            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + inDir, Color.red);
+            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + normal, Color.blue);
+            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + reflectForce, Color.green);
+        }
 
         ApplyForceCondition(reflectForce);
     }

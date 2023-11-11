@@ -61,4 +61,4 @@ MonoBehaviour:
   _attractorPrefab: {fileID: 5204224201974958980, guid: 3f2cf17f21b7db8499f0f70da300911f, type: 3}
   _gridCellSizeX: 9
   _gridCellSizeY: 9
-  _cellOffset: 0.3
+  _cellOffset: 0

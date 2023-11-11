@@ -201,12 +201,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4677378686261067388}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0cc4681e6bea74429ccd66f77e63471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceMultipleFirstCollision: 200
+  _forceMultipleFirstCollision: 135
 --- !u!114 &1122912321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   _onNewItem: {fileID: 11400000, guid: 13d966df3da64f64f91c39d94b375bc8, type: 2}
   _target: {fileID: 4677378686236625140}
   _prefab: {fileID: 37686578386705103, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-  _offset: {x: -1, y: 0, z: 0}
+  _offset: {x: 0, y: -0.3, z: 0}
 --- !u!1001 &4642226725083642624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -280,6 +280,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37686578950649830, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
       propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 312054833764479549, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: _onDrag.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 312054833764479549, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: _onCancel.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145664235011060318, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: _onDrag.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2145664235011060318, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: _onCancel.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
