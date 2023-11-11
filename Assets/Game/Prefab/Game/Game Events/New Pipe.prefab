@@ -189,8 +189,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -2.1820607, y: 0.6681421, z: 0}
-    m_Extent: {x: 5.212702, y: 0.7906308, z: 0}
+    m_Center: {x: -2.1760707, y: 0.7311661, z: 0}
+    m_Extent: {x: 5.218692, y: 0.7276067, z: 0}
 --- !u!114 &87067768160151184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,9 +236,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 2.6201198, y: 0.22504176, z: 0}
-      leftTangent: {x: 0.1826315, y: 0.29126394, z: 0}
-      rightTangent: {x: -0.48976636, y: -0.78109205, z: 0}
+    - position: {x: 2.6670213, y: 0.35234514, z: 0}
+      leftTangent: {x: 0.1639266, y: 0.25173268, z: 0}
+      rightTangent: {x: -0.5030947, y: -0.77257335, z: 0}
       mode: 1
       height: 1
       bevelCutoff: 0
@@ -362,8 +362,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.9579515, y: 0.022570545, z: 1}
-  m_Center: {x: -3.6403663, y: 0.48871484, z: 0}
+  m_Size: {x: 9.580415, y: 0.022570523, z: 1}
+  m_Center: {x: -4.9516077, y: 0.48871487, z: 0}
 --- !u!1 &87067769181472684
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.233578, y: 0.022570545, z: 1}
+  m_Size: {x: 7.2335777, y: 0.022570523, z: 1}
   m_Center: {x: -3.5004308, y: 0.48871484, z: 0}
 --- !u!1 &87067769587876179
 GameObject:
@@ -569,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8024206333164611715}
   m_LocalRotation: {x: -0, y: -0, z: -0.28604627, w: 0.95821583}
-  m_LocalPosition: {x: 2.108, y: -0.354, z: 0}
+  m_LocalPosition: {x: 2.152, y: -0.233, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

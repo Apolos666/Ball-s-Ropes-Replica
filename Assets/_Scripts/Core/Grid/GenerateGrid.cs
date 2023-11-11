@@ -4,13 +4,15 @@ using System.Linq;
 using Apolos.System.EventManager;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GenerateGrid : MonoBehaviour
 {
     [SerializeField] private GameObject _attractorPrefab;
     [SerializeField] private int _gridCellSizeX = 10;
     [SerializeField] private int _gridCellSizeY = 10;
-    [SerializeField] private float _cellOffset = 0.5f;
+    [SerializeField] private float _cellOffsetX = 0.5f;
+    [SerializeField] private float _cellOffsetY = 0.5f;
     private BoxCollider _boxCollider;
     private Vector3 _topLeftPoint;
     private Vector3 _topRightPoint;
@@ -98,7 +100,7 @@ public class GenerateGrid : MonoBehaviour
             {
                 if (_attractorGOs[x, y] != null) 
                     Destroy(_attractorGOs[x, y]);
-                var cell = new Vector3((_topLeftPoint.x + (_widthDistance * y)) + _cellOffset, (_topLeftPoint.y - (_heightDistance * x)) - _cellOffset);
+                var cell = new Vector3((_topLeftPoint.x + (_widthDistance * y)) + _cellOffsetX, (_topLeftPoint.y - (_heightDistance * x)) - _cellOffsetY);
                 var attractorGO = Instantiate(_attractorPrefab, cell, Quaternion.identity, transform);
                 attractorGO.name = $"Attractor Point {x}_{y}";
                 _attractorGOs[x, y] = attractorGO;
