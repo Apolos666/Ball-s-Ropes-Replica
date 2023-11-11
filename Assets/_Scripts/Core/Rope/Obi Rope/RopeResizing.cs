@@ -8,6 +8,7 @@ public class RopeResizing : MonoBehaviour
     [SerializeField] private ObiRopeCursor _obiRopeCursor;
     [SerializeField] private Transform _startPos;
     [SerializeField] private Transform _endPos;
+    [SerializeField] private float _ropePrefix = 0.1f;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class RopeResizing : MonoBehaviour
         foreach (var t in _obiRope.solverIndices)
             _obiRope.solver.filters[t] = myFilter;
 
-        _obiRopeCursor.ChangeLength(_obiRope.CalculateLength() - 0.2f);
+        _obiRopeCursor.ChangeLength(_obiRope.CalculateLength() - _ropePrefix);
     }
 
     public void RopeTooLong()

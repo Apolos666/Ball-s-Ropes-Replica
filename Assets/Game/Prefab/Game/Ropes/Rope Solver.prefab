@@ -100,13 +100,13 @@ MonoBehaviour:
   worldLinearInertiaScale: 0
   worldAngularInertiaScale: 0
   distanceConstraintParameters:
-    evaluationOrder: 1
-    iterations: 4
+    evaluationOrder: 0
+    iterations: 1
     SORFactor: 1
     enabled: 1
   bendingConstraintParameters:
-    evaluationOrder: 1
-    iterations: 4
+    evaluationOrder: 0
+    iterations: 1
     SORFactor: 1
     enabled: 1
   particleCollisionConstraintParameters:
@@ -151,7 +151,7 @@ MonoBehaviour:
     enabled: 0
   pinConstraintParameters:
     evaluationOrder: 1
-    iterations: 4
+    iterations: 1
     SORFactor: 1
     enabled: 1
   stitchConstraintParameters:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solvers:
   - {fileID: 4677378686261067390}
-  substeps: 6
+  substeps: 3
 --- !u!114 &4677378686261067328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,22 +280,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37686578950649830, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
       propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 312054833764479549, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: _onDrag.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 312054833764479549, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: _onCancel.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145664235011060318, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: _onDrag.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145664235011060318, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: _onCancel.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []

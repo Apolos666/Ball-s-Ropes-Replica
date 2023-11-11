@@ -44,10 +44,18 @@ public class RopeCollisionHandler : MonoBehaviour
 
     private static ObiSolver.ParticleInActor GetCurrentActor(ObiSolver solver, Oni.Contact contact)
     {
-        int particleIndex = solver.simplices[contact.bodyA];
+        int simplexStart = solver.simplexCounts.GetSimplexStartAndSize(contact.bodyA, out int simplexSize);
 
-        ObiSolver.ParticleInActor pa = solver.particleToActor[particleIndex];
-        return pa;
+        ObiSolver.ParticleInActor actor = null;
+        
+        for (int i = 0; i < simplexSize; ++i)
+        {
+            int particleIndex = solver.simplices[simplexStart + i];
+
+            actor = solver.particleToActor[particleIndex];
+        }
+        
+        return actor;
     }
 
     private void ApplyForceToCollider(Oni.Contact contact, ObiSolver.ParticleInActor actor)
@@ -58,7 +66,6 @@ public class RopeCollisionHandler : MonoBehaviour
 
         if (actor != null && actor.actor.TryGetComponent<RopeResizing>(out var ropeResizing))
         {
-            print(actor.actor.GetInstanceID());
             var normal = ropeResizing.GetNormalRope();
             reflectForce = Vector3.Reflect(inDir, normal);
             Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + inDir, Color.red);
