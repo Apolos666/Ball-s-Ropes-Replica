@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startSpawnPoint: {fileID: 4921478642849022968}
   _endSpawnPoint: {fileID: 6513097074318789680}
+  _forceApplyX: 250
 --- !u!1001 &7906316573733230458
 PrefabInstance:
   m_ObjectHideFlags: 0
