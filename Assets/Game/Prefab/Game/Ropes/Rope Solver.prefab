@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Backend: 1
   parameters:
     mode: 1
-    interpolation: 0
+    interpolation: 1
     gravity: {x: 0, y: -9.81, z: 0}
     damping: 0.3
     maxAnisotropy: 3
@@ -120,8 +120,8 @@ MonoBehaviour:
     SORFactor: 1
     enabled: 0
   collisionConstraintParameters:
-    evaluationOrder: 0
-    iterations: 4
+    evaluationOrder: 1
+    iterations: 8
     SORFactor: 1
     enabled: 1
   frictionConstraintParameters:
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solvers:
   - {fileID: 4677378686261067390}
-  substeps: 3
+  substeps: 2
 --- !u!114 &4677378686261067328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forceMultipleFirstCollision: 130
+  _contactPointEvent: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _contactPointClip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
 --- !u!114 &1122912321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onNewItem: {fileID: 11400000, guid: 13d966df3da64f64f91c39d94b375bc8, type: 2}
+  _defaultMateral: {fileID: 2100000, guid: a128755ffe9af674daf319ec49dd6bc2, type: 2}
   _target: {fileID: 4677378686236625140}
   _prefab: {fileID: 37686578386705103, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
   _offset: {x: 0, y: -0.3, z: 0}

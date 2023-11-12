@@ -149,7 +149,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: ChangeLengthRope
         m_Mode: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: OnCompleteChange
         m_Mode: 1
@@ -340,7 +340,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: ChangeLengthRope
         m_Mode: 1
@@ -367,7 +367,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: OnCompleteChange
         m_Mode: 1
@@ -391,6 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37686578386705104}
+  - component: {fileID: 7373936434862001413}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -405,7 +406,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686578386705103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.525, y: 0.525, z: 0.525}
   m_ConstrainProportionsScale: 1
@@ -416,6 +417,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7373936434862001413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37686578386705103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485183db82fba4c4285613cae72f455c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ropeResizing: {fileID: 3718654540496877704}
 --- !u!1 &37686578950649826
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,11 +733,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e030857b79b23c84b9167856e3d8a873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _normalRope: {fileID: 2100000, guid: 42076a417b32fea46895e51f838a7735, type: 2}
+  _ropeTooLong: {fileID: 2100000, guid: 9c2c2fe82fea59b4b8a906fa78ee8ca0, type: 2}
   _obiRope: {fileID: 37686578950649832}
   _obiRopeCursor: {fileID: 8437143492237769391}
   _startPos: {fileID: 37686577126776638}
   _endPos: {fileID: 37686578127463752}
-  _ropePrefix: 0.1
+  _ropePrefix: 0.2
 --- !u!1 &1197621844487245714
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,9 @@
+using Apolos.Core;
+using Apolos.SO;
+using Apolos.System;
 using Obi;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RopeCollisionHandler : MonoBehaviour
 {
@@ -8,6 +12,8 @@ public class RopeCollisionHandler : MonoBehaviour
     private ObiSolver.ParticleInActor _currentActor;
     private ObiRope _colliderObiRope;
     [SerializeField] private float _forceMultipleFirstCollision;
+    [SerializeField] private PointEventChannelSO _contactPointEvent;
+    [SerializeField] private AudioClip _contactPointClip;
 
     private void Awake()
     {
@@ -31,15 +37,27 @@ public class RopeCollisionHandler : MonoBehaviour
             if (contact.distance < -0f)
             {
                 var obiCollider = GetColliderBasedOnContact(contact);
+                var ball = obiCollider.GetComponent<Ball>();
                 if (obiCollider != null)
                 {
                     _currentActor = GetCurrentActor(solver, contact);
 
                     _currentBallrb = obiCollider.GetComponent<Rigidbody>();
-                    ApplyForceToCollider(contact, _currentActor);
+                    ApplyForceToCollider(contact, _currentActor, solver);
+                    CallContactPointEvent(solver, contact, ball);
                 }
             }
         }
+    }
+
+    private void CallContactPointEvent(ObiSolver solver, Oni.Contact contact, Ball ball)
+    {
+        // Chuyen tu world space sang local space
+        Vector3 pointBWorld = contact.pointB;
+        Vector3 pointBUnity = solver.transform.TransformPoint(pointBWorld);
+
+        _contactPointEvent.RaiseEvent(ball.Point, pointBUnity);
+        AudioManager.Instance.PlaySound(_contactPointClip);
     }
 
     private static ObiSolver.ParticleInActor GetCurrentActor(ObiSolver solver, Oni.Contact contact)
@@ -58,7 +76,7 @@ public class RopeCollisionHandler : MonoBehaviour
         return actor;
     }
 
-    private void ApplyForceToCollider(Oni.Contact contact, ObiSolver.ParticleInActor actor)
+    private void ApplyForceToCollider(Oni.Contact contact, ObiSolver.ParticleInActor actor, ObiSolver solver)
     {
         var inDir = _currentBallrb.velocity;
 
@@ -68,9 +86,12 @@ public class RopeCollisionHandler : MonoBehaviour
         {
             var normal = ropeResizing.GetNormalRope();
             reflectForce = Vector3.Reflect(inDir, normal);
-            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + inDir, Color.red);
-            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + normal, Color.blue);
-            Debug.DrawLine(contact.pointB, (Vector3)contact.pointB + reflectForce, Color.green);
+            // Chuyen tu world space sang local space
+            Vector3 pointBWorld = contact.pointB;
+            Vector3 pointBUnity = solver.transform.TransformPoint(pointBWorld);
+            Debug.DrawLine(pointBUnity, pointBUnity + inDir, Color.red);
+            Debug.DrawLine(pointBUnity, pointBUnity + normal, Color.blue);
+            Debug.DrawLine(pointBUnity, pointBUnity + reflectForce, Color.green);
         }
 
         ApplyForceCondition(reflectForce);

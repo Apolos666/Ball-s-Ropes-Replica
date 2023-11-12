@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1262720744472292035, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: thickness
-      value: -0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1971988472657838483, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
       propertyPath: m_RootOrder

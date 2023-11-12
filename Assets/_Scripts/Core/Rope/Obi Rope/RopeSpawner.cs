@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class RopeSpawner : MonoBehaviour
 {
     [SerializeField] private VoidEventChannelSO _onNewItem;
+    [SerializeField] private Material _defaultMateral;
     [SerializeField] private Transform _target;
     [SerializeField] private GameObject _prefab;
     [SerializeField] private Vector3 _offset = new Vector3(-1, 0, 0);
@@ -18,7 +19,7 @@ public class RopeSpawner : MonoBehaviour
 
     private void SetGameObject()
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -47,6 +48,12 @@ public class RopeSpawner : MonoBehaviour
     private void OnEventRaised()
     {
         GameObject rope = Instantiate(_prefab, transform.position + _offset, Quaternion.identity, _target.transform);
+
+        if (rope.TryGetComponent<RopeRefContainer>(out var ropeRefContainer))
+        {
+            ropeRefContainer.RopeResizing.OnCreateRope(_defaultMateral);
+        }
+
         rope.transform.DOMove(_target.position + _offset, 1f);
     }
 }
