@@ -62,17 +62,18 @@ public class PropWindZone : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private Transform _parent;
     [SerializeField] private float _forceMultiply = 100f;
     [SerializeField] private PointEventChannelSO _onGetPoint;
     [SerializeField] private Transform _pointBlowUp;
     
     private void OnTriggerStay(Collider other)
     {
-        print("Hello 1");
+        var vectorUp = _parent.transform.up;
+        
         if (other.TryGetComponent<Rigidbody>(out var rb))
         {
-            print("Hello");
-            rb.AddForce(Vector3.up * _forceMultiply * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rb.AddForce(vectorUp * _forceMultiply * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
 

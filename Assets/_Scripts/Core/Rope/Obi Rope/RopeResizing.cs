@@ -18,11 +18,18 @@ public class RopeResizing : MonoBehaviour
     [SerializeField] private Transform _endPos;
     [SerializeField] private float _ropePrefix = 0.1f;
 
+    private Vector3 _normalVector;
+
     private void Awake()
     {
         _ropeMeshRenderer = _obiRope.GetComponent<MeshRenderer>();
     }
 
+    private void Update()
+    {
+        _normalVector = GetNormalRope();
+    }
+    
     private void Start()
     {
         var distance = Vector3.Distance(_startPos.position, _endPos.position);
@@ -69,5 +76,11 @@ public class RopeResizing : MonoBehaviour
         var dir = _endPos.position - _startPos.position;
         var normal = new Vector3(-dir.y, dir.x, 0);
         return normal.normalized;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position, transform.position + _normalVector);
     }
 }

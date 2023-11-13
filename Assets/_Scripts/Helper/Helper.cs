@@ -4,6 +4,35 @@ using UnityEngine;
 
 public static class Helper 
 {
+    public static class Vector
+    {
+        public static void Vector3sAreParallel(Vector3 vectorToCompare,ref Vector3 vectorToCheck, Vector3 incomingForceVector)
+        {
+            var compareVectorAndForceVectorDot =
+                Vector3.Dot(vectorToCompare.normalized, incomingForceVector.normalized);
+
+            var compareVectorAndCheckVector = Vector3.Dot(vectorToCompare.normalized, vectorToCheck.normalized);
+
+            if (compareVectorAndForceVectorDot < 0 && compareVectorAndCheckVector < 0)
+            {
+                vectorToCheck = -vectorToCheck;
+                Debug.Log("Reverse Vector");
+            } else if (compareVectorAndForceVectorDot == 0 && compareVectorAndCheckVector == 0)
+            {
+                vectorToCheck = -vectorToCheck;
+                Debug.Log("Reverse Vector");
+            } else if (compareVectorAndForceVectorDot < 0 && compareVectorAndCheckVector > 0)
+            {
+                Debug.Log("Not Reverse Vector: equation{ compareVectorAndForceVectorDot < 0 && compareVectorAndCheckVector > 0 }");
+                return;
+            } else if (compareVectorAndForceVectorDot > 0 && compareVectorAndCheckVector < 0)
+            {
+                Debug.Log("Not Reverse Vector: equation{ compareVectorAndForceVectorDot > 0 && compareVectorAndCheckVector < 0 }");
+                return;
+            }
+        }
+    }
+    
     public static class Angle
     {
         public static float CalculateVector2Angle360Deg(Vector2 a, Vector2 b)

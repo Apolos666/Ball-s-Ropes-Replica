@@ -81,21 +81,29 @@ public class RopeCollisionHandler : MonoBehaviour
         var inDir = _currentBallrb.velocity;
 
         Vector3 reflectForce = Vector3.zero;
-
+        Vector3 normal = Vector3.zero;
+        
         if (actor != null && actor.actor.TryGetComponent<RopeResizing>(out var ropeResizing))
         {
-            var normal = ropeResizing.GetNormalRope();
+            normal = ropeResizing.GetNormalRope();
             reflectForce = Vector3.Reflect(inDir, normal);
-            // Chuyen tu world space sang local space
+
+            #region Draw Line
+
             Vector3 pointBWorld = contact.pointB;
             Vector3 pointBUnity = solver.transform.TransformPoint(pointBWorld);
             Debug.DrawLine(pointBUnity, pointBUnity + inDir, Color.red);
             Debug.DrawLine(pointBUnity, pointBUnity + normal, Color.blue);
             Debug.DrawLine(pointBUnity, pointBUnity + reflectForce, Color.green);
+
+            #endregion
         }
+        
+        Helper.Vector.Vector3sAreParallel(normal, ref reflectForce, inDir);
 
         ApplyForceCondition(reflectForce);
     }
+
 
     private void ApplyForceCondition(Vector3 reflectForce)
     {

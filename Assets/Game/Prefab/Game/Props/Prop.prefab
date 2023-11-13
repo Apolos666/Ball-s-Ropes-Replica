@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db8ea99c2bc68f449e91daaa82f1267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parent: {fileID: 7899023810253116080}
   _forceMultiply: 500
   _onGetPoint: {fileID: 11400000, guid: 4fc4a8b83a4d27049aaa6333b7e73482, type: 2}
   _pointBlowUp: {fileID: 3551008430931976702}
@@ -67,7 +68,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.5055633, z: 1}
+  m_Size: {x: 1, y: 2.5055633, z: 5}
   m_Center: {x: 0, y: 1.1291709, z: 0}
 --- !u!1 &1165416432
 GameObject:
@@ -118,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3051840226210584045
 Transform:
   m_ObjectHideFlags: 0
@@ -267,8 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f150cfc3c71ce644f8b58021265ec5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 7899023810253116080}
+  _parent: {fileID: 0}
   _draggable: {fileID: 0}
+  _snapPositionZ: 0
 --- !u!1 &5954762039563127949
 GameObject:
   m_ObjectHideFlags: 0

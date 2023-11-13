@@ -89,7 +89,7 @@ MonoBehaviour:
     damping: 0.3
     maxAnisotropy: 3
     sleepThreshold: 0.0001
-    collisionMargin: 0
+    collisionMargin: -0.1
     maxDepenetration: 5
     continuousCollisionDetection: 1
     shockPropagation: 0
@@ -239,10 +239,6 @@ PrefabInstance:
       value: Rope
       objectReference: {fileID: 0}
     - target: {fileID: 37686578386705104, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37686578386705104, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -281,10 +277,6 @@ PrefabInstance:
     - target: {fileID: 37686578386705104, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37686578950649830, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

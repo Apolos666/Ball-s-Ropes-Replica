@@ -27,6 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686577126776637}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.432, y: 0, z: -1}
   m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
@@ -36,7 +37,6 @@ Transform:
   - {fileID: 2786912022129254002}
   - {fileID: 3872969250117839200}
   m_Father: {fileID: 37686578386705104}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &37686577126776639
 SpriteRenderer:
@@ -98,8 +98,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686577126776637}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -137,18 +146,6 @@ MonoBehaviour:
   _onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1261563301735563674}
-        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
-        m_MethodName: OnDrag
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: ChangeLengthRope
@@ -161,12 +158,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onCancel:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 1261563301735563674}
         m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
-        m_MethodName: OnPointerUp
+        m_MethodName: OnDrag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -176,9 +170,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onCancel:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 3718654540496877704}
         m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
         m_MethodName: OnCompleteChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1261563301735563674}
+        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
+        m_MethodName: OnPointerUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -218,6 +227,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686578127463751}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.183, y: 0, z: -1}
   m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
@@ -227,7 +237,6 @@ Transform:
   - {fileID: 6956101578819423850}
   - {fileID: 8022069237484878693}
   m_Father: {fileID: 37686578386705104}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &37686578127463753
 SpriteRenderer:
@@ -289,8 +298,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686578127463751}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.49999997
   m_Height: 0.99999994
   m_Direction: 1
@@ -328,9 +346,9 @@ MonoBehaviour:
   _onDrag:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4995543724476298128}
-        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
-        m_MethodName: OnDrag
+      - m_Target: {fileID: 3718654540496877704}
+        m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
+        m_MethodName: ChangeLengthRope
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -340,9 +358,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3718654540496877704}
-        m_TargetAssemblyTypeName: RopeResizing, Assembly-CSharp
-        m_MethodName: ChangeLengthRope
+      - m_Target: {fileID: 4995543724476298128}
+        m_TargetAssemblyTypeName: SnapAttractor, Assembly-CSharp
+        m_MethodName: OnDrag
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -406,7 +424,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686578386705103}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.525, y: 0.525, z: 0.525}
   m_ConstrainProportionsScale: 1
@@ -415,7 +434,6 @@ Transform:
   - {fileID: 37686577126776638}
   - {fileID: 37686578127463752}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7373936434862001413
 MonoBehaviour:
@@ -462,13 +480,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37686578950649826}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37686578386705104}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &37686578950649832
 MonoBehaviour:
@@ -764,13 +782,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197621844487245714}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37686578127463752}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6603931599490769333
 SphereCollider:
@@ -780,9 +798,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197621844487245714}
   m_Material: {fileID: 13400000, guid: eeb80137b00926f4c944f5641b74b10b, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.73
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2556104692532274267
@@ -810,13 +836,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556104692532274267}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02, y: 0, z: 0}
   m_LocalScale: {x: 1.26, y: 1.2605741, z: 1.2917653}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 37686577126776638}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &38382634732014139
 SpriteRenderer:
@@ -911,13 +937,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2941969627129111040}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37686578127463752}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5257188292874708762
 SphereCollider:
@@ -927,9 +953,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2941969627129111040}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4995543724476298128
@@ -946,6 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 37686578127463752}
   _draggable: {fileID: 312054833764479549}
+  _snapPositionZ: -1
 --- !u!1 &5380864037451832288
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,13 +1006,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5380864037451832288}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37686577126776638}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8399520480437969078
 SphereCollider:
@@ -987,9 +1022,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5380864037451832288}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1261563301735563674
@@ -1006,6 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parent: {fileID: 37686577126776638}
   _draggable: {fileID: 2145664235011060318}
+  _snapPositionZ: -1
 --- !u!1 &7574457841560205376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,13 +1075,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7574457841560205376}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02, y: 0, z: 0}
   m_LocalScale: {x: 1.2688142, y: 1.2693999, z: 1.3008142}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 37686578127463752}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7854583000052837447
 SpriteRenderer:
@@ -1131,13 +1175,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7866437985290036299}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 37686577126776638}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &5968926168798273647
 SphereCollider:
@@ -1147,8 +1191,16 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7866437985290036299}
   m_Material: {fileID: 13400000, guid: eeb80137b00926f4c944f5641b74b10b, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.73
   m_Center: {x: 0, y: 0, z: 0}
