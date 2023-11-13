@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Splines;
@@ -8,6 +9,7 @@ public class DraggingButtonAroundCircle : MonoBehaviour, IPointerUpHandler, IPoi
     [SerializeField] private SplineAnimate _splineAnimate;
     private bool _isDragging;
     private Vector3 _parentVector3Down;
+    public Action<float> OnDragging;
 
     private void Awake()
     {
@@ -21,15 +23,14 @@ public class DraggingButtonAroundCircle : MonoBehaviour, IPointerUpHandler, IPoi
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        print("Pointer Down");
         _isDragging = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (!_isDragging) return;
-        var dragPositionWolrd = GameManager.Instance.MainCamera.ScreenToWorldPoint(eventData.position);
-        var currentDir = dragPositionWolrd - _parent.position;
+        var dragPositionWolrd = (Vector2)GameManager.Instance.MainCamera.ScreenToWorldPoint(eventData.position);
+        var currentDir = dragPositionWolrd - (Vector2)_parent.position;
 
         #region Draw Line
 
@@ -42,5 +43,6 @@ public class DraggingButtonAroundCircle : MonoBehaviour, IPointerUpHandler, IPoi
         var convertToLerpFactor = angle / 360f;
 
         _splineAnimate.NormalizedTime = convertToLerpFactor;
+        OnDragging?.Invoke(angle);
     }
 }

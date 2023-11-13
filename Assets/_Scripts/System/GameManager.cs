@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Apolos.System;
 using Apolos.System.EventManager;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>, ISetUpGameObject
@@ -21,10 +22,7 @@ public class GameManager : Singleton<GameManager>, ISetUpGameObject
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            PlayerPrefs.SetString("Level_number", $"Level {_testMapNumber}");
-        }
+        
     }
 
     private void SetUpGameObjects()
@@ -76,5 +74,11 @@ public class GameManager : Singleton<GameManager>, ISetUpGameObject
     {
         Time.timeScale = 1f;
         EventManager.RaiseEvent("OnContinueGame");
+    }
+
+    [Button("Test Level")]
+    public void TestMap()
+    {
+        PlayerPrefs.SetString("Level_number", $"Level {_testMapNumber}");
     }
 }

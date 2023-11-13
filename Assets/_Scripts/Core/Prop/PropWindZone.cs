@@ -68,8 +68,10 @@ public class PropWindZone : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
+        print("Hello 1");
         if (other.TryGetComponent<Rigidbody>(out var rb))
         {
+            print("Hello");
             rb.AddForce(Vector3.up * _forceMultiply * Time.fixedDeltaTime, ForceMode.Acceleration);
         }
     }
