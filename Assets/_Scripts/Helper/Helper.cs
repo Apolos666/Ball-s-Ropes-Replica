@@ -4,6 +4,24 @@ using UnityEngine;
 
 public static class Helper 
 {
+    public static class Angle
+    {
+        public static float CalculateVector2Angle360Deg(Vector2 a, Vector2 b)
+        {
+            a = a.normalized;
+            b = b.normalized;
+
+            float angle = Vector2.SignedAngle(a, b);
+
+            if (angle < 0)
+            {
+                angle += 360f;
+            }
+
+            return angle;
+        }
+    }
+    
     public static int NumberExtractor(string text)
     {
         Regex regex = new Regex(@"\d+");
@@ -70,3 +88,4 @@ public static class Helper
         }
     }
 }
+

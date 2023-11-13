@@ -212,6 +212,9 @@ GameObject:
   - component: {fileID: 3838878379329166686}
   - component: {fileID: 5431424464659620901}
   - component: {fileID: 4744794343721078475}
+  - component: {fileID: 6873134969071822553}
+  - component: {fileID: 3738910663062960498}
+  - component: {fileID: 8082794280891500323}
   m_Layer: 9
   m_Name: Rotation Button
   m_TagString: Untagged
@@ -227,9 +230,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745006681125655221}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.069141135, y: -0.000000044703484, z: -0.00000025331974, w: 0.99760693}
-  m_LocalPosition: {x: -0.00000019283779, y: -0.75000006, z: -0.00000008940696}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: 0.000000059604645, y: 0.000000059604645, z: -0.70710677, w: 0.70710677}
+  m_LocalPosition: {x: -0.75, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7899023810253116080}
@@ -308,7 +311,55 @@ MonoBehaviour:
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 0
   m_ObjectUpAxis: 2
-  m_StartOffset: 0.25
+  m_StartOffset: 0
+--- !u!114 &6873134969071822553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745006681125655221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db356b276d94fd4e972060f496bbf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startOffset: 0.25
+--- !u!135 &3738910663062960498
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745006681125655221}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: -1.1368684e-13, y: 0, z: -0.000000029802322}
+--- !u!114 &8082794280891500323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745006681125655221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d993304b51af1f489dbbe8dbef33cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parent: {fileID: 7899023810253116080}
+  _splineAnimate: {fileID: 4744794343721078475}
 --- !u!1 &4396873484866309437
 GameObject:
   m_ObjectHideFlags: 0
