@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class CustomGravity : MonoBehaviour
 {
-    [SerializeField] [ReadOnly] private float _gravityScale = 1f;
+    [SerializeField] private float _gravityScale = 1f;
 
     public static float GlobalGravity = -9.81f;
 

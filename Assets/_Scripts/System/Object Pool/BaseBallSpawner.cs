@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Apolos.Core;
+using Apolos.System;
 using Apolos.System.EventManager;
 using Unity.Mathematics;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class BaseBallSpawner : MonoBehaviour
     [SerializeField] protected int _ballsPerWave;
     [SerializeField] protected float _ballSpawnRate;
     [SerializeField] private PhysicMaterial _ballInPipe;
+    [SerializeField] protected AudioClip _respawnClip;
     protected List<Ball> _currentBalls = new List<Ball>();
     protected Coroutine _currentCoroutine;
     
@@ -72,7 +74,8 @@ public class BaseBallSpawner : MonoBehaviour
                 {
                     break;
                 }
-
+                
+                AudioManager.Instance.PlaySound(_respawnClip);
                 _currentCoroutine = StartCoroutine(SpawnBallOverTime());
                 break;
             }

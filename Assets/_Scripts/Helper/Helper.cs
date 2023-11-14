@@ -31,6 +31,20 @@ public static class Helper
                 return;
             }
         }
+
+        public static void VectorsSameDirection(Vector3 vectorA,ref Vector3 vectorB)
+        {
+            var dir = Vector3.Dot(vectorA, vectorB);
+
+            if (dir > 0)
+            {
+                vectorB = -vectorB;
+            }
+            else
+            {
+                return;
+            }
+        }
     }
     
     public static class Angle

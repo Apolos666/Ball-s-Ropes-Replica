@@ -722,6 +722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8709000515919699250}
     m_Modifications:
+    - target: {fileID: 616272924, guid: 40f597197ad0aa041bddffa5a12843d5, type: 3}
+      propertyPath: _enterWindZoneClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 19261ba3abe788e4185297b5217f6460, type: 3}
     - target: {fileID: 1234659840933303243, guid: 40f597197ad0aa041bddffa5a12843d5, type: 3}
       propertyPath: _events
       value: 

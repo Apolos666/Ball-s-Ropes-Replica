@@ -15,8 +15,6 @@ public class KickBounce : MonoBehaviour
     [SerializeField] private float _closeRopeKickStrength = 10f;
     [SerializeField] private float _maxVelocityX = 4.68f;
     [SerializeField] private float _maxVelocityY = 9.12f;
-    // [SerializeField] private float _dotProductImpulseThreshold = 0.8f;
-    // [SerializeField] private float _timePreventMutiCollider = 0.2f;
     private Ball _ball;
     
     private Rigidbody _rigidbody;
@@ -31,11 +29,6 @@ public class KickBounce : MonoBehaviour
     private Vector3 _relativeVelocity;
     private Vector3 _reflectVelocity;
 
-    // private Quaternion _bounceBonusDir = Quaternion.Euler(0, 0, 60f);
-    // private Quaternion _bounceBonusDirSameDirection = Quaternion.Euler(0, 0, 120f);
-    // private Quaternion _bounceBonusDirDiffDirection = Quaternion.Euler(0, 0, -120f);
-    // private Quaternion _bounceBonusDirLowAngle = Quaternion.Euler(0, 0, -60f);
-
     [SerializeField] private float _maxY;
     [SerializeField] private float _maxX;
 
@@ -49,42 +42,6 @@ public class KickBounce : MonoBehaviour
     {
         _ball.OnBallPassPipe += () => _isInPipe = false;
         _ball.OnBallReturnPipe += () => _isInPipe = true;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!hasCollided)
-        {
-            if (collision.gameObject.CompareTag("Can Gained Point"))
-            {
-                _physicRopes = collision.gameObject.GetComponentInParent<PhysicRopes>();
-                ContactPoint contact = collision.contacts[0];
-
-                var reflectVelocity = Helper.GetReflectProjectile(_lastFramedVelocity, contact.normal);
-
-                var reflectVelocityLimit = new Vector3(
-                    Mathf.Clamp(reflectVelocity.x, -_maxVelocityX, _maxVelocityX),
-                    Mathf.Clamp(reflectVelocity.y, -_maxVelocityY, _maxVelocityY)
-                );;
-
-                if (reflectVelocityLimit.normalized.y < 0 && contact.normal.y > 0)
-                {
-                    reflectVelocityLimit.y = -reflectVelocityLimit.y * _closeRopeKickStrength;
-                }
-                
-                _onPointCollider.RaiseEvent(_ball.Point, contact.point);
-                
-                AudioManager.Instance.PlaySound(_clip);
-                _contactPoint = contact.point;
-                _reflectVelocity = reflectVelocity;
-                
-                _rigidbody.velocity = reflectVelocityLimit * _kickStrength * Time.fixedDeltaTime;
-            }
-            
-            hasCollided = true;
-            
-            StartCoroutine(ResetCollisionFlag());
-        }
     }
     
     private IEnumerator ResetCollisionFlag()
@@ -120,18 +77,6 @@ public class KickBounce : MonoBehaviour
         else
         {
             return;
-        }
-        
-        _lastFramedVelocity = _rigidbody.velocity;
-        
-        if (_rigidbody.velocity.x > _maxX)
-        {
-            _maxX = _rigidbody.velocity.x;
-        }
-        
-        if (_rigidbody.velocity.y > _maxY)
-        {
-            _maxY = _rigidbody.velocity.y;
         }
     }
 }

@@ -20,8 +20,8 @@ namespace Apolos.Core
 
         [SerializeField] private AudioClip _clip;
         [SerializeField] private PhysicMaterial _ballOutSidePipe;
-        
-        private bool _isCollding = false;
+        [SerializeField] private float _maxVelocityX = 4f;
+        [SerializeField] private float _maxVelocityY = 8f;
         
         private void Awake()
         {
@@ -47,6 +47,14 @@ namespace Apolos.Core
                 gameObject.layer = LayerMask.NameToLayer("Ball");
                 OnBallPassPipe?.Invoke();
             }
+        }
+
+        private void Update()
+        {
+            _rigidbody.velocity = new Vector3(
+                Mathf.Clamp(_rigidbody.velocity.x, -_maxVelocityX, _maxVelocityX),
+                Mathf.Clamp(_rigidbody.velocity.y, -_maxVelocityY, _maxVelocityY),
+                0f);
         }
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Can Gained Point
   - Attract Point
   - GameElement
+  - Ball
   layers:
   - Default
   - TransparentFX

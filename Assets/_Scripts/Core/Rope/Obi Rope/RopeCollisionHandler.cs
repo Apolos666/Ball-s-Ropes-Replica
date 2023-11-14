@@ -1,3 +1,4 @@
+using System;
 using Apolos.Core;
 using Apolos.SO;
 using Apolos.System;
@@ -14,6 +15,16 @@ public class RopeCollisionHandler : MonoBehaviour
     [SerializeField] private float _forceMultipleFirstCollision;
     [SerializeField] private PointEventChannelSO _contactPointEvent;
     [SerializeField] private AudioClip _contactPointClip;
+
+    #region  "Force"
+
+    private Vector3 _inDirForce = Vector3.zero;
+    private Vector3 _normal = Vector3.zero;
+    private Vector3 _reflectForce = Vector3.zero;
+    private Vector3 _contactPoint = Vector3.zero;
+    private float _forceAmount = 0f;
+    
+    #endregion
 
     private void Awake()
     {
@@ -34,7 +45,7 @@ public class RopeCollisionHandler : MonoBehaviour
     {
         foreach (var contact in e.contacts)
         {
-            if (contact.distance < -0f)
+            if (contact.distance < 0f)
             {
                 var obiCollider = GetColliderBasedOnContact(contact);
                 var ball = obiCollider.GetComponent<Ball>();
@@ -46,6 +57,8 @@ public class RopeCollisionHandler : MonoBehaviour
                     ApplyForceToCollider(contact, _currentActor, solver);
                     CallContactPointEvent(solver, contact, ball);
                 }
+
+                break;
             }
         }
     }
@@ -78,34 +91,29 @@ public class RopeCollisionHandler : MonoBehaviour
 
     private void ApplyForceToCollider(Oni.Contact contact, ObiSolver.ParticleInActor actor, ObiSolver solver)
     {
-        var inDir = _currentBallrb.velocity;
+        _inDirForce = _currentBallrb.velocity;
 
-        Vector3 reflectForce = Vector3.zero;
-        Vector3 normal = Vector3.zero;
-        
         if (actor != null && actor.actor.TryGetComponent<RopeResizing>(out var ropeResizing))
         {
-            normal = ropeResizing.GetNormalRope();
-            reflectForce = Vector3.Reflect(inDir, normal);
+            _normal = ropeResizing.GetNormalRope();
+            Helper.Vector.VectorsSameDirection(_inDirForce, ref _normal);
+            _reflectForce = Vector3.Reflect(_inDirForce, _normal);
 
             #region Draw Line
 
             Vector3 pointBWorld = contact.pointB;
             Vector3 pointBUnity = solver.transform.TransformPoint(pointBWorld);
-            Debug.DrawLine(pointBUnity, pointBUnity + inDir, Color.red);
-            Debug.DrawLine(pointBUnity, pointBUnity + normal, Color.blue);
-            Debug.DrawLine(pointBUnity, pointBUnity + reflectForce, Color.green);
+
+            _contactPoint = pointBUnity;
 
             #endregion
         }
-        
-        Helper.Vector.Vector3sAreParallel(normal, ref reflectForce, inDir);
 
-        ApplyForceCondition(reflectForce);
+        ApplyForceCondition(_reflectForce);
     }
 
 
-    private void ApplyForceCondition(Vector3 reflectForce)
+    private void ApplyForceCondition(Vector3 reflectForce)  
     {
         _currentBallrb.velocity = reflectForce * (_forceMultipleFirstCollision * Time.fixedDeltaTime);
     }  
@@ -114,5 +122,12 @@ public class RopeCollisionHandler : MonoBehaviour
     {
         var obiCollider = ObiColliderWorld.GetInstance().colliderHandles[contact.bodyB].owner;
         return obiCollider;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(_contactPoint, _contactPoint + _inDirForce, Color.red);
+        Debug.DrawLine(_contactPoint, _contactPoint + _normal, Color.blue);
+        Debug.DrawLine(_contactPoint, _contactPoint + _reflectForce, Color.green);
     }
 }

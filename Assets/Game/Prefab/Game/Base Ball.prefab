@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 1283911870433175483}
   - component: {fileID: 7524796676478287546}
   - component: {fileID: 1672244102490903044}
+  - component: {fileID: 6889245017213142415}
   - component: {fileID: 4165098744427773008}
   - component: {fileID: 3828318813659426010}
-  - component: {fileID: 1333816508094342995}
-  - component: {fileID: 6889245017213142415}
   - component: {fileID: -1262720744472292035}
   - component: {fileID: -8302113517063150661}
   m_Layer: 0
@@ -33,13 +32,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8152409410268844476}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.32, y: -1.46, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3840934388450736093
 MeshFilter:
@@ -99,9 +98,17 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8152409410268844476}
   m_Material: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1672244102490903044
@@ -111,67 +118,29 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8152409410268844476}
-  serializedVersion: 2
+  serializedVersion: 4
   m_Mass: 5
   m_Drag: 1
   m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 56
   m_CollisionDetection: 1
---- !u!114 &4165098744427773008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152409410268844476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ab798404c2f7d47a5ad64d4ab43444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRelease: 0
-  _point: 5
-  _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
-  _ballOutSidePipe: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
---- !u!114 &3828318813659426010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152409410268844476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076cf5c872d53ce4bab76f1ded7d5e77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gravityScale: 1
---- !u!114 &1333816508094342995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152409410268844476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f155ad8fd4df1f42bfa9357ef96a972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _onPointCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
-  _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
-  _kickStrength: 75
-  _closeRopeKickStrength: 7.5
-  _maxVelocityX: 4.68
-  _maxVelocityY: 7.5
-  _maxY: 0
-  _maxX: 0
 --- !u!96 &6889245017213142415
 TrailRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -212,6 +181,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.1
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -266,17 +236,52 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
+  m_ApplyActiveColorSpace: 0
+--- !u!114 &4165098744427773008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152409410268844476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ab798404c2f7d47a5ad64d4ab43444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRelease: 0
+  _point: 5
+  _clip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
+  _ballOutSidePipe: {fileID: 13400000, guid: 7722a2c9ba6858a47803f29c29431a94, type: 2}
+  _maxVelocityX: 6
+  _maxVelocityY: 8
+--- !u!114 &3828318813659426010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152409410268844476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076cf5c872d53ce4bab76f1ded7d5e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gravityScale: 1
 --- !u!114 &-1262720744472292035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +298,7 @@ MonoBehaviour:
   material: {fileID: 11400000, guid: dc52db3f9f180854ea056d038aa35322, type: 2}
   filter: -32768
   m_SourceCollider: {fileID: 7524796676478287546}
-  m_DistanceField: {fileID: 0}
+  m_DistanceField: {fileID: 11400000, guid: 198677d466bc9304282c02dffd02b375, type: 2}
 --- !u!114 &-8302113517063150661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,4 +311,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kinematicForParticles: 0
+  kinematicForParticles: 1

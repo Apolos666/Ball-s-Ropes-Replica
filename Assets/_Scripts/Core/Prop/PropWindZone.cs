@@ -1,9 +1,8 @@
 using System;
 using Apolos.Core;
 using Apolos.SO;
-using Sirenix.OdinInspector;
+using Apolos.System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PropWindZone : MonoBehaviour
 {
@@ -62,6 +61,7 @@ public class PropWindZone : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private AudioClip _enterWindZoneClip;
     [SerializeField] private Transform _parent;
     [SerializeField] private float _forceMultiply = 100f;
     [SerializeField] private PointEventChannelSO _onGetPoint;
@@ -84,6 +84,7 @@ public class PropWindZone : MonoBehaviour
             if (other.TryGetComponent<Ball>(out var ball))
             {
                 var point = ball.Point;
+                AudioManager.Instance.PlaySound(_enterWindZoneClip);
                 _onGetPoint.RaiseEvent(point, _pointBlowUp.position);
             }
         }

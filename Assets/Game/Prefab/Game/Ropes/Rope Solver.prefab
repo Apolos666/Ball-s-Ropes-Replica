@@ -86,10 +86,10 @@ MonoBehaviour:
     mode: 1
     interpolation: 1
     gravity: {x: 0, y: -9.81, z: 0}
-    damping: 0.3
+    damping: 0.498
     maxAnisotropy: 3
     sleepThreshold: 0.0001
-    collisionMargin: -0.1
+    collisionMargin: -0.05
     maxDepenetration: 5
     continuousCollisionDetection: 1
     shockPropagation: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   worldAngularInertiaScale: 0
   distanceConstraintParameters:
     evaluationOrder: 0
-    iterations: 1
+    iterations: 2
     SORFactor: 1
     enabled: 1
   bendingConstraintParameters:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cc4681e6bea74429ccd66f77e63471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forceMultipleFirstCollision: 110
+  _forceMultipleFirstCollision: 100
   _contactPointEvent: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
   _contactPointClip: {fileID: 8300000, guid: 7213d1c80bc70824790111cc445f8a55, type: 3}
 --- !u!114 &1122912321
@@ -277,6 +277,18 @@ PrefabInstance:
     - target: {fileID: 37686578386705104, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37686578950649831, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a128755ffe9af674daf319ec49dd6bc2, type: 2}
+    - target: {fileID: 7201234421427500445, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955094321152260514, guid: 04d4a4c37f887974ea65c187bd133e74, type: 3}
+      propertyPath: m_Radius
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

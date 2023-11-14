@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5649695506592515767
 Transform:
   m_ObjectHideFlags: 0
@@ -627,7 +627,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.3
+  m_Radius: 3.5
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &4781369505604648442
 MonoBehaviour:
@@ -641,5 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3acb365b1c18fe43ad7a58a7d13a82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onPointCollider: {fileID: 11400000, guid: 3dab3da346c00ce459fa70298ad5b428, type: 2}
+  _gunClip: {fileID: 8300000, guid: c7bf7ecae6e75824a885f229c8b68ef5, type: 3}
   _gun: {fileID: 9088516413369253821}
-  _gunForce: 950
+  _gunForce: 3000
