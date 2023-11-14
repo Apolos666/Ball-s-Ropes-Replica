@@ -20,11 +20,6 @@ public class GameManager : Singleton<GameManager>, ISetUpGameObject
         SetUpGameObjects();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void SetUpGameObjects()
     {
         foreach (var setUpGO in _setUpGOs)
@@ -36,7 +31,7 @@ public class GameManager : Singleton<GameManager>, ISetUpGameObject
                 setUpGOInterface.SetUpGameObject();
             }
         }
-    }
+    }   
     
     public void SetUpGameObject()
     {

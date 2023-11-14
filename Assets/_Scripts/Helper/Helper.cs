@@ -6,6 +6,13 @@ public static class Helper
 {
     public static class Vector
     {
+        public static Vector3 GetNormalVector(Transform startPos, Transform endPos)
+        {
+            var dir = endPos.position - startPos.position;
+            var normal = new Vector3(-dir.y, dir.x, 0);
+            return normal.normalized;
+        }
+        
         public static void Vector3sAreParallel(Vector3 vectorToCompare,ref Vector3 vectorToCheck, Vector3 incomingForceVector)
         {
             var compareVectorAndForceVectorDot =
