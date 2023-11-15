@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlowingLeaves
       objectReference: {fileID: 0}
+    - target: {fileID: 134260, guid: a9bb5993776894d459f46527006acc6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 435618, guid: a9bb5993776894d459f46527006acc6b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -328,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 8230777637882659895, guid: 88179aca41685f147b9a90847294be4a, type: 3}
       propertyPath: m_Name
       value: Generate Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8230777637882659895, guid: 88179aca41685f147b9a90847294be4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -700,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &143753438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,9 +1123,9 @@ RectTransform:
   - {fileID: 2074727611}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 840.83704, y: -2124.696}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211711911
@@ -1390,7 +1398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &263298364
 Transform:
   m_ObjectHideFlags: 0
@@ -2726,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &972800317
 Transform:
   m_ObjectHideFlags: 0
@@ -2809,6 +2817,10 @@ PrefabInstance:
     - target: {fileID: 4677378686261067388, guid: ae1cbdea838a7a54e9412aa377ace657, type: 3}
       propertyPath: m_Name
       value: Rope Solver
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677378686261067388, guid: ae1cbdea838a7a54e9412aa377ace657, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4677378686261067391, guid: ae1cbdea838a7a54e9412aa377ace657, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2898,9 +2910,9 @@ RectTransform:
   - {fileID: 1725777999}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -2124.696}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154193175
@@ -3512,7 +3524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1294324735
 Transform:
   m_ObjectHideFlags: 0
@@ -4469,7 +4481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1810333220
 Transform:
   m_ObjectHideFlags: 0
@@ -4675,7 +4687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1924519602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4924,7 +4936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2079013116
 Transform:
   m_ObjectHideFlags: 0
@@ -5069,9 +5081,9 @@ RectTransform:
   - {fileID: 937609404}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 239.16301, y: -2124.696}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125846072
@@ -5459,6 +5471,10 @@ PrefabInstance:
     - target: {fileID: 87067768160151187, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
       propertyPath: m_Name
       value: Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 87067768160151187, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

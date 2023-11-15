@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MainMenuCanvas : MonoBehaviour
+public class SetUpCameraToCanvas : MonoBehaviour
 {
     private Canvas _canvas;
     

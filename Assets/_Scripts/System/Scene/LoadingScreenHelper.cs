@@ -69,7 +69,7 @@ public class LoadingScreenHelper : Singleton<LoadingScreenHelper>, ISetUpGameObj
         
         EventManager.RaiseEvent("LoadingSceneComplete");
 
-        if (sceneName == "Main Menu")
+        if (sceneName == "Main Menu New")
         {
             EventManager.RaiseEvent("LoadingToMainMenu");
         }

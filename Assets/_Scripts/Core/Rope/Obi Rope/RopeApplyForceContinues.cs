@@ -22,7 +22,7 @@ public class RopeApplyForceContinues : MonoBehaviour
     {
         foreach (var contact in e.contacts)
         {
-            if (contact.distance < 0)
+            if (contact.distance < 0.01)
             {
                 var obiCollider = ObiColliderWorld.GetInstance().colliderHandles[contact.bodyB].owner;
 
@@ -34,6 +34,5 @@ public class RopeApplyForceContinues : MonoBehaviour
                 break;
             }
         }
-        
     }
 }
