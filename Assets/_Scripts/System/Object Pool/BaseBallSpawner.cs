@@ -7,20 +7,22 @@ using Apolos.System.EventManager;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 public class BaseBallSpawner : MonoBehaviour
 {
-    protected ObjectPool<Ball> _pool;
+    protected ObjectPool<BallOld> _pool;
     
+    [FormerlySerializedAs("_ball")]
     [Header("Spawner setting")]
-    [SerializeField] protected Ball _ball;
+    [SerializeField] protected BallOld BallOld;
     [SerializeField] protected int _defaultCapacity = 10;
     [SerializeField] protected int _maxSize = 20;
     [SerializeField] protected int _ballsPerWave;
     [SerializeField] protected float _ballSpawnRate;
     [SerializeField] private PhysicMaterial _ballInPipe;
     [SerializeField] protected AudioClip _respawnClip;
-    protected List<Ball> _currentBalls = new List<Ball>();
+    protected List<BallOld> _currentBalls = new List<BallOld>();
     protected Coroutine _currentCoroutine;
     
     private bool IsResetSpawner = true;
@@ -31,7 +33,7 @@ public class BaseBallSpawner : MonoBehaviour
 
     protected void Awake()
     {
-        _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, true, _defaultCapacity, _maxSize);
+        _pool = new ObjectPool<BallOld>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, true, _defaultCapacity, _maxSize);
         EventManager.AddListener("LevelCompleted", () => _isCompleteLevel = true);
     }
 
@@ -99,36 +101,36 @@ public class BaseBallSpawner : MonoBehaviour
         StartCoroutine(SpawnBallOverTime());
     }
     
-    private void OnDestroyBall(Ball ball)
+    private void OnDestroyBall(BallOld ballOld)
     {
-        Destroy(ball.gameObject);
+        Destroy(ballOld.gameObject);
     }
 
-    private void OnReturnBallToPool(Ball ball)
+    private void OnReturnBallToPool(BallOld ballOld)
     {
-        ball.gameObject.layer = LayerMask.NameToLayer("Default");
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.GetComponent<Collider>().sharedMaterial = _ballInPipe;
-        ball.transform.position = transform.position;
-        ball.transform.rotation = quaternion.identity;
-        ball.GetComponent<TrailRenderer>().Clear();
-        ball.gameObject.SetActive(false);
+        ballOld.gameObject.layer = LayerMask.NameToLayer("Default");
+        ballOld.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        ballOld.GetComponent<Collider>().sharedMaterial = _ballInPipe;
+        ballOld.transform.position = transform.position;
+        ballOld.transform.rotation = quaternion.identity;
+        ballOld.GetComponent<TrailRenderer>().Clear();
+        ballOld.gameObject.SetActive(false);
     }
 
-    private void OnTakeBallFromPool(Ball ball)
+    private void OnTakeBallFromPool(BallOld ballOld)
     {
-        ball.IsRelease = false;
-        ball.GetComponent<TrailRenderer>().enabled = true;
+        ballOld.IsRelease = false;
+        ballOld.GetComponent<TrailRenderer>().enabled = true;
         
-        ball.gameObject.SetActive(true);
+        ballOld.gameObject.SetActive(true);
     }
 
-    private Ball CreateBall()   
+    private BallOld CreateBall()   
     {
-        Ball ball = Instantiate(_ball, transform.position, Quaternion.identity, transform);
+        BallOld ballOld = Instantiate(BallOld, transform.position, Quaternion.identity, transform);
         
-        ball.SetPool(_pool);
+        ballOld.SetPool(_pool);
         
-        return ball;
+        return ballOld;
     }
 }

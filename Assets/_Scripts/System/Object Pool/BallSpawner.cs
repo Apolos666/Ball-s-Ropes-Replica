@@ -7,12 +7,14 @@ using Apolos.SO;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Serialization;
 
 public class BallSpawner : MonoBehaviour
 {
-    private ObjectPool<Ball> _pool;
+    private ObjectPool<BallOld> _pool;
+    [FormerlySerializedAs("_ball")]
     [Header("Spawner setting")]
-    [SerializeField] private Ball _ball;
+    [SerializeField] private BallOld _ballOld;
     [SerializeField] private int _defaultCapacity = 10;
     [SerializeField] private int _maxSize = 20;
     [SerializeField] private int _ballsPerWave;
@@ -22,7 +24,7 @@ public class BallSpawner : MonoBehaviour
     [SerializeField] private VoidEventChannelSO _onAddBall;
     [SerializeField] private VoidEventChannelSO _onMergeBall;
 
-    private List<Ball> _currentBalls = new List<Ball>();
+    private List<BallOld> _currentBalls = new List<BallOld>();
     private Coroutine _currentCoroutine;
     private int Count;
     private bool IsResetSpawner = true;
@@ -31,7 +33,7 @@ public class BallSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new ObjectPool<Ball>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, false, _defaultCapacity, _maxSize);
+        _pool = new ObjectPool<BallOld>(CreateBall, OnTakeBallFromPool, OnReturnBallToPool, OnDestroyBall, false, _defaultCapacity, _maxSize);
     }
 
     private void Start()
@@ -107,32 +109,32 @@ public class BallSpawner : MonoBehaviour
         }
     }
 
-    private void OnDestroyBall(Ball ball)
+    private void OnDestroyBall(BallOld ballOld)
     {
-        Destroy(ball.gameObject);
+        Destroy(ballOld.gameObject);
     }
 
-    private void OnReturnBallToPool(Ball ball)
+    private void OnReturnBallToPool(BallOld ballOld)
     {
-        ball.gameObject.SetActive(false);
+        ballOld.gameObject.SetActive(false);
     }
 
-    private void OnTakeBallFromPool(Ball ball)
+    private void OnTakeBallFromPool(BallOld ballOld)
     {
-        ball.transform.position = transform.position;
-        ball.transform.rotation = quaternion.identity;
-        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        ball.IsRelease = false;
+        ballOld.transform.position = transform.position;
+        ballOld.transform.rotation = quaternion.identity;
+        ballOld.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        ballOld.IsRelease = false;
         
-        ball.gameObject.SetActive(true);
+        ballOld.gameObject.SetActive(true);
     }
 
-    private Ball CreateBall()   
+    private BallOld CreateBall()   
     {
-        Ball ball = Instantiate(_ball, transform.position, Quaternion.identity, transform);
+        BallOld ballOld = Instantiate(_ballOld, transform.position, Quaternion.identity, transform);
         
-        ball.SetPool(_pool);
+        ballOld.SetPool(_pool);
         
-        return ball;
+        return ballOld;
     }
 }

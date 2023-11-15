@@ -9,7 +9,7 @@ public class TeleportPortal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var ball = other.gameObject.GetComponent<Ball>();
+        var ball = other.gameObject.GetComponent<BallOld>();
         if (ball != null)
         {
             var ballRB = ball.GetComponent<Rigidbody>();

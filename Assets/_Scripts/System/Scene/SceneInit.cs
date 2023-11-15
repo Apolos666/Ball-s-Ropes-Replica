@@ -13,7 +13,7 @@ public class
         // load all scenes
         for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            if (!SceneManager.GetSceneByName("Main Menu").IsValid())
+            if (!SceneManager.GetSceneByName("Main Menu New").IsValid())
             {
                 LoadRequirementScene();
                 break;
@@ -23,7 +23,7 @@ public class
 
     private void LoadRequirementScene()
     {
-        LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Main Menu"); 
+        LoadingScreenHelper.Instance.CallLoadAsyncSceneCoroutine("Main Menu New"); 
 
         _sceneLoadedTask.SetResult(true);
     }

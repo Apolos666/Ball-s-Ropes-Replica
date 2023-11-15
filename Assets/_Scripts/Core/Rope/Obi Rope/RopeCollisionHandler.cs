@@ -48,7 +48,7 @@ public class RopeCollisionHandler : MonoBehaviour
             if (contact.distance < 0f)
             {
                 var obiCollider = GetColliderBasedOnContact(contact);
-                var ball = obiCollider.GetComponent<Ball>();
+                var ball = obiCollider.GetComponent<BallOld>();
                 if (obiCollider != null)
                 {
                     _currentActor = GetCurrentActor(solver, contact);
@@ -63,13 +63,13 @@ public class RopeCollisionHandler : MonoBehaviour
         }
     }
 
-    private void CallContactPointEvent(ObiSolver solver, Oni.Contact contact, Ball ball)
+    private void CallContactPointEvent(ObiSolver solver, Oni.Contact contact, BallOld ballOld)
     {
         // Chuyen tu world space sang local space
         Vector3 pointBWorld = contact.pointB;
         Vector3 pointBUnity = solver.transform.TransformPoint(pointBWorld);
 
-        _contactPointEvent.RaiseEvent(ball.Point, pointBUnity);
+        _contactPointEvent.RaiseEvent(ballOld.Point, pointBUnity);
         AudioManager.Instance.PlaySound(_contactPointClip);
     }
 
@@ -96,7 +96,7 @@ public class RopeCollisionHandler : MonoBehaviour
         if (actor != null && actor.actor.TryGetComponent<RopeResizing>(out var ropeResizing))
         {
             _normal = ropeResizing.GetNormalRope();
-            Helper.Vector.VectorsSameDirection(_inDirForce, ref _normal);
+            // Helper.Vector.VectorsSameDirection(_inDirForce, ref _normal);
             _reflectForce = Vector3.Reflect(_inDirForce, _normal);
 
             #region Draw Line

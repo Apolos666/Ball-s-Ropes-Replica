@@ -81,7 +81,7 @@ public class PropWindZone : MonoBehaviour
     {
         if (other.TryGetComponent<Rigidbody>(out var rb))
         {
-            if (other.TryGetComponent<Ball>(out var ball))
+            if (other.TryGetComponent<BallOld>(out var ball))
             {
                 var point = ball.Point;
                 AudioManager.Instance.PlaySound(_enterWindZoneClip);

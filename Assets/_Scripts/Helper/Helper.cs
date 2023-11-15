@@ -39,9 +39,9 @@ public static class Helper
             }
         }
 
-        public static void VectorsSameDirection(Vector3 vectorA,ref Vector3 vectorB)
+        public static void VectorsSameDirection(Vector2 vectorA,ref Vector2 vectorB)
         {
-            var dir = Vector3.Dot(vectorA, vectorB);
+            var dir = Vector2.Dot(vectorA, vectorB);
 
             if (dir > 0)
             {

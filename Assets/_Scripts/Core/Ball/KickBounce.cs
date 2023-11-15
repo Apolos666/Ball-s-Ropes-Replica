@@ -15,7 +15,7 @@ public class KickBounce : MonoBehaviour
     [SerializeField] private float _closeRopeKickStrength = 10f;
     [SerializeField] private float _maxVelocityX = 4.68f;
     [SerializeField] private float _maxVelocityY = 9.12f;
-    private Ball _ball;
+    private BallOld _ballOld;
     
     private Rigidbody _rigidbody;
     private PhysicRopes _physicRopes;
@@ -35,13 +35,13 @@ public class KickBounce : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _ball = GetComponent<Ball>();
+        _ballOld = GetComponent<BallOld>();
     }
 
     private void Start()
     {
-        _ball.OnBallPassPipe += () => _isInPipe = false;
-        _ball.OnBallReturnPipe += () => _isInPipe = true;
+        _ballOld.OnBallPassPipe += () => _isInPipe = false;
+        _ballOld.OnBallReturnPipe += () => _isInPipe = true;
     }
     
     private IEnumerator ResetCollisionFlag()

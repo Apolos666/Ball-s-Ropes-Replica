@@ -5,22 +5,15 @@ using UnityEngine;
 public class SimpleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _ballPrefab;
+    [SerializeField] private Transform _spawnPoint;
 
     private void Awake()
     {
-        // InvokeRepeating("SpawnerAfterSec", 2.0f, 5f);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Instantiate(_ballPrefab, transform.position, quaternion.identity);
-        }
+        InvokeRepeating("SpawnerAfterSec", 2.0f, 2f);
     }
 
     private void SpawnerAfterSec()
     {
-        Instantiate(_ballPrefab, transform.position, quaternion.identity);
+        Instantiate(_ballPrefab, transform.position, quaternion.identity, _spawnPoint);
     }
 }

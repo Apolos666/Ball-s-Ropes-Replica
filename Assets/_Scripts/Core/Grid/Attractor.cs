@@ -6,7 +6,7 @@ using UnityEngine;
 public class Attractor : MonoBehaviour
 {
     [SerializeField] private GameObject _parent;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("GameElement"))

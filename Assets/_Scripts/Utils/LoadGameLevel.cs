@@ -3,12 +3,12 @@ using Apolos.System.EventManager;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ClickAnyPosScreen : MonoBehaviour, IPointerDownHandler
+public class LoadGameLevel : MonoBehaviour
 {
     private bool _isLoadingScene;
     private string _currentLevel;
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void LoadLevel()
     {
         _currentLevel = PlayerPrefs.GetString("Level_number");
         
@@ -38,7 +38,7 @@ public class ClickAnyPosScreen : MonoBehaviour, IPointerDownHandler
     {
         EventManager.AddListener("LoadingScene", () => _isLoadingScene = true);
         EventManager.AddListener("LoadingSceneComplete", () => _isLoadingScene = false);
-        EventManager.AddListener("LoadingToMainMenu", () => gameObject.SetActive(true));
-        EventManager.AddListener("UnloadingMainMenu", () => gameObject.SetActive(false));
+        // EventManager.AddListener("LoadingToMainMenu", () => gameObject.SetActive(true));
+        // EventManager.AddListener("UnloadingMainMenu", () => gameObject.SetActive(false));
     }
 }

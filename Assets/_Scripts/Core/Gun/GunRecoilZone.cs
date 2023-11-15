@@ -33,7 +33,7 @@ public class GunRecoilZone : MonoBehaviour
                 yield return null;
             }
 
-            var ball = collider.GetComponent<Ball>();
+            var ball = collider.GetComponent<BallOld>();
 
             _gun.transform.rotation = Quaternion.Euler(0, 0, -angle);
             rb.velocity = Vector3.zero;
