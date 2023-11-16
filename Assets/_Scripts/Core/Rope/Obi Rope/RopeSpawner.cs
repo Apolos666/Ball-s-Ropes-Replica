@@ -1,8 +1,8 @@
 using Apolos.SO;
 using Apolos.System.EventManager;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class RopeSpawner : MonoBehaviour
 {
@@ -37,12 +37,10 @@ public class RopeSpawner : MonoBehaviour
         _onNewItem.OnEventRaised -= OnEventRaised;
     }
 
-    private void Update()
+    [Button("Instant Rope")]
+    public void InstantRope()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            OnEventRaised();
-        }
+        OnEventRaised();
     }
 
     private void OnEventRaised()
@@ -51,9 +49,9 @@ public class RopeSpawner : MonoBehaviour
 
         if (rope.TryGetComponent<RopeRefContainer>(out var ropeRefContainer))
         {
-            ropeRefContainer.RopeResizing.OnCreateRope(_defaultMateral);
+            ropeRefContainer.RopeController2D.OnCreateRope(_defaultMateral);
         }
 
-        rope.transform.DOMove(_target.position + _offset, 1f);
+        rope.transform.DOMove(_target.position, 1f);
     }
 }

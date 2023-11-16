@@ -7,17 +7,16 @@ public class TeleportPortal : MonoBehaviour
     [SerializeField] private Transform _startSpawnPoint, _endSpawnPoint;
     [SerializeField] private float _forceApplyX = 120f;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        var ball = other.gameObject.GetComponent<BallOld>();
-        if (ball != null)
+        if (other.CompareTag("Ball"))
         {
-            var ballRB = ball.GetComponent<Rigidbody>();
-            var ballTrail = ball.GetComponent<TrailRenderer>();
-            ball.transform.position = _endSpawnPoint.position;
-            ballRB.velocity = Vector3.zero;
-            ballTrail.Clear();
-            ballRB.velocity = new Vector3(_forceApplyX * Time.fixedDeltaTime, ballRB.velocity.y);
+            if (other.TryGetComponent<Rigidbody2D>(out var ballRB))
+            {
+                ballRB.velocity = Vector3.zero;
+                ballRB.transform.position = _endSpawnPoint.position;
+                ballRB.velocity = new Vector2(_forceApplyX * Time.fixedDeltaTime, ballRB.velocity.y);
+            }
         }
     }
 }

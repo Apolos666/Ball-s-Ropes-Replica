@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 134260, guid: a9bb5993776894d459f46527006acc6b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 435618, guid: a9bb5993776894d459f46527006acc6b, type: 3}
       propertyPath: m_RootOrder
@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8230777637882659895, guid: 88179aca41685f147b9a90847294be4a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -708,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &143753438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 524287
 --- !u!114 &143753439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,9 +1123,9 @@ RectTransform:
   - {fileID: 2074727611}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 840.83704, y: -2124.696}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &211711911
@@ -1398,7 +1398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &263298364
 Transform:
   m_ObjectHideFlags: 0
@@ -2910,9 +2910,9 @@ RectTransform:
   - {fileID: 1725777999}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -2124.696}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1154193175
@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c730ebca6da39af47b82c6842b66b64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
+  BallOld: {fileID: 4165098744427773008, guid: ee3ebf6cd99869a42850b04360eb3517, type: 3}
   _defaultCapacity: 100
   _maxSize: 200
   _ballsPerWave: 1
@@ -4509,7 +4509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03463c7e29880284e9a8bfc194b68c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 768464924801351740, guid: b579103373bf7434eb31f96d4051289d, type: 3}
+  BallOld: {fileID: 768464924801351740, guid: b579103373bf7434eb31f96d4051289d, type: 3}
   _defaultCapacity: 100
   _maxSize: 200
   _ballsPerWave: 0
@@ -4687,7 +4687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1924519602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4704,7 +4704,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 524287
 --- !u!114 &1924519603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4936,7 +4936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2079013116
 Transform:
   m_ObjectHideFlags: 0
@@ -5081,9 +5081,9 @@ RectTransform:
   - {fileID: 937609404}
   m_Father: {fileID: 7063699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 239.16301, y: -2124.696}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 255.837, y: 220.608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125846072
@@ -5474,7 +5474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 87067768160151187, guid: f986c3e209469fa48bd39aaf82ae5ff9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

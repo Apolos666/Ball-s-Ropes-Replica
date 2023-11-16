@@ -9,13 +9,13 @@ public class SnapAttractor : MonoBehaviour
     [SerializeField] private Transform _parent;
     [SerializeField] private Draggable _draggable;
     [SerializeField] private float _snapPositionZ = -1f;
-    private SphereCollider _collder;
+    private Collider _collder;
     
     private Vector3 _previousAttractPoint = Vector3.zero;
 
     private void Awake()
     {
-        _collder = GetComponent<SphereCollider>();
+        _collder = GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)

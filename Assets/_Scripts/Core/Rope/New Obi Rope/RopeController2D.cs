@@ -5,7 +5,7 @@ public class RopeController2D : MonoBehaviour
 {
     private const float ROPE_TOO_LONG_DISTANCE = 1.7f;
 
-    [Header("Materials")] 
+    [Header("Materials")]
     [SerializeField] private Material _normalRope;
     [SerializeField] private Material _ropeTooLong;
     [Header("Rope Configuration")]

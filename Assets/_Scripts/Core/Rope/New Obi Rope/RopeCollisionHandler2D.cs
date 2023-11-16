@@ -38,7 +38,7 @@ public class RopeCollisionHandler2D : MonoBehaviour
     {
         foreach (var contact in contacts.contacts)
         {
-            if (contact.distance < 0.05f)
+            if (contact.distance < 0.01f)
             {
                 var obiCollider2D = GetColliderBasedOnContact(contact);
 
